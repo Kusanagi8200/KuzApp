@@ -34,7 +34,7 @@
             color: black; /* Texte en noir */
             text-align: center; /* Centrer le texte */
             padding: 10px 0; /* Padding vertical pour un peu d'espace */
-            font-size: 24px; /* Taille de la police pour rendre le texte visible */
+            font-size: 25px; /* Taille de la police pour rendre le texte visible */
             width: 100%; /* S'étend sur toute la largeur */
         }
 
@@ -75,15 +75,14 @@
     <div class="button-container">
         <!-- Chaque bouton dans son propre formulaire pointant vers un script PHP spécifique -->
 	<form action="test-shell.php" method="post"><button class="button" type="submit">TEST</button></form>
-        <form action="update-script-fast.php" method="post"><button class="button" type="submit">UPDATE-SCRIPT-FAST</button></form>
-        <form action="update-script-vm.php" method="post"><button class="button" type="submit">UPDATE-SCRIPT-VM</button></form>
-        <form action="update-script-eng.php" method="post"><button class="button" type="submit">UPDATE-SCRIPT-ENG</button></form>
-        <form action="update-script-fast-eng.php" method="post"><button class="button" type="submit">UPDATE-SCRIPT-FAST-ENG</button></form>
-        <form action="boot-sequence-check.php" method="post"><button class="button" type="submit">BOOT-SEQUENCE-CHECK</button></form>
-        <form action="check-network.php" method="post"><button class="button" type="submit">CHECK-NETWORK</button></form>
-        <form action="hardware-infos.php" method="post"><button class="button" type="submit">HARDWARE-INFOS</button></form>
+	<form action="boot-sequence-check.php" method="post"><button class="button" type="submit">BOOT-SEQUENCE-CHECK</button></form>
         <form action="system-infos.php" method="post"><button class="button" type="submit">SYSTEM-INFOS</button></form>
-        <form action="update-nocolors.php" method="post"><button class="button" type="submit">UPDATE-NOCOLORS</button></form>
+	<form action="check-network.php" method="post"><button class="button" type="submit">CHECK-NETWORK</button></form>
+	<form action="update-script-vm.php" method="post"><button class="button" type="submit">UPDATE-SCRIPT-VM</button></form>
+	<form action="update-script-vm.php" method="post"><button class="button" type="submit">ANOTHER SCRIPT</button></form>
+	<form action="update-script-vm.php" method="post"><button class="button" type="submit">ANOTHER SCRIPT</button></form>
+	<form action="update-script-vm.php" method="post"><button class="button" type="submit">ANOTHER SCRIPT</button></form>
+	<form action="update-script-vm.php" method="post"><button class="button" type="submit">ANOTHER SCRIPT</button></form>
     </div>
 	<!-- Nouveau bandeau en bas de la page -->
 	<div class="bottom-banner">
