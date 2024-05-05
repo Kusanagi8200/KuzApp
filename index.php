@@ -38,6 +38,27 @@
             width: 100%; /* S'étend sur toute la largeur */
         }
 
+	.bottom-banner {
+    	background-color: orange; /* Couleur de fond orange */
+	position: fixed; /* Fixe le bandeau au bas de la fenêtre */
+    	bottom: 0; /* Positionne le bandeau tout en bas */
+    	left: 0; /* Align�gauche */
+    	color: black; /* Texte en noir */
+    	text-align: center; /* Centrer le texte */
+    	padding: 10px 0; /* Padding vertical pour un peu d'espace */
+    	font-size: 15px; /* Taille de la police pour rendre le texte visible */
+    	width: 100%; /* S'étend sur toute la largeur */
+	}
+	
+	.bottom-banner a {
+    	color: inherit; /* Herite la couleur du parent, ici noir */
+    	text-decoration: none; /* Supprime le soulignement par defaut des liens */
+	}
+
+	.bottom-banner a:hover {
+    	text-decoration: underline; /* Ajoute un soulignement au survol pour indiquer qu'il s'agit d'un lien */
+	}
+
 	.highlight {
     	background-color: orange; /* Couleur de fond orange */
     	color: black;           /* Texte en noir */
@@ -53,7 +74,7 @@
          <h2 class="highlight"<strong>MAINTENANCE SCRIPT FOR LINUX SYSTEM</strong></h2>
     <div class="button-container">
         <!-- Chaque bouton dans son propre formulaire pointant vers un script PHP spécifique -->
-	<form action="test-shell.php" method="post" target="_blank"><button class="button" type="submit">TEST</button></form>
+	<form action="test-shell.php" method="post"><button class="button" type="submit">TEST</button></form>
         <form action="update-script-fast.php" method="post"><button class="button" type="submit">UPDATE-SCRIPT-FAST</button></form>
         <form action="update-script-vm.php" method="post"><button class="button" type="submit">UPDATE-SCRIPT-VM</button></form>
         <form action="update-script-eng.php" method="post"><button class="button" type="submit">UPDATE-SCRIPT-ENG</button></form>
@@ -63,6 +84,12 @@
         <form action="hardware-infos.php" method="post"><button class="button" type="submit">HARDWARE-INFOS</button></form>
         <form action="system-infos.php" method="post"><button class="button" type="submit">SYSTEM-INFOS</button></form>
         <form action="update-nocolors.php" method="post"><button class="button" type="submit">UPDATE-NOCOLORS</button></form>
+    </div>
+	<!-- Nouveau bandeau en bas de la page -->
+	<div class="bottom-banner">
+    <strong>
+        <a href="https://github.com/Kusanagi8200" target="_blank">https://github.com/Kusanagi8200</a>
+    </strong>
     </div>
 </body>
 </html>
