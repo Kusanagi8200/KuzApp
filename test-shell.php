@@ -1,9 +1,9 @@
 <?php
 // Spécifiez le chemin vers votre script shell
-$command = 'bash /var/www/html/App-Update-Infos-Linux/test.sh';
-
-// Exécution de la commande
-$output = shell_exec($command);
+$command = 'bash /var/www/html/Kusapp/test.sh';
+ob_start();
+passthru($command);
+$output = ob_get_clean();
 
 // Ajout d'en-têtes pour le contenu HTML
 header('Content-Type: text/html; charset=utf-8');
@@ -12,42 +12,55 @@ header('Content-Type: text/html; charset=utf-8');
 echo "<!DOCTYPE html>";
 echo "<html><head>";
 echo "<style>";
-echo "body {";
+echo "body, html {";
+echo "    height: 100%;"; // Donne une hauteur de 100% au corps et au HTML
+echo "    margin: 0;"; // Supprime les marges par défaut
+echo "    padding: 0;"; // Supprime les paddings par défaut
 echo "    display: flex;";
-echo "    justify-content: center;"; // Centre le terminal sur la page
-echo "    flex-direction: column;"; // Organise le contenu verticalement
-echo "    align-items: center;"; // Centre le contenu horizontalement
-echo "    margin-top: 20px;"; // Décale tout le contenu de 200px vers le bas
+echo "    flex-direction: column;";
+echo "}";
+echo ".banner {";
+echo "    width: 100%;"; // Largeur totale
+echo "    background-color: orange;"; // Couleur de fond
+echo "    color: black;"; // Couleur de texte
+echo "    text-align: center;"; // Texte centré
+echo "    padding: 10px 0;"; // Padding vertical
+echo "    font-size: 20px;"; // Taille de police
+echo "    font-weight: bold;"; // Gras
 echo "}";
 echo ".terminal {";
-echo "    width: 65%;"; // Largeur du terminal ajustée
-echo "    background-color: #ffa500;"; // Fond orange
-echo "    color: #000;"; // Texte en noir
+echo "    width: 65%;";
+echo "    background-color: #ffa500;";
+echo "    color: #000;";
 echo "    font-family: monospace;";
-echo "    padding: 10px;";
-echo "    white-space: pre-wrap; /* Maintient le formatage de l'espace */";
-echo "    margin-bottom: 40px;"; // Ajout d'un espace en dessous du terminal
+echo "    padding: 20px;";
+echo "    white-space: pre-wrap;";
+echo "    overflow: auto;"; // Ajoute une barre de défilement si nécessaire
+echo "    margin: 20px auto;";
+echo "    height: 600px;"; // Hauteur fixe pour le terminal
 echo "}";
-echo ".button {";
-echo "    display: inline-block;"; // Changez block par inline-block pour la largeur automatique
-echo "    padding: 10px 20px;"; // Padding horizontal plus large pour l'esthétique
-echo "    margin: 10px auto;"; // Centrage et espace entre les boutons
-echo "    background-color: #E65100;"; // Couleur de fond orange plus sombre
+echo ".bottom-banner {";
+echo "    position: fixed;";
+echo "    bottom: 0;";
+echo "    left: 0;";
+echo "    width: 100%;";
+echo "    background-color: orange;";
 echo "    color: black;";
 echo "    text-align: center;";
-echo "    font-size: 16px;";
+echo "    padding: 10px 0;";
+echo "    font-size: 20px;";
 echo "    font-weight: bold;";
-echo "    border: none;";
-echo "    border-radius: 5px;";
-echo "    cursor: pointer;";
 echo "}";
-echo ".button:hover {";
-echo "    background-color: #45a049;"; // Changement de couleur au survol
+echo "a.bottom-link {";
+echo "    color: black;"; // Couleur du texte
+echo "    text-decoration: none;"; // Aucune décoration de texte
+echo "    display: block;"; // Assure que le lien prend toute la largeur du bandeau
 echo "}";
 echo "</style>";
 echo "</head><body>";
+echo "<div class='banner'>KUSAPP / 2024 - UPDATE INFOS APPLICATION</div>";
 echo "<div class='terminal'><pre>$output</pre></div>";
-// Ajout d'un bouton de retour directement sous le terminal avec un lien vers index.php
-echo "<div style='text-align: center;'><a href='index.php'><button class='button'>RETOUR À L'INDEX</button></a></div>";
+// Modification ici pour faire du texte dans le bandeau inférieur un lien de retour
+echo "<div class='bottom-banner'><a href='index.php' class='bottom-link'>RETOUR</a></div>";
 echo "</body></html>";
 ?>
