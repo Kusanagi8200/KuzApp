@@ -142,7 +142,7 @@
     <div class="ascii-art-top-center">
         <div class="ascii-art-block">
             █▄▀ █ █ ▀█▀ ▄▀▄ █▀▄ █▀▄ | Made by Kusanagi8200
-            █ █ ▀▄█ █▄▄ █▀█ █▀  █▀  | <a href="https://github.com/Kusanagi8200" target="_blank" style="color: #ffcc00;">https://github.com/Kusanagi8200</a>
+            █ █ ▀▄█ █▄▄ █▀█ █▀  █▀  
         </div>
         <div class="ascii-art-center">
             <span class="ascii-art-highlight"> Bash Script Collection for Linux Administration Systems </span>
