@@ -21,9 +21,10 @@
             margin-bottom: 20px; /* Espace en dessous de la bannière */
         }
 
-        .banner-image {
-            max-width: 200px; /* Ajuster la largeur maximale de l'image */
-            height: auto;
+	.banner-image {
+            max-width: 100%; /* L'image ne dépassera pas la largeur de la bannière */
+            max-height: 150px; /* Taille maximale de l'image définie à 150px en hauteur */
+            height: auto; /* Maintenir les proportions de l'image */
         }
 
         .button {
