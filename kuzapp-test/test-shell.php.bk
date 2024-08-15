@@ -1,0 +1,54 @@
+<?php
+// Spécifiez le chemin vers votre script shell
+$command = 'bash /var/www/html/App-Update-Infos-Linux/test.sh';
+
+// Exécution de la commande
+$output = shell_exec($command);
+
+// Ajout d'en-têtes pour le contenu HTML
+header('Content-Type: text/html; charset=utf-8');
+
+// Affichage du résultat avec style de terminal
+echo "<!DOCTYPE html>";
+echo "<html><head>";
+echo "<style>";
+echo "body {";
+echo "    display: flex;";
+echo "    justify-content: center;"; // Centre le terminal sur la page
+echo "    flex-direction: column;"; // Organise le contenu verticalement
+echo "    align-items: center;"; // Centre le contenu horizontalement
+echo "}";
+echo ".terminal {";
+echo "    width: 65%;"; // Largeur du terminal ajustée
+echo "    background-color: #ffa500;"; // Fond orange
+echo "    color: #000;"; // Texte en noir
+echo "    font-family: monospace;";
+echo "    padding: 10px;";
+echo "    white-space: pre-wrap; /* Maintient le formatage de l'espace */";
+echo "}";
+echo ".button {";
+echo "    display: block;";
+echo "    width: 40%;";
+echo "    padding: 10px;";
+echo "    margin: 10px auto;"; // Centrage et espace entre les boutons
+echo "    background-color: #E65100;"; // Couleur de fond orange plus sombre
+echo "    color: black;";
+echo "    text-align: center;";
+echo "    font-size: 16px;";
+echo "    font-weight: bold;";
+echo "    border: none;";
+echo "    border-radius: 5px;";
+echo "    cursor: pointer;";
+echo "}";
+echo ".button:hover {";
+echo "    background-color: #45a049;"; // Changement de couleur au survol
+echo "}";
+echo "</style>";
+echo "</head><body>";
+echo "<div class='terminal'><pre>$output</pre></div>";
+echo #
+echo #
+// Ajout d'un bouton de retour directement sous le terminal avec un lien vers index.php
+echo "<div style='width: 50%; text-align: center;'><a href='index.php'><button class='button'>RETOUR</button></a></div>";
+echo "</body></html>";
+?>
