@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 # This program is free software : you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
@@ -6,86 +7,97 @@
 # This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-echo
-echo
-echo "CHECK BOOT SEQUENCE / LINUX ................................//"
+echo # 
+echo # 
+echo "\033[44;30m CHECK BOOT SEQUENCE / LINUX ............................//\033[0m"
 
-echo
-echo "VERIFICATION DE L'ETAT DU SYSTEME .......................................//"
+if [ `whoami` != "root" ]
+then
+        echo -e "\033[5;41;30m---> ATTENTION. VOUS DEVEZ AVOIR LES DROITS SUDO POUR LANCER CE SCRIPT \033[0m"
+        exit 1
+fi
+echo # 
+
+echo "\033[43;30m VERIFICATION DE L'ÉTAT DU SYSTÈME ......................//\033[0m"
 
 check_system_state()  {
   state=$(systemctl is-system-running)
   case $state in
     "running")
-      echo "SYSTEME EN COURS D'EXECUTION - FONCTIONNEMENT NORMAL";;
+      echo "\033[1;32;40m SYSTEME EN COURS D'EXECUTION - FONCTIONNEMENT NORMAL \033[0m";;
     "degraded")
-      echo "SYSTEME EN COURS D'EXECUTION - CERTAINES RESSOURCES EN PANNE OU MAUVAIS FONCTIONNEMENT";;
+      echo "\033[41;97m SYSTEME EN COURS D'EXECUTION - CERTAINES RESSOURCES EN PANNE OU MAUVAIS FONCTIONNEMENT \033[0m";;
     "maintenance")
-      echo "SYSTEME EN COURS D'EXECUTION - MODE MAINTENANCE - FONCTIONNEMENT DEGRADE";;
+      echo "\033[41;97m SYSTEME EN COURS D'EXECUTION - MODE MAINTENANCE - FONCTIONNEMENT DEGRADÉ  \033[0m";;
     "starting")
-      echo "SYSTEME EN COURS DE DEMARRAGE - PAS ENCORE COMPLETEMENT FONCTIONNEL";;
+      echo "\033[48;5;208m\033[38;5;15m SYSTEME EN COURS DE DEMARRAGE - PAS ENCORE COMPLETEMENT FONCTIONNEL \033[0m";;
     "stopping")
-      echo "SYSTEME EN COURS D'ARRET - CERTAINES TACHES EN COURS D'EXECUTION";;
+      echo "\033[48;5;208m\033[38;5;15m SYSTEME EN COURS D'ARRET - CERTAINES TÂCHES EN COURS D'EXECUTION \033[0m";;
     "*")
-      echo "IMPOSSIBLE DE DETERMINER L'ETAT DU SYSTEME";;
+      echo "\033[1m;43;30m IMPOSSIBLE DE DETERMINER L'ÉTAT DU SYSTEME \033[0m";;
   esac
 }
 check_system_state
 
-echo
+echo #
 
-echo
-echo "INFORMATIONS SYSTEME .......................................//"
+echo # 
+echo "\033[43;30m INFORMATIONS SYSTEME ...................................//\033[0m"
 cat /proc/version
-echo
+echo #
 
 cat /etc/os-release
-echo
+echo #
 
-echo
-echo "TEMPS DE DEMARRAGE SYSTEME .................................//"
+echo #
+echo "\033[43;30m TEMPS DE DÉMARRAGE SYSTEME .............................//\033[0m"
 systemd-analyze time
-echo
+echo # 
 
-echo
-echo "TEMPS DE DEMARRAGE PAR UNITES ..........................//"
-systemd-analyze critical-chain
-echo
+echo #
+echo "\033[43;30m TEMPS DE DÉMARRAGE PAR UNITÉS ..........................//\033[0m"
+SYSTEMD_PAGER= systemd-analyze critical-chain # Désactiver le pager
+echo # 
 
-echo
-echo "UNITES NON DEMARREES AU BOOT .......................................//"
-systemctl --failed
-echo
+echo #
+echo "\033[43;30m UNITÉS NON DÉMARRÉES AU BOOT ...........................//\033[0m"
+SYSTEMD_PAGER= systemctl --failed 
+echo #
 
-echo
-echo "LISTE DES SERVICES DEMARRES ................................//"
-service --status-all | grep -Ev "-"
-echo
+echo #
+echo "\033[43;30m LISTE DES SERVICES DÉMARRÉS ............................//\033[0m"
+service --status-all |grep -Ev "-"
+echo #
 
-echo
-echo "LISTE DES UNITES DEMARREES ................................//"
+echo #
+echo "\033[43;30m LISTE DES UNITÉS DÉMARRÉES .............................//\033[0m"
 systemctl list-units --type=service --state=running | grep -v "\-.slice"
-echo
+echo #
 
-echo
-echo "LISTE DES SERVICES ETEINS ..................................//"
-service --status-all | grep -E " - "
-echo
+echo #
+echo "\033[43;30m LISTE DES SERVICES ETEINS ..............................//\033[0m"
+service --status-all |grep -E " - "
+echo #
 
-echo
-echo "LISTE DES UNITES ETEINTES ................................//"
+echo #
+echo "\033[43;30m LISTE DES UNITÉS ÉTEINTES ..............................//\033[0m"
 systemctl list-units --type=service --state=inactive | grep -v "\-.slice"
-echo
+echo #
 
-echo
-echo "TEST CONNEXION RESEAU ......................................//"
+echo #
+echo "\033[43;30m TEST CONNEXION RÉSEAU ..................................//\033[0m"
 ping -v -c 4 1.1.1.1
-echo
+echo #
 
-echo
-echo "FIN DU CHECK BOOT SEQUENCE .................................//"
-echo
+echo #
+echo "\033[5;44;30m FIN DU CHECK BOOT SEQUENCE ...........................//\033[0m"
+echo #
 
-echo
-echo
-echo "MENU CHECKS...........//"
+echo #
+echo #
+echo # 
+echo "\033[43;30m KusApp -> CLEAN - UPDATE - INFOS SYSTEM ..............//\033[0m"
+echo #
+echo "\033[43;30m GitHub --> Kusanagi8200 / 2024 \033[0m"
+echo #
+echo "\033[43;30m MENU .....//\033[0m"

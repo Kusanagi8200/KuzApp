@@ -8,7 +8,7 @@
 
 echo # 
 echo # 
-echo "\033[44;30m CHECK SYSTEME / LINUX ......................................//\033[0m"
+echo "\033[44;30m CHECK INFOS SYSTEME ....................................//\033[0m"
 
 if [ `whoami` != "root" ]
 then
@@ -17,24 +17,33 @@ then
 fi
 echo #
 
-echo #
-echo "\033[43;30m INFOS SYSTEME ..............................................//\033[0m"
+echo "\033[43;30m NOYAUX .................................................//\033[0m"
 inxi -S
+echo #
+dpkg -l | grep -Ei "linux-(g|h|i|lo|si|t)" |sort -k3 | cut -d" " -s -f1,2,3 | column -s" " -t 
+echo #
+hostnamectl 
 echo #
 
 echo #
-echo "\033[43;30m INFOS DISTRIBUTION .........................................//\033[0m"
+echo "\033[43;30m INFOS DISTRIBUTION ....................................//\033[0m"
 cat /etc/os-release
 echo #
 
 echo #
-echo "\033[43;30m REPOS ......................................................//\033[0m"
+echo "\033[43;30m REPOS  ................................................//\033[0m"
 inxi -r
 echo #
 
 echo #
-echo "\033[5;44;30m FIN DU CHECK SYSTEME .......................................//\033[0m"
+echo "\033[5;44;30m FIN DU CHECK SYSTEME .................................//\033[0m"
 echo #
 echo #
+
+echo # 
+echo "\033[43;30m KusApp -> CLEAN - UPDATE - INFOS SYSTEM ..............//\033[0m"
 echo #
-echo "\033[43;30m MENU CHECKS...........//\033[0m"
+echo "\033[43;30m GitHub --> Kusanagi8200 / 2024 \033[0m"
+
+echo #
+echo "\033[43;30m MENU .....//\033[0m"

@@ -50,21 +50,23 @@ ip route | grep default | cut -d" " -f3
 echo #
 echo #
 
-# DETERMINER SERVEUR DNS
-echo "\033[43;30m SERVEUR DNS .................................................//\033[0m"
-systemd-resolve --status |grep "DNS Server"
-echo #
-echo #
-
-# PING DNS 
+# PING
 echo "\033[43;30m PING ........................................................//\033[0m"
 ping 1.1.1.1 -c 5
 echo #
 echo #
 
+
+# DETERMINER SERVEUR DNS
+echo "\033[43;30m SERVEUR DNS .................................................//\033[0m"
+#systemd-resolve --status |grep "DNS Server"
+resolvectl status | grep "DNS Servers"
+echo #
+echo #
+
 # ADRESSE IP PUBLIC
 echo "\033[43;30m IP PUBLIC ...................................................//\033[0m"
-dig +short myip.opendns.com @resolver1.opendns.com
+wget -qO- https://api.ipify.org
 echo #
 echo #
 
@@ -82,14 +84,38 @@ echo #
 
 # TRACEROUTE CHECK
 echo "\033[43;30m TRACEROUTE CHECK ............................................//\033[0m"
-traceroute 1.1.1.1 --resolve-hostnames
+traceroute 1.1.1.1
 echo #
 echo #
 
 # TEST DEBIT CONNEXION
-echo "\033[43;30m TEST DEBIT CONNEXION ........................................//\033[0m"
-curl --max-time 2 -4 -o /dev/null http://bouygues.testdebit.info/10G.iso
+# INSTALLATION DE SPEEDTEST-CLI
+echo "\033[43;30m TEST DEBIT RESEAU ............................................//\033[0m"
+confirm()
+{
+    read -r -p "${1} [y/N] " response
+
+    case "$response" in
+        [yY][eE][sS]|[yY]) 
+            true
+            ;;
+        *)
+            false
+            ;;
+    esac
+}
+
+if confirm "INSTALLER SPEEDTEST-CLI ?"; then
+   apt install speedtest-cli && speedtest-cli
+else
+    echo #
+    echo  "\033[05;41m ---> SPEEDTEST-CLI NE SERA PAS INSTALLÉ <--- \033[0m"
+    echo #
+    echo  "\033[43;30m ---> LANCEMENT DU TEST DE DEBIT <--- \033[0m"
+    speedtest-cli
+fi
 echo #
+
 
 echo #
 echo "\033[5;44;30m FIN DU CHECK NETWORK ........................................//\033[0m"
