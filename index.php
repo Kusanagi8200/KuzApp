@@ -14,26 +14,16 @@
         .top-banner {
             background-color: #E65100; /* Couleur d'arrière-plan du bandeau supérieur (orange) */
             color: black; /* Couleur du texte noir */
-            text-align: left;
-            padding: 20px 0; /* Espacement intérieur augmenté pour l'ASCII */
+            text-align: center;
+            padding: 20px 0; /* Espacement intérieur augmenté pour l'image */
             font-size: 20px;
             border-radius: 10px;
             margin-bottom: 20px; /* Espace en dessous de la bannière */
         }
 
-        .ascii-art-top-left {
-            font-family: 'Courier New', monospace;
-            white-space: pre; /* Respecter les espaces dans le texte */
-            color: black; /* Couleur du texte noir */
-            margin: 0;
-            line-height: 1; /* Supprimer l'espace entre les lignes */
-        }
-
-        .ascii-art-highlight {
-            background-color: #ffc107;
-            color: black;
-            padding: 2px 5px;
-            display: inline-block; /* S'assurer que le texte reste en ligne avec le bloc */
+        .banner-image {
+            max-width: 200px; /* Ajuster la largeur maximale de l'image */
+            height: auto;
         }
 
         .button {
@@ -104,12 +94,9 @@
 </head>
 <body>
 
-    <!-- Bannière supérieure avec ASCII art en noir et collé -->
+    <!-- Bannière supérieure avec une image -->
     <div class="top-banner">
-        <div class="ascii-art-top-left">
-            █▄▀ █ █ ▀█▀ ▄▀▄ █▀▄ █▀▄ | Made by Kusanagi8200
-            █ █ ▀▄█ █▄▄ █▀█ █▀  █▀  | <a href="https://github.com/Kusanagi8200" target="_blank" style="color: black;">https://github.com/Kusanagi8200</a>
-        </div>
+    <img src="kuzapp-logo.png" alt="Kuzapp.v0.1" class="banner-image">
     </div>
 
     <div class="button-container">
