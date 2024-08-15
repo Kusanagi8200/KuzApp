@@ -102,7 +102,7 @@
 
     <div class="button-container">
         <!-- Chaque bouton dans son propre formulaire pointant vers un script PHP spécifique -->
-	<form action="test-shell.php" method="post"><button class="button" type="submit">README</button></form>
+	<form action="README.php" method="post"><button class="button" type="submit">README</button></form>
 	<form action="boot-sequence-check.php" method="post"><button class="button" type="submit">01 -->  UPDATE-SCRIPT ..............//</button></form>
         <form action="system-infos.php" method="post"><button class="button" type="submit">02 -->  UPDATE-SCRIPT-FAST .........//</button></form>
 	<form action="check-network.php" method="post"><button class="button" type="submit">03 -->  UPDATE-SCRIPT-VM ...........//</button></form>
@@ -117,7 +117,7 @@
 	<!-- Nouveau bandeau en bas de la page -->
 	<div class="bottom-banner">
     <strong>
-        <a href="https://github.com/Kusanagi8200" target="_blank">https://github.com/Kusanagi8200</a>
+        <a href="" target="_blank">The script is distributed under the GNU General Public License, version 3 or later.</a>
     </strong>
     </div>
 </body>
