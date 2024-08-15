@@ -11,32 +11,29 @@
             padding: 0;
         }
 
-        .ascii-art-top-center {
+        .top-banner {
+            background-color: #E65100; /* Couleur d'arrière-plan du bandeau supérieur (orange) */
+            color: black; /* Couleur du texte noir */
+            text-align: left;
+            padding: 20px 0; /* Espacement intérieur augmenté pour l'ASCII */
+            font-size: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px; /* Espace en dessous de la bannière */
+        }
+
+        .ascii-art-top-left {
             font-family: 'Courier New', monospace;
             white-space: pre; /* Respecter les espaces dans le texte */
-            color: #ffcc00; /* Couleur du texte (orange) */
-            padding: 10px;
-            background-color: black; /* Fond noir autour de l'ASCII */
-            text-align: left; /* Aligner à gauche dans le bloc */
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .ascii-art-block {
-            display: inline-block; /* Assurer que l'ASCII art reste en bloc */
+            color: black; /* Couleur du texte noir */
             margin: 0;
-            text-align: left;
-        }
-
-        .ascii-art-center {
-            text-align: center; /* Centrer les autres éléments */
-            margin-top: 20px;
+            line-height: 1; /* Supprimer l'espace entre les lignes */
         }
 
         .ascii-art-highlight {
             background-color: #ffc107;
             color: black;
             padding: 2px 5px;
+            display: inline-block; /* S'assurer que le texte reste en ligne avec le bloc */
         }
 
         .button {
@@ -86,33 +83,6 @@
         .bottom-banner a:hover {
             text-decoration: underline;
         }
-
-        .highlight {
-            background-color: orange;
-            color: black;
-            padding: 5px;
-            text-align: center;
-        }
-
-        .ascii-art {
-            font-family: 'Courier New', monospace;
-            white-space: pre;
-            text-align: left;
-            color: black;
-            background-color: orange;
-            border-radius: 10px;
-            margin: 20px 0;
-        }
-
-        .top-banner {
-            background-color: #E65100; /* Couleur d'arrière-plan du bandeau supérieur */
-            color: black; /* Couleur du texte du bandeau supérieur */
-            text-align: center;
-            padding: 10px 0;
-            font-size: 20px;
-            border-radius: 10px;
-            margin-bottom: 0; /* Pas d'espace en dessous de la bannière */
-        }
     </style>
 
 <!-- Matomo -->
@@ -134,18 +104,11 @@
 </head>
 <body>
 
+    <!-- Bannière supérieure avec ASCII art en noir et collé -->
     <div class="top-banner">
-    <strong>SCRIPT DE MAINTENANCE SYSTÈME LINUX</strong>
-    </div>
-
-    <!-- Ajout de l'art ASCII en un seul bloc -->
-    <div class="ascii-art-top-center">
-        <div class="ascii-art-block">
+        <div class="ascii-art-top-left">
             █▄▀ █ █ ▀█▀ ▄▀▄ █▀▄ █▀▄ | Made by Kusanagi8200
-            █ █ ▀▄█ █▄▄ █▀█ █▀  █▀  
-        </div>
-        <div class="ascii-art-center">
-            <span class="ascii-art-highlight"> Bash Script Collection for Linux Administration Systems </span>
+            █ █ ▀▄█ █▄▄ █▀█ █▀  █▀  | <a href="https://github.com/Kusanagi8200" target="_blank" style="color: black;">https://github.com/Kusanagi8200</a>
         </div>
     </div>
 
