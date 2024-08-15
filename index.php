@@ -4,6 +4,13 @@
     <title>KuzApp / 2024</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        body {
+            background-color: black; /* Couleur de fond noir */
+            color: white; /* Couleur du texte par défaut en blanc pour un bon contraste */
+            margin: 0;
+            padding: 0;
+        }
+
         .button {
             display: block;
             width: 40%;
@@ -11,8 +18,8 @@
             margin-bottom: 10px;
             margin-left: auto;
             margin-right: auto;
-            background-color: #E65100;
-            color: black;
+            background-color: #E65100; /* Couleur de fond des boutons */
+            color: black; /* Couleur du texte des boutons */
             text-align: center;
             font-size: 16px;
             font-weight: bold;
@@ -20,9 +27,11 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         .button:hover {
-            background-color: #45a049;
+            background-color: #45a049; /* Couleur au survol des boutons */
         }
+
         .button-container {
             text-align: center;
             width: 100%;
@@ -38,7 +47,7 @@
             padding: 10px 0;
             font-size: 15px;
             width: 100%;
-            border-radius: 10px; /* Coins arrondis ajoutés ici */
+            border-radius: 10px;
         }
 
         .bottom-banner a {
@@ -63,25 +72,25 @@
             text-align: left;
             color: black;
             background-color: orange;
-            border-radius: 10px; /* Vous pouvez également ajouter des coins arrondis ici si désiré */
+            border-radius: 10px;
             margin: 20px 0;
         }
+
         .top-banner {
-    	background-color: #E65100; /* Couleur d'arrière-plan */
-    	color: black; /* Couleur du texte */
-    	text-align: center; /* Centrer le texte */
-    	padding: 10px 0; /* Espacement intérieur */
-    	font-size: 20px; /* Taille du texte */
-    	border-radius: 10px; /* Coins arrondis */
-    	margin-bottom: 20px; /* Espace en dessousxy du bandeau */
-	}
+            background-color: #E65100; /* Couleur d'arrière-plan du bandeau supérieur */
+            color: black; /* Couleur du texte du bandeau supérieur */
+            text-align: center;
+            padding: 10px 0;
+            font-size: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
     </style>
 
-<<<<<<< HEAD
 <!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  /* Les méthodes de suivi comme "setCustomDimension" doivent être appelées avant "trackPageView" */
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
@@ -92,29 +101,28 @@
     g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
   })();
 </script>
-<!-- End Matomo Code -->
+<!-- Fin du code Matomo -->
 
-=======
->>>>>>> 1403b9e0aeb823ad54821e71d3670c94f3a69e5a
 </head>
 <body>
 
     <div class="top-banner">
-    <strong>MAINTENANCE SCRIPT LINUX SYSTEM</strong>
+    <strong>SCRIPT DE MAINTENANCE SYSTÈME LINUX</strong>
     </div>
 
     <div class="button-container">
         <!-- Chaque bouton dans son propre formulaire pointant vers un script PHP spécifique -->
 	<form action="test-shell.php" method="post"><button class="button" type="submit">TEST</button></form>
-	<form action="boot-sequence-check.php" method="post"><button class="button" type="submit">BOOT-SEQUENCE-CHECK</button></form>
-        <form action="system-infos.php" method="post"><button class="button" type="submit">SYSTEM-INFOS</button></form>
-	<form action="check-network.php" method="post"><button class="button" type="submit">CHECK-NETWORK</button></form>
-	<form action="update-script-vm.php" method="post"><button class="button" type="submit">UPDATE-SCRIPT-VM</button></form>
-	<form action="update-script-vm.php" method="post"><button class="button" type="submit">ANOTHER SCRIPT</button></form>
-	<form action="update-script-vm.php" method="post"><button class="button" type="submit">ANOTHER SCRIPT</button></form>
-	<form action="update-script-vm.php" method="post"><button class="button" type="submit">ANOTHER SCRIPT</button></form>
-	<form action="update-script-vm.php" method="post"><button class="button" type="submit">ANOTHER SCRIPT</button></form>
+	<form action="boot-sequence-check.php" method="post"><button class="button" type="submit">VÉRIFICATION DE LA SÉQUENCE DE DÉMARRAGE</button></form>
+        <form action="system-infos.php" method="post"><button class="button" type="submit">INFORMATIONS SYSTÈME</button></form>
+	<form action="check-network.php" method="post"><button class="button" type="submit">VÉRIFICATION DU RÉSEAU</button></form>
+	<form action="update-script-vm.php" method="post"><button class="button" type="submit">MISE À JOUR DU SCRIPT VM</button></form>
+	<form action="update-script-vm.php" method="post"><button class="button" type="submit">AUTRE SCRIPT</button></form>
+	<form action="update-script-vm.php" method="post"><button class="button" type="submit">AUTRE SCRIPT</button></form>
+	<form action="update-script-vm.php" method="post"><button class="button" type="submit">AUTRE SCRIPT</button></form>
+	<form action="update-script-vm.php" method="post"><button class="button" type="submit">AUTRE SCRIPT</button></form>
     </div>
+
 	<!-- Nouveau bandeau en bas de la page -->
 	<div class="bottom-banner">
     <strong>
