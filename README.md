@@ -1,3 +1,5 @@
+![Logo de KuzApp](kuzapp-images/kuzapp-logo.png)
+
 ## System Maintenance Information and Diagnostic Script
 
 ## Webapp version
