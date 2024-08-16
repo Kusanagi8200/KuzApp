@@ -1,4 +1,4 @@
-![Logo de KuzApp](kuzapp-images/kuzapp-logo.png)
+![Logo de KuzApp](kuzapp-mascote.webp)
 
 ## System Maintenance Information and Diagnostic Script
 
