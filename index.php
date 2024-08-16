@@ -16,15 +16,19 @@
             color: black; /* Couleur du texte noir */
             text-align: center;
             padding: 20px 0; /* Espacement intérieur augmenté pour l'image */
-            font-size: 20px;
+            font-size: 24px; /* Taille de la police augmentée */
+            font-weight: bold;
             border-radius: 10px;
             margin-bottom: 20px; /* Espace en dessous de la bannière */
         }
 
-	.banner-image {
-            max-width: 100%; /* L'image ne dépassera pas la largeur de la bannière */
-            max-height: 150px; /* Taille maximale de l'image définie à 150px en hauteur */
-            height: auto; /* Maintenir les proportions de l'image */
+        .top-banner a {
+            color: black; /* Couleur du texte noir */
+            text-decoration: none; /* Supprimer la sous-ligne */
+        }
+
+        .top-banner a:hover {
+            text-decoration: underline; /* Sous-ligne lors du survol */
         }
 
         .button {
@@ -79,7 +83,6 @@
 <!-- Matomo -->
 <script>
   var _paq = window._paq = window._paq || [];
-  /* Les méthodes de suivi comme "setCustomDimension" doivent être appelées avant "trackPageView" */
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
@@ -95,30 +98,30 @@
 </head>
 <body>
 
-    <!-- Bannière supérieure avec une image -->
+    <!-- Bannière supérieure avec un lien vers GitHub -->
     <div class="top-banner">
-    <img src="kuzapp-logo.png" alt="Kuzapp.v0.1" class="banner-image">
+        <a href="https://github.com/Kusanagi8200/KuzApp/tree/main" target="_blank">
+            KuzApp Web Application Project
+        </a>
     </div>
 
     <div class="button-container">
         <!-- Chaque bouton dans son propre formulaire pointant vers un script PHP spécifique -->
-	<form action="README.php" method="post"><button class="button" type="submit">README</button></form>
-	<form action="update-script.php" method="post"><button class="button" type="submit">01 -->  UPDATE-SCRIPT ..............//</button></form>
+        <form action="README.php" method="post"><button class="button" type="submit">README</button></form>
+        <form action="update-script.php" method="post"><button class="button" type="submit">01 -->  UPDATE-SCRIPT ..............//</button></form>
         <form action="update-script-fast.php" method="post"><button class="button" type="submit">02 -->  UPDATE-SCRIPT-FAST .........//</button></form>
-	<form action="update-script-vm.php" method="post"><button class="button" type="submit">03 -->  UPDATE-SCRIPT-VM ...........//</button></form>
-	<form action="update-script.eng.php" method="post"><button class="button" type="submit">04 -->  UPDATE-SCRIPT-ENG ..........//</button></form>
-	<form action="update-script-fast.eng.php" method="post"><button class="button" type="submit">05 -->  UPDATE-SCRIPT-FAST-ENG .....//</button></form>
-	<form action="boot-sequence-check.php" method="post"><button class="button" type="submit">06 -->  BOOT-SEQUENCE-CHECK ........//</button></form>
-	<form action="check-network.php" method="post"><button class="button" type="submit">07 -->  CHECK-NETWORK ..............//</button></form>
-	<form action="system-infos.php" method="post"><button class="button" type="submit">09 -->  SYSTEM-INFOS ...............//</button></form>
-	<form action="update-nocolors.php" method="post"><button class="button" type="submit">10 -->  UPDATE-NOCOLORS ............//</button></form>
+        <form action="update-script-vm.php" method="post"><button class="button" type="submit">03 -->  UPDATE-SCRIPT-VM ...........//</button></form>
+        <form action="update-script.eng.php" method="post"><button class="button" type="submit">04 -->  UPDATE-SCRIPT-ENG ..........//</button></form>
+        <form action="update-script-fast.eng.php" method="post"><button class="button" type="submit">05 -->  UPDATE-SCRIPT-FAST-ENG .....//</button></form>
+        <form action="boot-sequence-check.php" method="post"><button class="button" type="submit">06 -->  BOOT-SEQUENCE-CHECK ........//</button></form>
+        <form action="check-network.php" method="post"><button class="button" type="submit">07 -->  CHECK-NETWORK ..............//</button></form>
+        <form action="system-infos.php" method="post"><button class="button" type="submit">09 -->  SYSTEM-INFOS ...............//</button></form>
+        <form action="update-nocolors.php" method="post"><button class="button" type="submit">10 -->  UPDATE-NOCOLORS ............//</button></form>
     </div>
 
-	<!-- Nouveau bandeau en bas de la page -->
-	<div class="bottom-banner">
-    <strong>
+    <!-- Nouveau bandeau en bas de la page -->
+    <div class="bottom-banner">
         <a href="" target="_blank">The script is distributed under the GNU General Public License, version 3 or later.</a>
-    </strong>
     </div>
 </body>
 </html>
