@@ -15,11 +15,12 @@
             background-color: #E65100; /* Couleur d'arrière-plan du bandeau supérieur (orange) */
             color: black; /* Couleur du texte noir */
             text-align: center;
-            padding: 20px 0; /* Espacement intérieur augmenté pour l'image */
-            font-size: 24px; /* Taille de la police augmentée */
+            padding: 5px 0; /* Espacement intérieur augmenté pour l'image */
+            font-size: 30px; /* Taille de la police augmentée */
             font-weight: bold;
-            border-radius: 10px;
+            border-radius: 5px;
             margin-bottom: 20px; /* Espace en dessous de la bannière */
+            line-height: 1.2; /* Hauteur de ligne pour ajuster l'espace entre les lignes */
         }
 
         .top-banner a {
@@ -66,8 +67,9 @@
             text-align: center;
             padding: 10px 0;
             font-size: 15px;
+	    font-weight: bold;
             width: 100%;
-            border-radius: 10px;
+            border-radius: 5px;
         }
 
         .bottom-banner a {
@@ -100,9 +102,7 @@
 
     <!-- Bannière supérieure avec un lien vers GitHub -->
     <div class="top-banner">
-        <a href="https://github.com/Kusanagi8200/KuzApp/tree/main" target="_blank">
-            KuzApp Web Application Project
-        </a>
+       KuzApp Project - Version Beta 0.1
     </div>
 
     <div class="button-container">
@@ -121,7 +121,7 @@
 
     <!-- Nouveau bandeau en bas de la page -->
     <div class="bottom-banner">
-        <a href="" target="_blank">The script is distributed under the GNU General Public License, version 3 or later.</a>
+        <a href="https://github.com/Kusanagi8200/KuzApp/tree/main" target="blanck">Link to Github Project</a>
     </div>
 </body>
-</html>
+</html
