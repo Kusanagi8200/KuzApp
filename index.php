@@ -5,45 +5,44 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            background-color: black; /* Couleur de fond noir */
-            color: white; /* Couleur du texte par défaut en blanc pour un bon contraste */
+            background-color: black;
+            color: white;
             margin: 0;
             padding: 0;
         }
 
         .top-banner {
-            background-color: #E65100; /* Couleur d'arrière-plan du bandeau supérieur (orange) */
-            color: black; /* Couleur du texte noir */
+            background-color: #E65100;
+            color: black;
             text-align: center;
-            padding: 5px 0; /* Espacement intérieur augmenté pour l'image */
-            font-size: 30px; /* Taille de la police augmentée */
+            padding: 5px 0;
+            font-size: 30px;
             font-weight: bold;
             border-radius: 5px;
-            margin-bottom: 20px; /* Espace en dessous de la bannière */
-            line-height: 1.2; /* Hauteur de ligne pour ajuster l'espace entre les lignes */
+            margin-bottom: 20px;
+            line-height: 1.2;
         }
 
         .top-banner a {
-            color: black; /* Couleur du texte noir */
-            text-decoration: none; /* Supprimer la sous-ligne */
+            color: black;
+            text-decoration: none;
         }
 
         .top-banner a:hover {
-            text-decoration: underline; /* Sous-ligne lors du survol */
+            text-decoration: underline;
         }
 
         .sub-banner {
-            background-color: orange; /* Couleur d'arrière-plan différente pour la nouvelle bannière */
-            color: black; /* Couleur du texte noir */
+            background-color: orange;
+            color: black;
             text-align: center;
             padding: 5px 0;
             font-size: 20px;
             font-weight: bold;
             border-radius: 5px;
-            margin-bottom: 20px; /* Espace en dessous de la bannière */
-            width: 40%; /* Largeur similaire aux boutons */
-            margin: 0 auto 20px auto; /* Centre horizontalement et ajoute un espace en dessous */
-
+            margin-bottom: 20px;
+            width: 40%;
+            margin: 0 auto 20px auto;
         }
 
         .button {
@@ -55,7 +54,7 @@
             margin-right: auto;
             background-color: #E65100;
             color: black;
-            text-align: center;
+            text-align: left; /* Aligner le texte à gauche dans les boutons */
             font-size: 16px;
             font-weight: bold;
             border: none;
@@ -81,7 +80,7 @@
             text-align: center;
             padding: 5px 0;
             font-size: 20px;
-	    font-weight: bold;
+            font-weight: bold;
             width: 100%;
             border-radius: 5px;
         }
@@ -143,4 +142,4 @@
         <a href="https://github.com/Kusanagi8200/KuzApp/tree/main" target="blanck">Link to Github Project</a>
     </div>
 </body>
-</html
+</html>
