@@ -1,6 +1,4 @@
-### KuzApp Version Beta - Linux System Administration Tools
-
-## Webapp version
+## KuzApp Version Beta - Linux System Administration Tools - Webapp version
 
 ## System Maintenance Information and Diagnostic Script
 
