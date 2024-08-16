@@ -1,7 +1,8 @@
-
-## System Maintenance Information and Diagnostic Script
+### KuzApp Version Beta - Linux System Administration Tools
 
 ## Webapp version
+
+## System Maintenance Information and Diagnostic Script
 
 The bash script provides an interface to execute a variety of sub-scripts that perform system cleaning, diagnostic, and network information tasks.
 
