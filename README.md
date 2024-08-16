@@ -1,4 +1,8 @@
-![Logo de KuzApp](./kuzapp-images/kuzapp-mascote.jpg)
+<p align="center">
+  <img src="./kuzapp-images/kuzapp-mascote.jpg" alt="Logo de KuzApp">
+</p>
+
+
 
 ## System Maintenance Information and Diagnostic Script
 
