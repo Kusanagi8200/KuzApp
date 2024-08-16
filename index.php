@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>KuzApp / 2024</title>
+    <title>KuzApp - Beta-V0.1/2024</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -30,6 +30,20 @@
 
         .top-banner a:hover {
             text-decoration: underline; /* Sous-ligne lors du survol */
+        }
+
+        .sub-banner {
+            background-color: orange; /* Couleur d'arrière-plan différente pour la nouvelle bannière */
+            color: black; /* Couleur du texte noir */
+            text-align: center;
+            padding: 5px 0;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-bottom: 20px; /* Espace en dessous de la bannière */
+            width: 40%; /* Largeur similaire aux boutons */
+            margin: 0 auto 20px auto; /* Centre horizontalement et ajoute un espace en dessous */
+
         }
 
         .button {
@@ -65,8 +79,8 @@
             left: 0;
             color: black;
             text-align: center;
-            padding: 10px 0;
-            font-size: 15px;
+            padding: 5px 0;
+            font-size: 20px;
 	    font-weight: bold;
             width: 100%;
             border-radius: 5px;
@@ -103,6 +117,11 @@
     <!-- Bannière supérieure avec un lien vers GitHub -->
     <div class="top-banner">
        KuzApp Project - Version Beta 0.1
+    </div>
+
+    <!-- Nouvelle bannière avec le texte demandé -->
+    <div class="sub-banner">
+        Linux Systeme Administration Tools
     </div>
 
     <div class="button-container">
