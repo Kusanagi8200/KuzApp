@@ -1,4 +1,4 @@
-![Logo de KuzApp](kuzapp-mascote.webp)
+![Logo de KuzApp]()
 
 ## System Maintenance Information and Diagnostic Script
 
