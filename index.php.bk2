@@ -86,13 +86,16 @@
 
         .button-row {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
+            width: 40%;
+            margin: 0 auto;
             gap: 10px;
             flex-wrap: wrap;
         }
 
         .button-row .btn {
-            padding: 10px 20px;
+            flex: 1; /* Répartition égale de l'espace */
+            padding: 10px;
             background-color: #E65100;
             color: black;
             font-size: 16px;
@@ -161,7 +164,7 @@
 
     <div class="button-container">
         <!-- Chaque bouton dans son propre formulaire pointant vers un script PHP spécifique -->
-        <form action="README.php" method="post"><button class="button" type="submit">README</button></form>
+        <form action="README.php" method="post"><button class="button" type="submit">00 --> README.md</button></form>
         <form action="update-script.php" method="post"><button class="button" type="submit">01 -->  UPDATE-SCRIPT</button></form>
         <form action="update-script-fast.php" method="post"><button class="button" type="submit">02 -->  UPDATE-SCRIPT-FAST</button></form>
         <form action="update-script-vm.php" method="post"><button class="button" type="submit">03 -->  UPDATE-SCRIPT-VM</button></form>
@@ -180,9 +183,9 @@
         LOOK AT THE SCRIPT BEFORE RUN
     </div>
 
-    <!-- Boutons indépendants en ligne -->
+    <!-- Boutons indépendants en ligne, étalés sur la même largeur que les boutons du menu -->
     <div class="button-row">
-        <button class="btn" onclick="location.href='#link1'">1</button>
+        <button class="btn" onclick="location.href='update-script.html'">1</button>
         <button class="btn" onclick="location.href='#link2'">2</button>
         <button class="btn" onclick="location.href='#link3'">3</button>
         <button class="btn" onclick="location.href='#link4'">4</button>

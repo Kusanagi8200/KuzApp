@@ -172,8 +172,8 @@
         <form action="update-script-fast.eng.php" method="post"><button class="button" type="submit">05 -->  UPDATE-SCRIPT-FAST-ENG</button></form>
         <form action="boot-sequence-check.php" method="post"><button class="button" type="submit">06 -->  BOOT-SEQUENCE-CHECK</button></form>
         <form action="check-network.php" method="post"><button class="button" type="submit">07 -->  CHECK-NETWORK</button></form>
-        <form action="system-infos.php" method="post"><button class="button" type="submit">09 -->  SYSTEM-INFOS</button></form>
-        <form action="update-nocolors.php" method="post"><button class="button" type="submit">10 -->  UPDATE-NOCOLORS</button></form>
+        <form action="system-infos.php" method="post"><button class="button" type="submit">08 -->  SYSTEM-INFOS</button></form>
+        <form action="update-nocolors.php" method="post"><button class="button" type="submit">09 -->  UPDATE-NOCOLORS</button></form>
     </div>
 
 <br>
@@ -185,16 +185,16 @@
 
     <!-- Boutons indépendants en ligne, étalés sur la même largeur que les boutons du menu -->
     <div class="button-row">
-        <button class="btn" onclick="location.href='update-script.html'">1</button>
-        <button class="btn" onclick="location.href='#link2'">2</button>
-        <button class="btn" onclick="location.href='#link3'">3</button>
-        <button class="btn" onclick="location.href='#link4'">4</button>
-        <button class="btn" onclick="location.href='#link5'">5</button>
-        <button class="btn" onclick="location.href='#link6'">6</button>
-        <button class="btn" onclick="location.href='#link7'">7</button>
-        <button class="btn" onclick="location.href='#link8'">8</button>
-        <button class="btn" onclick="location.href='#link9'">9</button>
-        <button class="btn" onclick="location.href='#link10'">10</button>
+        <button class="btn" onclick="location.href='/view-script-in-txt/update-script-view.php'">1</button>
+        <button class="btn" onclick="location.href='/view-script-in-txt/update-script-fast-view.php'">2</button>
+        <button class="btn" onclick="location.href='/view-script-in-txt/update-script-vm-view.php'">3</button>
+        <button class="btn" onclick="location.href='/view-script-in-txt/update-script.eng-view.php'">4</button>
+        <button class="btn" onclick="location.href='/view-script-in-txt/update-script-fast.eng-view.php'">5</button>
+        <button class="btn" onclick="location.href='/view-script-in-txt/boot-sequence-check-view.php'">6</button>
+        <button class="btn" onclick="location.href='/view-script-in-txt/check-network-view.php'">7</button>
+        <button class="btn" onclick="location.href='/view-script-in-txt/system-infos-view.php'">8</button>
+        <button class="btn" onclick="location.href='/view-script-in-txt/update-nocolors-view.php'">9</button>
+        <button class="btn" onclick="location.href='#'">10</button>
     </div>
 
     <!-- Nouveau bandeau en bas de la page -->
