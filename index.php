@@ -44,6 +44,19 @@
             width: 40%;
             margin: 0 auto 20px auto;
         }
+    
+        .sub-banner2 {
+            background-color: orange;
+            color: black;
+            text-align: center;
+            padding: 5px 0;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            width: 40%;
+            margin: 0 auto 20px auto;
+        }
 
         .button {
             display: block;
@@ -54,7 +67,7 @@
             margin-right: auto;
             background-color: #E65100;
             color: black;
-            text-align: left; /* Aligner le texte à gauche dans les boutons */
+            text-align: left;
             font-size: 16px;
             font-weight: bold;
             border: none;
@@ -71,6 +84,32 @@
             width: 100%;
         }
 
+        .button-row {
+            display: flex;
+            justify-content: space-between;
+            width: 40%;
+            margin: 0 auto;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .button-row .btn {
+            flex: 1; /* Répartition égale de l'espace */
+            padding: 10px;
+            background-color: #E65100;
+            color: black;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .button-row .btn:hover {
+            background-color: #FFD700;
+        }
+
         .bottom-banner {
             background-color: orange;
             position: fixed;
@@ -79,7 +118,7 @@
             color: black;
             text-align: center;
             padding: 5px 0;
-            font-size: 20px;
+            font-size: 15px;
             font-weight: bold;
             width: 100%;
             border-radius: 5px;
@@ -95,37 +134,37 @@
         }
     </style>
 
-<!-- Matomo -->
-<script>
-  var _paq = window._paq = window._paq || [];
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//192.168.201.137:8444/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<!-- Fin du code Matomo -->
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="//192.168.201.137:8444/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '1']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    <!-- Fin du code Matomo -->
 
 </head>
 <body>
 
     <!-- Bannière supérieure avec un lien vers GitHub -->
     <div class="top-banner">
-       KuzApp Project - Version Beta 0.1
+        KuzApp Project - Version Beta 0.1
     </div>
 
     <!-- Nouvelle bannière avec le texte demandé -->
     <div class="sub-banner">
-        Linux Systeme Administration Tools
+        LINUX SYSTEM ADMINISTRATION TOOLS
     </div>
 
     <div class="button-container">
         <!-- Chaque bouton dans son propre formulaire pointant vers un script PHP spécifique -->
-        <form action="README.php" method="post"><button class="button" type="submit">README</button></form>
+        <form action="README.php" method="post"><button class="button" type="submit">00 --> README.md</button></form>
         <form action="update-script.php" method="post"><button class="button" type="submit">01 -->  UPDATE-SCRIPT</button></form>
         <form action="update-script-fast.php" method="post"><button class="button" type="submit">02 -->  UPDATE-SCRIPT-FAST</button></form>
         <form action="update-script-vm.php" method="post"><button class="button" type="submit">03 -->  UPDATE-SCRIPT-VM</button></form>
@@ -137,9 +176,31 @@
         <form action="update-nocolors.php" method="post"><button class="button" type="submit">10 -->  UPDATE-NOCOLORS</button></form>
     </div>
 
+<br>
+<br>
+    <!-- Nouvelle bannière avec le texte demandé -->
+    <div class="sub-banner2">
+        LOOK AT THE SCRIPT BEFORE RUN
+    </div>
+
+    <!-- Boutons indépendants en ligne, étalés sur la même largeur que les boutons du menu -->
+    <div class="button-row">
+        <button class="btn" onclick="location.href='update-script.html'">1</button>
+        <button class="btn" onclick="location.href='#link2'">2</button>
+        <button class="btn" onclick="location.href='#link3'">3</button>
+        <button class="btn" onclick="location.href='#link4'">4</button>
+        <button class="btn" onclick="location.href='#link5'">5</button>
+        <button class="btn" onclick="location.href='#link6'">6</button>
+        <button class="btn" onclick="location.href='#link7'">7</button>
+        <button class="btn" onclick="location.href='#link8'">8</button>
+        <button class="btn" onclick="location.href='#link9'">9</button>
+        <button class="btn" onclick="location.href='#link10'">10</button>
+    </div>
+
     <!-- Nouveau bandeau en bas de la page -->
     <div class="bottom-banner">
-        <a href="https://github.com/Kusanagi8200/KuzApp/tree/main" target="blanck">Link to Github Project</a>
+        <a href="https://github.com/Kusanagi8200/KuzApp/tree/main" target="_blank">Link to Github Project</a>
     </div>
+
 </body>
 </html>
