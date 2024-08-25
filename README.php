@@ -13,7 +13,7 @@
         }
         .banner-title {
             background-color: #e65100; /* Orange banner */
-            padding: 15px;
+            padding: 5px;
             border-radius: 8px;
             max-width: 800px;
             margin: 20px auto;
@@ -24,7 +24,7 @@
         }
         .content {
             background-color: #ffff00; /* Yellow banner background around text */
-            padding: 20px;
+            padding: 5px;
             border-radius: 8px;
             max-width: 800px;
             margin: 0 auto;
