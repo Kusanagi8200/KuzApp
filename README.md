@@ -1,3 +1,5 @@
+![screenshot](Kuzapp.png)
+
 ## KuzApp Version Beta - Linux System Administration Tools - Webapp version
 
 
