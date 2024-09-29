@@ -134,20 +134,11 @@
         }
     </style>
 
-    <!-- Matomo -->
-    <script>
-        var _paq = window._paq = window._paq || [];
-        _paq.push(['trackPageView']);
-        _paq.push(['enableLinkTracking']);
-        (function() {
-            var u="//192.168.201.137:8444/";
-            _paq.push(['setTrackerUrl', u+'matomo.php']);
-            _paq.push(['setSiteId', '1']);
-            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-        })();
-    </script>
-    <!-- Fin du code Matomo -->
+<noscript>
+<!-- Matomo Image Tracker-->
+<img referrerpolicy="no-referrer-when-downgrade" src="https://172.16.98.4:8444/matomo.php?idsite=1&amp;rec=1&amp;action_name=index.php" style="border:0" alt="" />
+<!-- End Matomo -->
+</noscript>
 
 </head>
 <body>
