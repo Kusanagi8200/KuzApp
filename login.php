@@ -24,7 +24,7 @@ if (isset($_POST['username'])){
     $_SESSION['username'] = $username;
     header("Location: app.php");
   } else {
-    $message = "Le nom d'utilisateur ou le mot de passe est incorrect.";
+    $message = "Wrong login or password";
   }
 }
 
@@ -36,12 +36,12 @@ echo '  <link rel="stylesheet" href="style2.css" />';
 echo '</head>';
 echo '<body>';
 echo '<form class="box" action="" method="post" name="login">';
-echo '<h1 class="box-logo box-title"><font color="#005CB9">CLINIQUE LE CHATELET</font></h1>';
-echo '<h3 class="box-title"><center>BIENVENUE</center></h3>';
-echo '<input type="text" class="box-input" name="username" placeholder="IDENTIFIANT">';
-echo '<input type="password" class="box-input" name="password" placeholder="SECURI-CLC">';
+echo '<h1 class="box-logo box-title"><font color="#005CB9">KUZAPP</font></h1>';
+echo '<h3 class="box-title"><center>ADMIN-SYS TOOLS</center></h3>';
+echo '<input type="text" class="box-input" name="username" placeholder="ID">';
+echo '<input type="password" class="box-input" name="password" placeholder="PASSWD">';
 echo '<input type="submit" value="Connexion " name="submit" class="box-button">';
-echo '<p class="box-register">NOUVEL UTILISATEUR ? <a href="register.php">INSCRIPTION</a></p>';
+echo '<p class="box-register">NEW USER  <a href="register.php">SIGN UP</a></p>';
 
 // Afficher le message d'erreur si nécessaire
 if (!empty($message)) {

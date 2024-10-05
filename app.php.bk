@@ -190,7 +190,7 @@
 
     <!-- Nouveau bandeau en bas de la page -->
     <div class="bottom-banner">
-        <a href="login.php" target="_blank">LOG OUT</a>
+        <a href="https://github.com/Kusanagi8200/KuzApp/tree/main" target="_blank">Link to Github Project</a>
     </div>
 
 </body>
