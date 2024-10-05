@@ -24,14 +24,14 @@ if (isset($_REQUEST['username'], $_REQUEST['email'], $_REQUEST['password'])){
     if($res){
        echo "<div class='success'>
              <h3>ACCOUNT CREATED</h3>
-             <p>BACK TO LOGIN  <a href='login.php'> GO </a></p>
+             <p><a href='login.php'>CONNEXION</a></p>
        </div>";
    }
 }else{
 ?>
 <form class="box" action="" method="post">
   <h1 class="box-logo box-title"><font color="#000000">KUZAPP</font></h1>
-    <h3 class="box-title"><center>SIGN UP</center></h3>
+    <h3 class="box-title"><center><font color="#000000">SIGN UP</font></center></h3>
   <input type="text" class="box-input" name="username" placeholder="LOGIN" required />
     <input type="text" class="box-input" name="email" placeholder="EMAIL" required />
     <input type="password" class="box-input" name="password" placeholder="PASSWORD" required />

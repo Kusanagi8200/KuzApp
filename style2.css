@@ -3,13 +3,13 @@ body {
   background: black;
 }
 .box {
-  border: 2px solid orange;
+  border: 2px solid green;
   padding: 30px 25px 10px 25px;
   background: #e65100;
   margin: 80px auto;
   width: 360px;
   border-radius: 5px;
-  height: 400px; /* Ajoutez cette ligne pour définir la hauteur */
+  height: 390px; /* Ajoutez cette ligne pour définir la hauteur */
 }
 h1.box-logo a {
   text-decoration:none;
@@ -81,24 +81,32 @@ h1.box-title {
 .success {
   text-align: center;
   color: black;
-  background: orange;
+  background: green;
   width: 30%;
   border: 2px solid black;
   border-radius: 5px;
   box-sizing: border-box;
   margin: 0 auto; /* Centrer la div horizontalement */
+  margin-top: 50px; /* Ajustez la valeur pour l'espacement souhaité */
 }
 .success a {
   text-align: center;
-  color: black;
-  background: orange;
+  color: white;
+  background: green;
   width: 30%;
   border: 2px solid black;
   border-radius: 5px;
   box-sizing: border-box;
+  margin-top: 50px; /* Ajustez la valeur pour l'espacement souhaité */
+  margin: 0 auto; /* Centrer la div horizontalement */
+  padding: 5px;
 }
 .success a:hover {
-    background: lightgray; /* Change la couleur de fond lors du survol */
+  text-align: center;
+  color: black;
+  background: yellow; /* Change la couleur de fond lors du survol */
+  margin-top: 50px; /* Ajustez la valeur pour l'espacement souhaité */
+  margin: 0 auto; /* Centrer la div horizontalement */
 }
 p.errorMessage {
   background-color: #ff0000;
