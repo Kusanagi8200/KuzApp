@@ -29,7 +29,7 @@ echo "    text-align: center;"; // Texte centré
 echo "    padding: 10px 0;"; // Padding vertical
 echo "    font-size: 20px;"; // Taille de police
 echo "    font-weight: bold;"; // Gras
-echo "    border-radius: 10px;"; // Arrondir tous les coins
+echo "    border-radius: 5px;"; // Arrondir tous les coins
 echo "    margin-bottom: 20px;"; // Espace entre la bannière et le contenu
 echo "}";
 
@@ -43,7 +43,7 @@ echo "    white-space: pre-wrap;";
 echo "    overflow: auto;"; // Ajoute une barre de défilement si nécessaire
 echo "    margin: 20px auto;";
 echo "    height: 600px;"; // Hauteur fixe pour le terminal
-echo "    border-radius: 10px;"; // Arrondir les coins de la zone terminale
+echo "    border-radius: 5px;"; // Arrondir les coins de la zone terminale
 echo "    font-weight: bold;"; // Texte du résultat en gras
 echo "}";
 
@@ -58,7 +58,7 @@ echo "    text-align: center;";
 echo "    padding: 10px 0;";
 echo "    font-size: 20px;";
 echo "    font-weight: bold;";
-echo "    border-radius: 10px;"; // Arrondir tous les coins
+echo "    border-radius: 5px;"; // Arrondir tous les coins
 echo "}";
 
 echo "a.bottom-link {";
@@ -69,9 +69,9 @@ echo "}";
 
 echo "</style>";
 echo "</head><body>";
-echo "<div class='banner'>KUSAPP / 2024 - UPDATE INFOS APPLICATION</div>";
+echo "<div class='banner'>KuzApp Project - Version Beta 0.1</div>";
 echo "<div class='terminal'><pre>$output</pre></div>";
 // Modification ici pour faire du texte dans le bandeau inférieur un lien de retour
-echo "<div class='bottom-banner'><a href='index.php' class='bottom-link'>RETOUR</a></div>";
+echo "<div class='bottom-banner'><a href='app.php' class='bottom-link'>RETOUR</a></div>";
 echo "</body></html>";
 ?>

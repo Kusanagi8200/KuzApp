@@ -105,7 +105,7 @@
 
     <!-- Footer Banner with Return Button -->
     <div class="footer-banner">
-        <a href="index.php">RETOUR</a>
+        <a href="app.php">RETOUR</a>
     </div>
 
 </body>

@@ -176,15 +176,15 @@
 
     <!-- Boutons indépendants en ligne, étalés sur la même largeur que les boutons du menu -->
     <div class="button-row">
-        <button class="btn" onclick="location.href='/view-script-in-txt/update-script-view.php'">1</button>
-        <button class="btn" onclick="location.href='/view-script-in-txt/update-script-fast-view.php'">2</button>
-        <button class="btn" onclick="location.href='/view-script-in-txt/update-script-vm-view.php'">3</button>
-        <button class="btn" onclick="location.href='/view-script-in-txt/update-script.eng-view.php'">4</button>
-        <button class="btn" onclick="location.href='/view-script-in-txt/update-script-fast.eng-view.php'">5</button>
-        <button class="btn" onclick="location.href='/view-script-in-txt/boot-sequence-check-view.php'">6</button>
-        <button class="btn" onclick="location.href='/view-script-in-txt/check-network-view.php'">7</button>
-        <button class="btn" onclick="location.href='/view-script-in-txt/system-infos-view.php'">8</button>
-        <button class="btn" onclick="location.href='/view-script-in-txt/update-nocolors-view.php'">9</button>
+        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/update-script-view.php'">1</button>
+        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/update-script-fast-view.php'">2</button>
+        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/update-script-vm-view.php'">3</button>
+        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/update-script.eng-view.php'">4</button>
+        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/update-script-fast.eng-view.php'">5</button>
+        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/boot-sequence-check-view.php'">6</button>
+        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/check-network-view.php'">7</button>
+        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/system-infos-view.php'">8</button>
+        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/update-nocolors-view.php'">9</button>
         <button class="btn" onclick="location.href='#'">10</button>
     </div>
 
