@@ -1,4 +1,7 @@
 ![Kuzapp-Web1](kuzapp-images/login1.png)
+![Kuzapp-Web1](kuzapp-images/login2.png)
+![Kuzapp-Web1](kuzapp-images/login3.png)
+![Kuzapp-Web1](kuzapp-images/login4.png)
 
 ![Kuzapp-Web](KuzApp-Web.png)
 
