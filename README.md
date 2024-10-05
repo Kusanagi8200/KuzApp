@@ -1,12 +1,12 @@
+
+## KuzApp Version Beta - Linux System Administration Tools - Webapp version
+
 ![Kuzapp-Web1](kuzapp-images/login1.png)
 ![Kuzapp-Web1](kuzapp-images/login2.png)
 ![Kuzapp-Web1](kuzapp-images/login3.png)
 ![Kuzapp-Web1](kuzapp-images/login4.png)
 
 ![Kuzapp-Web](kuzapp-images/app-kuzapp.png)
-
-## KuzApp Version Beta - Linux System Administration Tools - Webapp version
-
 
 ## System Maintenance Information and Diagnostic Script
 The bash script provides an interface to execute a variety of sub-scripts that perform system cleaning, diagnostic, and network information tasks.
@@ -25,11 +25,6 @@ The script displays a menu with several options, each corresponding to a differe
   + 08 **HARDWARE-INFOS**: Displays hardware information.
   + 09 **SYSTEM-INFOS**: Displays system information.
   + 10 **UPDATE-SCRIPT**: No colors Update script.
-
-
-## Interactive Menu
-The script uses a menu structure to allow the user to choose from the different options. Each option launches a different sub-script.
-
 
 ## License
 The script is distributed under the GNU General Public License, version 3 or later.
