@@ -1,5 +1,4 @@
-![Kuzapp-Web1](kuzapp-images/Screenshot 2024-10-05 at 18-08-47 .png)
-
+![Kuzapp-Web1](kuzapp-images/login1.png)
 
 ![Kuzapp-Web](KuzApp-Web.png)
 
