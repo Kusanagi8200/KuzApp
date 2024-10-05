@@ -37,7 +37,7 @@ echo '</head>';
 echo '<body>';
 echo '<form class="box" action="" method="post" name="login">';
 echo '<h1 class="box-logo box-title"><font color="#000000">KUZAPP</font></h1>';
-echo '<h3 class="box-title"><center>ADMIN-SYS TOOLS</center></h3>';
+echo '<h3 class="box-title"><center><font color="#000000">ADMIN-SYS TOOLS</font></center></h3>';
 echo '<input type="text" class="box-input" name="username" placeholder="ID">';
 echo '<input type="password" class="box-input" name="password" placeholder="PASSWD">';
 echo '<input type="submit" value="Connexion " name="submit" class="box-button">';
