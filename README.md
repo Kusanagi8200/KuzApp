@@ -3,7 +3,7 @@
 ![Kuzapp-Web1](kuzapp-images/login3.png)
 ![Kuzapp-Web1](kuzapp-images/login4.png)
 
-![Kuzapp-Web](kuzapp-images/KuzApp-Web.png)
+![Kuzapp-Web](kuzapp-images/app-kuzapp.png)
 
 ## KuzApp Version Beta - Linux System Administration Tools - Webapp version
 
