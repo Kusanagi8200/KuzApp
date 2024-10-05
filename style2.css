@@ -1,7 +1,6 @@
 GNU nano 4.8                                                                                                                                                                       style.css
 body {
-  background: no-repeat left/100% url("/KuzApp-Web1.png");
-  background-position: top
+  background: black;
 }
 .box {
   border: 2px solid orange;
@@ -65,13 +64,27 @@ h1.box-title {
     outline: none;
     border-color:#000000;
 }
-.sucess{
+.success{
   text-align: center;
-  color: white;
+  color: black;
+  background: orange;
+  width: 30%;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin: 0 auto; /* Centrer la div horizontalement */
 }
-.sucess a {
-  text-decoration: none;
-  color: #58aef7;
+.success a {
+  text-align: center;
+  color: black;
+  background: orange;
+  width: 30%;
+  border: 2px solid black;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.success a:hover {
+    background: lightgray; /* Change la couleur de fond lors du survol */
 }
 p.errorMessage {
     background-color: orange;
