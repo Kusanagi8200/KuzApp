@@ -9,6 +9,7 @@ body {
   margin: 80px auto;
   width: 360px;
   border-radius: 5px;
+  height: 400px; /* Ajoutez cette ligne pour définir la hauteur */
 }
 h1.box-logo a {
   text-decoration:none;
@@ -21,14 +22,16 @@ h1.box-title {
   line-height: 30px;
   font-size: 40px;
   text-align:center;
-  margin: -27px -26px 26px;
+  margin: -10px -10px 10px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 5px;
   border: 2px solid black;
 }
 .box-button {
   width: 40%;
-  padding: 10px;
-  margin-bottom: 20px;
+  padding: 5px;
+  margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
   background-color: #00a000;
@@ -43,7 +46,7 @@ h1.box-title {
 }
 .box-register {
   text-align:center;
-  margin-bottom:0px;
+  margin-bottom:20px;
   font-size:12px;
   color:#000000;
 }
@@ -55,6 +58,7 @@ h1.box-title {
   border: #000000 2px solid;
   padding: 5px 10px;
   border-radius: 5px;
+  margin-bottom:20px;
 }
 .box-input {
   font-size: 14px;
@@ -65,10 +69,14 @@ h1.box-title {
   border-radius: 5px;
   width: 347px;
   height: 40px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .box-input:focus {
-    outline: none;
-    border-color:#000000;
+  outline: none;
+  border-color:#000000;
+  margin-left: auto;
+  margin-right: auto;
 }
 .success {
   text-align: center;
@@ -93,9 +101,12 @@ h1.box-title {
     background: lightgray; /* Change la couleur de fond lors du survol */
 }
 p.errorMessage {
-    background-color: orange;
-    border: #000000 2px solid;
-    padding: 5px 10px;
-    color: #000000;
-    border-radius: 5px;
+  background-color: #ff0000;
+  border: #000000 2px solid;
+  padding: 5px 10px;
+  color: #000000;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center; /* Centre le texte horizontalement */ 
 }

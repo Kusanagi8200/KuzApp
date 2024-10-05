@@ -24,7 +24,7 @@ if (isset($_POST['username'])){
     $_SESSION['username'] = $username;
     header("Location: app.php");
   } else {
-    $message = "Wrong login or password";
+    $message = "ERROR --> WRONG LOGIN OR PASSWORD";
   }
 }
 
