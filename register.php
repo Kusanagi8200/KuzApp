@@ -19,24 +19,23 @@ if (isset($_REQUEST['username'], $_REQUEST['email'], $_REQUEST['password'])){
   //requéte SQL + mot de passe crypté
     $query = "INSERT into `users` (username, email, password)
               VALUES ('$username', '$email', '".hash('sha256', $password)."')";
-  // Exécuter la requête sur la base de données
+   // Exécuter la requête sur la base de données
     $res = mysqli_query($conn, $query);
     if($res){
        echo "<div class='sucess'>
-             <h3>Vous êtes inscrit avec succès.</h3>
-             <p>Cliquez ici pour vous <a href='login.php'>connecter</a></p>
+             <h3>ACOUNT CREATED</h3>
+             <p>BACK TO LOGIN -->  <a href='login.php'>GO</a></p>
        </div>";
-    }
+   }
 }else{
 ?>
 <form class="box" action="" method="post">
-  <h1 class="box-logo box-title"><font color="#005CB9">CLINIQUE LE CHATELET</font></h1>
-    <h3 class="box-title"><center>CRÉEZ VOTRE COMPTE</center></h3>
-  <input type="text" class="box-input" name="username" placeholder="IDENTIFIANT" required />
+  <h1 class="box-logo box-title"><font color="#000000">KUZAPP</font></h1>
+    <h3 class="box-title"><center>SIGN UP</center></h3>
+  <input type="text" class="box-input" name="username" placeholder="LOGIN" required />
     <input type="text" class="box-input" name="email" placeholder="EMAIL" required />
-    <input type="password" class="box-input" name="password" placeholder="SECURI-CLC" required />
-    <input type="submit" name="submit" value="S'inscrire" class="box-button" />
-    <p class="box-register">DÉJA INSCRIT ? <a href="login.php"> CONNEXION</a></p>
+    <input type="password" class="box-input" name="password" placeholder="PASSWORD" required />
+    <input type="submit" name="submit" value="ACTIVATE" class="box-button" />
 </form>
 <?php } ?>
 </body>
