@@ -35,9 +35,11 @@ echo '<head>';
 echo '  <link rel="stylesheet" href="style2.css" />';
 echo '</head>';
 echo '<body>';
+// Bannière du haut
+echo '<div class="banner">KuzApp Project - Version Beta 0.1</div>';
 echo '<form class="box" action="" method="post" name="login">';
 echo '<h1 class="box-logo box-title"><font color="#000000">KUZAPP</font></h1>';
-echo '<h3 class="box-title"><center><font color="#000000">ADMIN-SYS TOOLS</font></center></h3>';
+echo '<h3 class="box-title"><center><font color="#000000">WELCOME</font></center></h3>';
 echo '<input type="text" class="box-input" name="username" placeholder="LOGIN">';
 echo '<input type="password" class="box-input" name="password" placeholder="PASSWORD">';
 echo '<input type="submit" value="CONNEXION" name="submit" class="box-button">';
@@ -49,6 +51,9 @@ if (!empty($message)) {
 }
 
 echo '</form>';
+
+// Bannière du bas
+echo '<div class="banner-bottom">LINUX SYSTEM ADMINISTRATION TOOLS</div>';
 echo '</body>';
 echo '</html>';
 ?>

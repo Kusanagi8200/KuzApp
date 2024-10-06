@@ -118,7 +118,7 @@
             color: black;
             text-align: center;
             padding: 5px 0;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: bold;
             width: 100%;
             border-radius: 5px;

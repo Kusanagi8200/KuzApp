@@ -3,13 +3,13 @@ body {
   background: black;
 }
 .box {
-  border: 2px solid green;
+  border: 3px solid green;
   padding: 30px 25px 10px 25px;
   background: #e65100;
   margin: 80px auto;
   width: 360px;
   border-radius: 5px;
-  height: 390px; /* Ajoutez cette ligne pour définir la hauteur */
+  height: 420px; /* Ajoutez cette ligne pour définir la hauteur */
 }
 h1.box-logo a {
   text-decoration:none;
@@ -22,11 +22,12 @@ h1.box-title {
   line-height: 30px;
   font-size: 40px;
   text-align:center;
+  font-weight: bold;
   margin: -10px -10px 10px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 5px;
-  border: 2px solid black;
+  border: 3px solid black;
 }
 .box-button {
   width: 40%;
@@ -39,7 +40,7 @@ h1.box-title {
   text-align: center;
   font-size: 16px;
   font-weight: bold;
-  border: 2px solid #000000;
+  border: 3px solid #000000;
   border-radius: 5px;
   cursor: pointer;
   display: block;
@@ -49,21 +50,24 @@ h1.box-title {
   margin-bottom:20px;
   font-size:12px;
   color:#000000;
+  font-weight: bold;
 }
 .box-register a {
   text-decoration:none;
   font-size:12px;
   color:#666;
   background-color: orange;
-  border: #000000 2px solid;
+  border: #000000 3px solid;
   padding: 5px 10px;
   border-radius: 5px;
   margin-bottom:20px;
+  font-weight: bold;
 }
 .box-input {
+  font-weight: bold;
   font-size: 14px;
   background: orange;
-  border: 2px solid #000000;
+  border: 3px solid #000000;
   margin-bottom: 20px;
   padding-left:10px;
   border-radius: 5px;
@@ -77,29 +81,32 @@ h1.box-title {
   border-color:#000000;
   margin-left: auto;
   margin-right: auto;
+  font-weight: bold;
 }
 .success {
   text-align: center;
   color: black;
   background: green;
   width: 30%;
-  border: 2px solid black;
+  border: 3px solid black;
   border-radius: 5px;
   box-sizing: border-box;
   margin: 0 auto; /* Centrer la div horizontalement */
   margin-top: 50px; /* Ajustez la valeur pour l'espacement souhaité */
+  font-weight: bold;
 }
 .success a {
   text-align: center;
   color: white;
   background: green;
   width: 30%;
-  border: 2px solid black;
+  border: 3px solid black;
   border-radius: 5px;
   box-sizing: border-box;
   margin-top: 50px; /* Ajustez la valeur pour l'espacement souhaité */
   margin: 0 auto; /* Centrer la div horizontalement */
   padding: 5px;
+  font-weight: bold;
 }
 .success a:hover {
   text-align: center;
@@ -107,14 +114,46 @@ h1.box-title {
   background: yellow; /* Change la couleur de fond lors du survol */
   margin-top: 50px; /* Ajustez la valeur pour l'espacement souhaité */
   margin: 0 auto; /* Centrer la div horizontalement */
+  font-weight: bold;
 }
 p.errorMessage {
   background-color: #ff0000;
-  border: #000000 2px solid;
+  border: #000000 3px solid;
   padding: 5px 10px;
   color: #000000;
   border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
   text-align: center; /* Centre le texte horizontalement */ 
+  font-weight: bold;
+  margin-top: 35px;
+}
+/* Styles pour les bannières */
+.banner {
+  background-color: #E65100;
+  color: black;
+  text-align: center;
+  padding: 5px 0;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px; /* Pour espacer la bannière du contenu en dessous */
+  border-radius: 5px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+}
+/* Styles pour la bannière du bas */
+.banner-bottom {
+  background-color: orange;
+  color: black;
+  text-align: center;
+  padding: 5px 0;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
 }
