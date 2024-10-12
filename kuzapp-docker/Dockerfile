@@ -9,6 +9,7 @@ RUN apt-get update && apt-get install -y \
     locate \
     nano \
     openssh-server \
+    mariadn-server
     && rm -rf /var/lib/apt/lists/*
 
 # Configuration d'Apache pour écouter sur le port 443
@@ -22,11 +23,11 @@ RUN mkdir -p /var/www/html
 EXPOSE 443
 
 # Définir le volume
-VOLUME ["/var/www/html"]
+VOLUME ["/var/www/html/KuzApp/"]
 
 # Commande par défaut pour démarrer Apache en arrière-plan
 CMD ["apache2ctl", "-D", "FOREGROUND"]
 
 
-#docker build -t kusapp .
-#docker run -d --name kusapp -p 7443:443 --restart unless-stopped kusapp:latest
+#docker build -t KuzApp .
+#docker run -dit --name KuZapp -p 7080:80 -p 7443:443 -v KuZapp-Docker:/var/www/html/ debian bash
