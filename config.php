@@ -1,7 +1,7 @@
 <?php
 // Informations d'identification
 define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'admin1');
+define('DB_USERNAME', 'administrateur');
 define('DB_PASSWORD', 'Kusanagi2045');
 define('DB_NAME', 'registration');
 
