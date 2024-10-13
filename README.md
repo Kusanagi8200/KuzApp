@@ -1,7 +1,7 @@
 
 ## KuzApp Version Beta - Linux System Administration Tools
 
-#### Apache Server (Version On Premisce)
+### Apache Server (Version On Premisce)
 
 ### Apache Server (Version Docker) [KuzApp-Docker Branch](https://github.com/Kusanagi8200/KuzApp/tree/KuzApp-Docker)
 
