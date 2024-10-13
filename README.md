@@ -1,7 +1,7 @@
 
 ## KuzApp Version Beta - Linux System Administration Tools 
 
-## Apache Docker Version
+### Apache Server (Docker Version)
 
 ![Kuzapp-Web1](kuzapp-images/kuzappTagsDockerHub.png)
 
@@ -12,25 +12,25 @@
 
 ![Kuzapp-Web](kuzapp-images/app-kuzapp.png)
 
-## System Maintenance Information and Diagnostic Script
+### System Maintenance Information and Diagnostic Script
 The bash script provides an interface to execute a variety of sub-scripts that perform system cleaning, diagnostic, and network information tasks.
 
-## Projet KuzApp
+### Projet KuzApp
 
-## Table des matières
+### Table des matières
 - [Prérequis](#prérequis)
 - [Création de l'image Docker](#création-de-limage-docker)
 - [Création et exécution du conteneur](#création-et-exécution-du-conteneur)
 - [Configuration de l'application](#configuration-de-lapplication)
 - [Accès à l'application](#accès-à-lapplication)
 
-## Prérequis
+### Prérequis
 
 Avant de commencer, assurez-vous d'avoir installé les outils suivants :
 - [Docker](https://www.docker.com/get-started)
 - [Docker Compose](https://docs.docker.com/compose/install/) (si nécessaire)
 
-## Création de l'image Docker
+### Création de l'image Docker
 
 1. **Dockerfile** : Ce projet contient un `Dockerfile` qui définit l'image Docker.
    Les composants principaux installés dans l'image incluent :
@@ -68,7 +68,7 @@ docker run -dit --privileged \
 - **-p 7443:443** : Redirige le port 443 du conteneur vers le port 7443 de l'hôte.
 - **-v KuZapp-Docker:/var/www/html/** : Monte un volume pour conserver les données persistantes.
 
-## Configuration de l'application
+### Configuration de l'application
 
 Le script init-db.sh est exécuté au démarrage du conteneur pour configurer la base de données MariaDB. Il effectue les opérations suivantes :
 
@@ -78,17 +78,17 @@ Le script init-db.sh est exécuté au démarrage du conteneur pour configurer la
 
 Les privilèges appropriés sont également accordés aux utilisateurs sur la base de données.
 
-## Accès à l'application
+### Accès à l'application
 
    - **HTTP : Accédez à l'application via http://IP-HOTE:7080.**
    - **HTTPS : Accédez à l'application via https://IP-HOTE:7443.**
 
-## Notes
+### Notes
 
    Vous pouvez personnaliser le fichier de configuration Apache (KuzApp.conf) selon vos besoins.
    Les certificats SSL auto-signés sont générés lors de la création de l'image. Pour un environnement de production, il est recommandé d'utiliser des certificats valides.  
     
-## Features
+### Features
 The script displays a menu with several options, each corresponding to a different sub-script :
 
   + 01 **UPDATE-SCRIPT**: Update the system.
@@ -102,6 +102,6 @@ The script displays a menu with several options, each corresponding to a differe
   + 09 **SYSTEM-INFOS**: Displays system information.
   + 10 **UPDATE-SCRIPT**: No colors Update script.
 
-## License
+### License
 The script is distributed under the GNU General Public License, version 3 or later.
 
