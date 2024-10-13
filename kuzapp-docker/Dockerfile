@@ -53,15 +53,12 @@ RUN a2dissite 000-default.conf && \
     a2enmod php8.2 && \
     service apache2 restart
 
-# Création de la base de données et des utilisateurs
-RUN service mariadb start && \
-    mysql -u root -e "CREATE DATABASE registration;" && \
-    mysql -u root -e "CREATE USER 'admin1'@'localhost' IDENTIFIED BY 'Kusanagi2045';" && \
-    mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'admin1'@'localhost';" && \
-    mysql -u root -e "FLUSH PRIVILEGES;"
+# Script pour initialiser la base de données
+COPY init-db.sh /init-db.sh
+RUN chmod +x /init-db.sh
 
 # Exposer les ports 80 et 443 pour HTTP et HTTPS
 EXPOSE 80 443
 
 # Démarrer Apache et MariaDB lorsque le conteneur est lancé
-CMD service mariadb start && apachectl -D FOREGROUND
+CMD service mariadb start && /init-db.sh && apachectl -D FOREGROUND
