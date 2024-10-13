@@ -80,8 +80,8 @@ Les privilèges appropriés sont également accordés aux utilisateurs sur la ba
 
 ## Accès à l'application
 
-   - **HTTP : Accédez à l'application via http://localhost:7080.**
-   - **HTTPS : Accédez à l'application via https://localhost:7443.**
+   - **HTTP : Accédez à l'application via http://IP-HOTE:7080.**
+   - **HTTPS : Accédez à l'application via https://IP-HOTE:7443.**
 
 ## Notes
 
