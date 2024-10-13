@@ -2,8 +2,9 @@
 ## KuzApp Version Beta - Linux System Administration Tools 
 
 ## Apache Docker Version
-![Kuzapp-Web1](kuzappTagsDockerHub.png)
-##
+
+![Kuzapp-Web1](kuzapp-images/kuzappTagsDockerHub.png)
+
 ![Kuzapp-Web1](kuzapp-images/login1.png)
 ![Kuzapp-Web1](kuzapp-images/login2.png)
 ![Kuzapp-Web1](kuzapp-images/login3.png)
