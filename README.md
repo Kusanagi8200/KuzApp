@@ -32,7 +32,9 @@ Avant de commencer, assurez-vous d'avoir installé les outils suivants :
 
 ## Création de l'image Docker
 
-1. **Dockerfile** : Ce projet contient un `Dockerfile` qui définit l'image Docker. Les composants principaux installés dans l'image incluent :
+1. **Dockerfile** : Ce projet contient un `Dockerfile` qui définit l'image Docker.
+   Les composants principaux installés dans l'image incluent :
+   
    - **Debian** : Système d'exploitation de base.
    - **Apache** : Serveur web pour héberger l'application.
    - **PHP 8.2** : Langage de script pour le développement web.
@@ -40,12 +42,12 @@ Avant de commencer, assurez-vous d'avoir installé les outils suivants :
    - **OpenSSL** : Pour la génération de certificats SSL.
    - **php-mysqli** : Extension PHP pour se connecter à une base de données MariaDB.
 
-2. **Construction de l'image** :
+3. **Construction de l'image** :
    Exécutez la commande suivante dans le répertoire où se trouve le `Dockerfile` :
 
-   ```bash
+```bash
    docker build -t Name .
-   ```
+```
    
 3. **Pour créer et exécuter le conteneur à partir de l'image Docker, utilisez la commande suivante** :
 
@@ -59,27 +61,27 @@ docker run -dit --privileged \
 ```
 
  Options de la commande :
-    - **-d : Exécute le conteneur en arrière-plan (mode détaché).
-    - **-i : Garde le STDIN ouvert, même si aucun terminal n'est attaché.
-    - **--privileged : Permet au conteneur d'accéder à certaines fonctionnalités du noyau.
-    - **-p 7080:80 : Redirige le port 80 du conteneur vers le port 7080 de l'hôte.
-    - **-p 7443:443 : Redirige le port 443 du conteneur vers le port 7443 de l'hôte.
-    - **-v KuZapp-Docker:/var/www/html/ : Monte un volume pour conserver les données persistantes.
+- **-d** : Exécute le conteneur en arrière-plan (mode détaché).
+- **-i** : Garde le STDIN ouvert, même si aucun terminal n'est attaché.
+- **--privileged** : Permet au conteneur d'accéder à certaines fonctionnalités du noyau.
+- **-p 7080:80** : Redirige le port 80 du conteneur vers le port 7080 de l'hôte.
+- **-p 7443:443** : Redirige le port 443 du conteneur vers le port 7443 de l'hôte.
+- **-v KuZapp-Docker:/var/www/html/** : Monte un volume pour conserver les données persistantes.
 
 ## Configuration de l'application
 
 Le script init-db.sh est exécuté au démarrage du conteneur pour configurer la base de données MariaDB. Il effectue les opérations suivantes :
 
-   - **Crée une base de données nommée registration.
-   - **Crée une table users pour gérer les utilisateurs.
-   - **Crée un utilisateur admin de la BDD: admin1 avec le mot de passe Kusanagi2045
+   - **Crée** une base de données nommée registration.
+   - **Crée** une table users pour gérer les utilisateurs.
+   - **Crée** un utilisateur admin de la BDD: admin1 avec le mot de passe Kusanagi2045
 
 Les privilèges appropriés sont également accordés aux utilisateurs sur la base de données.
 
 ## Accès à l'application
 
-   - **HTTP : Accédez à l'application via http://localhost:7080.
-   - **HTTPS : Accédez à l'application via https://localhost:7443.
+   - **HTTP : Accédez à l'application via http://localhost:7080.**
+   - **HTTPS : Accédez à l'application via https://localhost:7443.**
 
 ## Notes
 
