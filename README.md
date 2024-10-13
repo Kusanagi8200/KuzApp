@@ -1,9 +1,9 @@
 
 ## KuzApp Version Beta - Linux System Administration Tools
 
-### Apache Server (Version On Premisce)
+### Apache Server (On Premisce Version)
 
-### Apache Server (Version Docker) [KuzApp-Docker Branch](https://github.com/Kusanagi8200/KuzApp/tree/KuzApp-Docker)
+### Apache Server (Docker Version) [KuzApp-Docker Branch](https://github.com/Kusanagi8200/KuzApp/tree/KuzApp-Docker)
 
 ![Kuzapp-Web1](kuzapp-images/login1.png)
 ![Kuzapp-Web1](kuzapp-images/login2.png)
@@ -30,6 +30,6 @@ The script displays a menu with several options, each corresponding to a differe
   + 09 **SYSTEM-INFOS**: Displays system information.
   + 10 **UPDATE-SCRIPT**: No colors Update script.
 
-## License
+### License
 The script is distributed under the GNU General Public License, version 3 or later.
 
