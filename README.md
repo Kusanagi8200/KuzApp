@@ -46,7 +46,7 @@ Avant de commencer, assurez-vous d'avoir installé les outils suivants :
    ```bash
    docker build -t Name .
 
-3. **Pour créer et exécuter le conteneur à partir de l'image Docker, utilisez la commande suivante :
+3. **Pour créer et exécuter le conteneur à partir de l'image Docker, utilisez la commande suivante** :
 
 ```bash
 docker run -dit --privileged \
@@ -54,12 +54,35 @@ docker run -dit --privileged \
     --name KuZapp-sys \
     -p 7080:80 -p 7443:443 \
     -v KuZapp-Docker:/var/www/html/ \
-    debian-apache-mariadb-php```
+    debian-apache-mariadb-php
+```
+ Options de la commande :
+    -d : Exécute le conteneur en arrière-plan (mode détaché).
+    -i : Garde le STDIN ouvert, même si aucun terminal n'est attaché.
+    --privileged : Permet au conteneur d'accéder à certaines fonctionnalités du noyau.
+    -p 7080:80 : Redirige le port 80 du conteneur vers le port 7080 de l'hôte.
+    -p 7443:443 : Redirige le port 443 du conteneur vers le port 7443 de l'hôte.
+    -v KuZapp-Docker:/var/www/html/ : Monte un volume pour conserver les données persistantes.
 
+## Configuration de l'application
 
+Le script init-db.sh est exécuté au démarrage du conteneur pour configurer la base de données MariaDB. Il effectue les opérations suivantes :
 
+    Crée une base de données nommée registration.
+    Crée une table users pour gérer les utilisateurs.
+    Crée un utilisateur admin de la BDD: admin1 avec le mot de passe Kusanagi2045
 
- 
+Les privilèges appropriés sont également accordés aux utilisateurs sur la base de données.
+Accès à l'application
+
+    HTTP : Accédez à l'application via http://localhost:7080.
+    HTTPS : Accédez à l'application via https://localhost:7443.
+
+## Notes
+
+    Vous pouvez personnaliser le fichier de configuration Apache (KuzApp.conf) selon vos besoins.
+    Les certificats SSL auto-signés sont générés lors de la création de l'image. Pour un environnement de production, il est recommandé d'utiliser des certificats valides.  
+    
 ## Features
 The script displays a menu with several options, each corresponding to a different sub-script :
 
