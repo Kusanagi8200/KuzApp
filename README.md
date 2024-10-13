@@ -15,7 +15,7 @@
 ### System Maintenance Information and Diagnostic Script
 The bash script provides an interface to execute a variety of sub-scripts that perform system cleaning, diagnostic, and network information tasks.
 
-### Projet KuzApp
+## Projet KuzApp 
 
 ### Table des matières
 - [Prérequis](#prérequis)
