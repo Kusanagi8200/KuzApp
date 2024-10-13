@@ -1,9 +1,9 @@
 
 ## KuzApp Version Beta - Linux System Administration Tools
 
-## Apache Server Version On Premisce
+#### Apache Server (Version On Premisce)
 
-### Apache Server Docker Version on [KuzApp-Docker Branch](https://github.com/Kusanagi8200/KuzApp/tree/KuzApp-Docker)
+### Apache Server (Version Docker) [KuzApp-Docker Branch](https://github.com/Kusanagi8200/KuzApp/tree/KuzApp-Docker)
 
 ![Kuzapp-Web1](kuzapp-images/login1.png)
 ![Kuzapp-Web1](kuzapp-images/login2.png)
@@ -12,11 +12,11 @@
 
 ![Kuzapp-Web](kuzapp-images/app-kuzapp.png)
 
-## System Maintenance Information and Diagnostic Script
+### System Maintenance Information and Diagnostic Script
 The bash script provides an interface to execute a variety of sub-scripts that perform system cleaning, diagnostic, and network information tasks.
 
 
-## Features
+### Features
 The script displays a menu with several options, each corresponding to a different sub-script :
 
   + 01 **UPDATE-SCRIPT**: Update the system.
