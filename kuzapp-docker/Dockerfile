@@ -1,33 +1,67 @@
-# Utilisation de l'image de base Debian latest
+# Utiliser l'image Debian de base
 FROM debian:latest
 
-# Mise à jour des paquets et installation des paquets nécessaires
-RUN apt-get update && apt-get install -y \
-    apache2 \
-    wget \
-    git \
-    locate \
-    nano \
-    openssh-server \
-    mariadn-server
-    && rm -rf /var/lib/apt/lists/*
+# Désactiver les invites interactives de l'installation
+ENV DEBIAN_FRONTEND=noninteractive
 
-# Configuration d'Apache pour écouter sur le port 443
-RUN sed -i 's/Listen 80/Listen 443/' /etc/apache2/ports.conf
-RUN sed -i 's/<VirtualHost \*:80>/<VirtualHost \*:443>/' /etc/apache2/sites-available/000-default.conf
+# Mettre à jour les dépôts et installer les paquets nécessaires
+RUN apt update && \
+    apt install -y apache2 git locate mariadb-server mariadb-client php8.2 php8.2-mysqli libapache2-mod-php8.2 openssl && \
+    apt clean && \
+    apt autoclean && \
+    apt remove && \
+    apt autoremove && \
+    rm -rf /var/lib/apt/lists/*
 
-# Création du répertoire pour le volume
-RUN mkdir -p /var/www/html
+# Création des certificats SSL
+RUN mkdir -p /var/www/html/KuzApp && \
+    cd /var/www/html/KuzApp && \
+    openssl genrsa -out kuzapp.key 2048 && \
+    openssl req -new -key kuzapp.key -out kuzapp.csr -subj "/C=FR/ST=State/L=City/O=Organization/OU=Department/CN=localhost" && \
+    openssl x509 -req -days 365 -in kuzapp.csr -signkey kuzapp.key -out /etc/ssl/certs/kusapp-selfsigned.crt && \
+    mv kuzapp.key /etc/ssl/private/kusapp-selfsigned.key
 
-# Exposer le port 443 (port standard pour HTTPS)
-EXPOSE 443
+# Création du fichier de configuration du VirtualHost
+RUN echo '<VirtualHost *:80>\n\
+    ServerName localhost\n\
+\n\
+    # Redirection vers HTTPS\n\
+    Redirect permanent / https://localhost/ \n\
+</VirtualHost>\n\
+<VirtualHost *:443>\n\
+    ServerName localhost\n\
+\n\
+    SSLEngine on\n\
+    SSLCertificateFile /etc/ssl/certs/kusapp-selfsigned.crt\n\
+    SSLCertificateKeyFile /etc/ssl/private/kusapp-selfsigned.key\n\
+\n\
+    # Utiliser login.php comme page par défaut\n\
+    DirectoryIndex login.php\n\
+\n\
+    DocumentRoot /var/www/html/KuzApp\n\
+\n\
+    <Directory /var/www/html/KuzApp/>\n\
+        AllowOverride All\n\
+        Require all granted\n\
+    </Directory>\n\
+</VirtualHost>' > /etc/apache2/sites-available/KuzApp.conf
 
-# Définir le volume
-VOLUME ["/var/www/html/KuzApp/"]
+# Activer le site KuzApp et désactiver le site par défaut
+RUN a2dissite 000-default.conf && \
+    a2ensite KuzApp.conf && \
+    a2enmod ssl && \
+    a2enmod php8.2 && \
+    service apache2 restart
 
-# Commande par défaut pour démarrer Apache en arrière-plan
-CMD ["apache2ctl", "-D", "FOREGROUND"]
+# Création de la base de données et des utilisateurs
+RUN service mariadb start && \
+    mysql -u root -e "CREATE DATABASE registration;" && \
+    mysql -u root -e "CREATE USER 'admin1'@'localhost' IDENTIFIED BY 'Kusanagi2045';" && \
+    mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'admin1'@'localhost';" && \
+    mysql -u root -e "FLUSH PRIVILEGES;"
 
+# Exposer les ports 80 et 443 pour HTTP et HTTPS
+EXPOSE 80 443
 
-#docker build -t KuzApp .
-#docker run -dit --name KuZapp -p 7080:80 -p 7443:443 -v KuZapp-Docker:/var/www/html/ debian bash
+# Démarrer Apache et MariaDB lorsque le conteneur est lancé
+CMD service mariadb start && apachectl -D FOREGROUND
