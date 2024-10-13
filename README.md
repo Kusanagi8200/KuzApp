@@ -72,9 +72,9 @@ docker run -dit --privileged \
 
 Le script init-db.sh est exécuté au démarrage du conteneur pour configurer la base de données MariaDB. Il effectue les opérations suivantes :
 
-   - **Crée** une base de données nommée registration.
-   - **Crée** une table users pour gérer les utilisateurs.
-   - **Crée** un utilisateur admin de la BDD: admin1 avec le mot de passe Kusanagi2045
+   - **Crée une base de données nommée registration.**
+   - **Crée une table users pour gérer les utilisateurs.**
+   - **Crée un utilisateur admin de la BDD: admin1 avec le mot de passe Kusanagi2045**
 
 Les privilèges appropriés sont également accordés aux utilisateurs sur la base de données.
 
