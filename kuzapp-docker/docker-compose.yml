@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  web:
+    image: kuzapp_image:latest
+    container_name: kuzapp_web
+    ports:
+      - "8085:80"
+      - "8445:443"
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_USER=admin1
+      - DB_PASSWORD=kusanagi2045
+    networks:
+      - kuzapp_network
+    volumes:
+      - KuzApp-Docker:/var/www/html/KuzApp
+
+    # Pas besoin de spécifier la commande ici si Apache est déjà configuré dans le Dockerfile
+    command: ["apachectl", "-D", "FOREGROUND"]
+
+  db:
+    image: mysql:8.0
+    container_name: kuzapp_db
+    restart: always
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: "registration"
+      MYSQL_USER: admin1
+      MYSQL_PASSWORD: Kusanagi2045
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
+    networks:
+      - kuzapp_network
+
+networks:
+  kuzapp_network:
+    driver: bridge
+
+volumes:
+  KuzApp-Docker:
+    external: true
+  db_data:
+
