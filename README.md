@@ -51,22 +51,12 @@ Avant de commencer, assurez-vous d'avoir installé les outils suivants :
    
 3. **Pour créer et exécuter le conteneur à partir de l'image Docker, utilisez la commande suivante** :
 
-```bash
-docker run -dit --privileged \
-    -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
-    --name KuZapp-sys \
-    -p 7080:80 -p 7443:443 \
-    -v KuZapp-Docker:/var/www/html/ \
-    debian-apache-mariadb-php
+```
+
 ```
 
  Options de la commande :
-- **-d** : Exécute le conteneur en arrière-plan (mode détaché).
-- **-i** : Garde le STDIN ouvert, même si aucun terminal n'est attaché.
-- **--privileged** : Permet au conteneur d'accéder à certaines fonctionnalités du noyau.
-- **-p 7080:80** : Redirige le port 80 du conteneur vers le port 7080 de l'hôte.
-- **-p 7443:443** : Redirige le port 443 du conteneur vers le port 7443 de l'hôte.
-- **-v KuZapp-Docker:/var/www/html/** : Monte un volume pour conserver les données persistantes.
+
 
 ### Configuration de l'application
 
