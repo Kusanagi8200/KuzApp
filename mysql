@@ -1,0 +1,15 @@
+CREATE DATABASE registration;
+
+USE registration;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE USER 'administrateur'@'localhost' IDENTIFIED BY 'Kusanagi2045';
+GRANT ALL PRIVILEGES ON registration.* TO 'administrateur'@'localhost';
+FLUSH PRIVILEGES;
