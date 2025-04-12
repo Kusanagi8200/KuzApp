@@ -36,7 +36,7 @@ echo '  <link rel="stylesheet" href="style2.css" />';
 echo '</head>';
 echo '<body>';
 // Bannière du haut
-echo '<div class="banner">KuzApp Project - Version Beta 0.1</div>';
+echo '<div class="banner">KuzApp Project - Version Beta 0.2-2025</div>';
 echo '<form class="box" action="" method="post" name="login">';
 echo '<h1 class="box-logo box-title"><font color="#000000">KUZAPP</font></h1>';
 echo '<h3 class="box-title"><center><font color="#000000">WELCOME</font></center></h3>';
