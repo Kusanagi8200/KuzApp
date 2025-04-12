@@ -1,1 +1,7 @@
+apt install apache2
+a2enmod ssl
+a2enmod rewrite
+apt install php-mysql
 
+chown -R www-data:www-data /var/www/html/KuzApp
+chmod -R 755 /var/www/html/KuzApp
