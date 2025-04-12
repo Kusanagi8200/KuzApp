@@ -1,31 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>KuzApp - Version Beta 0.2-2025</title>
+    <title>KuzApp - Beta 0.2-2025</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             background-color: black;
             color: white;
-            padding-top: 60px; /* Ajustez cette valeur selon le besoin */
+            padding-top: 60px; 
             padding-bottom: 60px;
-            overflow: hidden; /* Empêche le défilement de la page */
+            overflow: hidden;
         }
 
-        /* Conteneur principal avec coins arrondis et espacement de 5px par rapport aux bords de la page */
         .background-container {
-            position: fixed; /* Reste fixe au fond */
-            top: 5px; /* Espacement de 5px du haut */
-            left: 5px; /* Espacement de 5px à gauche */
-            right: 5px; /* Espacement de 5px à droite */
-            bottom: 5px; /* Espacement de 5px du bas */
-            background-image: url('https://192.168.124.187:8443/KuzApp/KuzApp-Fond.jpg'); /* Remplacez par le chemin réel de votre image */
-            background-size: cover; /* L'image couvre toute la page */
-            background-position: center; /* L'image est centrée */
-            background-attachment: fixed; /* L'image reste fixe lors du défilement */
-            border-radius: 20px; /* Applique des coins arrondis */
-            z-index: -1; /* Place l'élément derrière le contenu principal */
+            position: fixed; 
+            top: 5px; 
+            left: 5px; 
+            right: 5px; 
+            bottom: 5px; 
+            background-image: url('https://192.168.124.187:8443/KuzApp/KuzApp-Fond.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+            background-attachment: fixed; 
+            border-radius: 20px; 
+            z-index: -1; 
         }
 
         .top-banner {
@@ -113,7 +112,7 @@
         }
 
         .button-row .btn {
-            flex: 1; /* Répartition égale de l'espace */
+            flex: 1; 
             padding: 10px;
             background-color: #E65100;
             color: black;
@@ -131,17 +130,17 @@
 
         .bottom-banner {
             background-color: orange;
-            margin-top: 50px; /* Espace au-dessus de la bannière */
-            position: relative; /* Permet à l'élément de se déplacer avec le contenu */
+            margin-top: 50px; 
+            position: relative; 
             bottom: 0;
-            left: 50%; /* Positionne à 50% de la largeur de la page */
-            transform: translateX(-50%); /* Déplace l'élément de 50% de sa propre largeur pour le centrer */
+            left: 50%; 
+            transform: translateX(-50%); 
             color: black;
             text-align: center;
             padding: 5px 0;
             font-size: 16px;
             font-weight: bold;
-            width: 40%; /* Garde la largeur de 40% */
+            width: 40%; 
             border-radius: 5px;
         }
 
@@ -157,20 +156,18 @@
 </head>
 <body>
 
-    <div class="background-container"></div> <!-- Conteneur avec fond d'image -->
+    <div class="background-container"></div> 
 
-    <!-- Bannière supérieure avec un lien vers GitHub -->
     <div class="top-banner">
         KuzApp Project - Version Beta 0.2-2025
     </div>
-
-    <!-- Nouvelle bannière avec le texte demandé -->
+    
     <div class="sub-banner">
         LINUX SYSTEM ADMINISTRATION TOOLS
     </div>
 
     <div class="button-container">
-        <!-- Chaque bouton dans son propre formulaire pointant vers un script PHP spécifique -->
+        
         <form action="README.php" method="post"><button class="button" type="submit">00 --> README.md</button></form>
         <form action="update-script.php" method="post"><button class="button" type="submit">01 -->  UPDATE-SCRIPT</button></form>
         <form action="update-script-fast.php" method="post"><button class="button" type="submit">02 -->  UPDATE-SCRIPT-FAST</button></form>
@@ -185,13 +182,11 @@
 
     <br>
     <br>
-
-    <!-- Nouvelle bannière avec le texte demandé -->
+  
     <div class="sub-banner2">
         LOOK AT THE SCRIPT BEFORE RUN
     </div>
 
-    <!-- Boutons indépendants en ligne, étalés sur la même largeur que les boutons du menu -->
     <div class="button-row">
         <button class="btn" onclick="location.href='/kuzapp-script-in-txt/update-script-view.php'">1</button>
         <button class="btn" onclick="location.href='/kuzapp-script-in-txt/update-script-fast-view.php'">2</button>
@@ -205,7 +200,6 @@
         <button class="btn" onclick="location.href='#'">10</button>
     </div>
 
-    <!-- Nouveau bandeau en bas de la page -->
     <div class="bottom-banner">
         <a href="login.php" target="_blank">LOG OUT</a>
     </div>
