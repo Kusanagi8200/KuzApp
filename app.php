@@ -14,6 +14,7 @@
             background-position: center; /* L'image est centrée */
             background-attachment: fixed; /* L'image reste fixe lors du défilement */
             padding-top: 60px; /* Ajustez cette valeur selon le besoin */
+	    padding-bottom: 60px;
         }
 
         .top-banner {
@@ -119,7 +120,8 @@
 
 	.bottom-banner {
     	background-color: orange;
-    	position: fixed;
+        margin-top: 50px; /* Espace au-dessus de la bannière */
+	position: relative; /* Permet à l'élément de se déplacer avec le contenu */
     	bottom: 0;
     	left: 50%; /* Positionne à 50% de la largeur de la page */
     	transform: translateX(-50%); /* Déplace l'élément de 50% de sa propre largeur pour le centrer */
@@ -130,7 +132,7 @@
     	font-weight: bold;
     	width: 40%; /* Garde la largeur de 40% */
     	border-radius: 5px;
-	bottom: 90px;
+	/* bottom: 90px;*/
 	}
 
         .bottom-banner a {
