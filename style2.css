@@ -1,11 +1,22 @@
 GNU nano 4.8                                                                                                                                                                       style.css
 body {
-  background: black;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://192.168.124.187:8443/KuzApp/KuzApp-Fond.jpg');
+    background-size: cover;
+    background-position: top left;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
 }
 .box {
   border: 3px solid green;
   padding: 30px 25px 10px 25px;
-  background-image: url('KuzApp-Fond.jpg');
+  background: #e65100;
   margin: 80px auto;
   width: 360px;
   border-radius: 5px;

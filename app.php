@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>KuzApp - Beta-V0.1/2024</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>KuzApp - Version Beta 0.2-2025</title>
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
-            background-color: black;
+	    background-color: black;
             color: white;
             margin: 0;
             padding: 0;
+            background-image: url('https://192.168.124.187:8443/KuzApp/KuzApp-Fond.jpg'); /* Remplacez 'path_to_your_image.jpg' par le chemin réel de votre image */
+            background-size: cover; /* L'image couvre toute la page */
+            background-position: center; /* L'image est centrée */
+            background-attachment: fixed; /* L'image reste fixe lors du défilement */
         }
 
         .top-banner {
@@ -134,18 +138,12 @@
         }
     </style>
 
-<noscript>
-<!-- Matomo Image Tracker-->
-<img referrerpolicy="no-referrer-when-downgrade" src="https://172.16.98.4:8444/matomo.php?idsite=1&amp;rec=1&amp;action_name=index.php" style="border:0" alt="" />
-<!-- End Matomo -->
-</noscript>
-
 </head>
 <body>
 
     <!-- Bannière supérieure avec un lien vers GitHub -->
     <div class="top-banner">
-        KuzApp Project - Version Beta 0.1
+        KuzApp Project - Version Beta 0.2-2025
     </div>
 
     <!-- Nouvelle bannière avec le texte demandé -->

@@ -35,6 +35,7 @@ echo '<head>';
 echo '  <link rel="stylesheet" href="style2.css" />';
 echo '</head>';
 echo '<body>';
+
 // Bannière du haut
 echo '<div class="banner">KuzApp Project - Version Beta 0.2-2025</div>';
 echo '<form class="box" action="" method="post" name="login">';
