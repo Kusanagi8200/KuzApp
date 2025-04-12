@@ -1,11 +1,11 @@
 <?php
-  // Initialiser la session
+  // Initialize the session
   session_start();
 
-  // Détruire la session.
+  // Destroy the session
   if(session_destroy())
   {
-    // Redirection vers la page de connexion
+    // Redirect to the login page
     header("Location: login.php");
   }
 ?>
