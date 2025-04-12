@@ -1,3 +1,7 @@
+apt install php-mysqli
+php -m | grep mysqli
+
+
 CREATE DATABASE registration;
 
 USE registration;
