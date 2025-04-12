@@ -10,6 +10,6 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE USER 'administrateur'@'localhost' IDENTIFIED BY 'Kusanagi2045';
-GRANT ALL PRIVILEGES ON registration.* TO 'administrateur'@'localhost';
+CREATE USER '$USER'@'localhost' IDENTIFIED BY '$PASSWORD';
+GRANT ALL PRIVILEGES ON registration.* TO '$USER'@'localhost';
 FLUSH PRIVILEGES;
