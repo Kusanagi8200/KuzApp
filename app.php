@@ -13,6 +13,7 @@
             background-size: cover; /* L'image couvre toute la page */
             background-position: center; /* L'image est centrée */
             background-attachment: fixed; /* L'image reste fixe lors du défilement */
+            padding-top: 60px; /* Ajustez cette valeur selon le besoin */
         }
 
         .top-banner {
@@ -25,6 +26,8 @@
             border-radius: 5px;
             margin-bottom: 20px;
             line-height: 1.2;
+            width: 40%;
+            margin: 0 auto 20px auto;
         }
 
         .top-banner a {
@@ -114,19 +117,21 @@
             background-color: #FFD700;
         }
 
-        .bottom-banner {
-            background-color: orange;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            color: black;
-            text-align: center;
-            padding: 5px 0;
-            font-size: 16px;
-            font-weight: bold;
-            width: 100%;
-            border-radius: 5px;
-        }
+	.bottom-banner {
+    	background-color: orange;
+    	position: fixed;
+    	bottom: 0;
+    	left: 50%; /* Positionne à 50% de la largeur de la page */
+    	transform: translateX(-50%); /* Déplace l'élément de 50% de sa propre largeur pour le centrer */
+    	color: black;
+    	text-align: center;
+    	padding: 5px 0;
+    	font-size: 16px;
+    	font-weight: bold;
+    	width: 40%; /* Garde la largeur de 40% */
+    	border-radius: 5px;
+	bottom: 90px;
+	}
 
         .bottom-banner a {
             color: inherit;
