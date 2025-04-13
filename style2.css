@@ -1,18 +1,32 @@
 GNU nano 4.8                                                                                                                                                                       style.css
-body {
-    margin: 0;
-    padding: 0;
-    background-image: url('https://192.168.124.187:8443/KuzApp/KuzApp-Fond.jpg');
-    background-size: cover;
-    background-position: top left;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
+* {
+  box-sizing: border-box;
 }
+
+body {
+  margin: 0; /* Toujours bon pour éviter un espace blanc par défaut */
+  min-height: 100vh; /* Le body prend toute la hauteur */
+  position: relative; /* Nécessaire pour positionner les enfants */
+  padding: 5px; /* ← ajout d'un padding général de 5px pour le contenu */
+  padding-top: 60px; 
+  padding-bottom: 60px;
+}
+
+.background-container {
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  background-image: url('https://192.168.124.187:8443/KuzApp/KuzApp-Fond.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  border-radius: 20px;
+  z-index: -1;
+  overflow: hidden;
+}
+
 .box {
   border: 3px solid green;
   padding: 30px 25px 10px 25px;
@@ -22,13 +36,14 @@ body {
   border-radius: 5px;
   height: 420px; /* Ajoutez cette ligne pour définir la hauteur */
 }
+
 h1.box-logo a {
   text-decoration:none;
 }
+
 h1.box-title {
   color: #000000;
   background: orange;
-  font-weight: 300;
   padding: 15px 25px;
   line-height: 30px;
   font-size: 40px;
@@ -40,6 +55,7 @@ h1.box-title {
   border-radius: 5px;
   border: 3px solid black;
 }
+
 .box-button {
   width: 40%;
   padding: 5px;
@@ -56,6 +72,7 @@ h1.box-title {
   cursor: pointer;
   display: block;
 }
+
 .box-register {
   text-align:center;
   margin-bottom:20px;
@@ -63,6 +80,7 @@ h1.box-title {
   color:#000000;
   font-weight: bold;
 }
+
 .box-register a {
   text-decoration:none;
   font-size:12px;
@@ -74,6 +92,7 @@ h1.box-title {
   margin-bottom:20px;
   font-weight: bold;
 }
+
 .box-input {
   font-weight: bold;
   font-size: 14px;
@@ -87,6 +106,7 @@ h1.box-title {
   margin-left: auto;
   margin-right: auto;
 }
+
 .box-input:focus {
   outline: none;
   border-color:#000000;
@@ -94,6 +114,7 @@ h1.box-title {
   margin-right: auto;
   font-weight: bold;
 }
+
 .success {
   text-align: center;
   color: black;
@@ -106,11 +127,12 @@ h1.box-title {
   margin-top: 50px; /* Ajustez la valeur pour l'espacement souhaité */
   font-weight: bold;
 }
+
 .success a {
   text-align: center;
   color: white;
   background: green;
-  width: 30%;
+  display: block;
   border: 3px solid black;
   border-radius: 5px;
   box-sizing: border-box;
@@ -119,14 +141,14 @@ h1.box-title {
   padding: 5px;
   font-weight: bold;
 }
+
 .success a:hover {
   text-align: center;
-  color: black;
-  background: yellow; /* Change la couleur de fond lors du survol */
   margin-top: 50px; /* Ajustez la valeur pour l'espacement souhaité */
   margin: 0 auto; /* Centrer la div horizontalement */
   font-weight: bold;
 }
+
 p.errorMessage {
   background-color: #ff0000;
   border: #000000 3px solid;
@@ -139,7 +161,7 @@ p.errorMessage {
   font-weight: bold;
   margin-top: 35px;
 }
-/* Styles pour les bannières */
+
 .banner {
   background-color: #E65100;
   color: black;
@@ -147,24 +169,25 @@ p.errorMessage {
   padding: 5px 0;
   font-size: 30px;
   font-weight: bold;
-  margin-bottom: 20px; /* Pour espacer la bannière du contenu en dessous */
   border-radius: 5px;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  left: 0;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  width: 40%;
+  margin: 0 auto 20px auto;
 }
-/* Styles pour la bannière du bas */
+
 .banner-bottom {
   background-color: orange;
+  margin-top: 50px; 
+  position: relative; 
+  bottom: 0;
+  left: 50%; 
+  transform: translateX(-50%); 
   color: black;
   text-align: center;
   padding: 5px 0;
   font-size: 16px;
   font-weight: bold;
+  width: 40%; 
   border-radius: 5px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  left: 0;
 }

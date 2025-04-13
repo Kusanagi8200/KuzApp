@@ -32,11 +32,10 @@ if (isset($_POST['username'])) {
 echo '<!DOCTYPE html>';
 echo '<html>';
 echo '<head>';
-echo '  <link rel="stylesheet" href="style2.css" />';
+echo '<link rel="stylesheet" href="style2.css" />';
 echo '</head>';
 echo '<body>';
-
-
+echo '<div class="background-container"></div>';
 echo '<div class="banner">KuzApp Project - Beta Version 0.2-2025</div>';
 echo '<form class="box" action="" method="post" name="login">';
 echo '<h1 class="box-logo box-title"><font color="#000000">KUZAPP</font></h1>';
