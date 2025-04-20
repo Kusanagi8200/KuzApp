@@ -39,6 +39,7 @@
             line-height: 1.2;
             width: 40%;
             margin: 0 auto 20px auto;
+            border: 3px solid black;
         }
 
         .top-banner a {
@@ -61,6 +62,7 @@
             margin-bottom: 20px;
             width: 40%;
             margin: 0 auto 20px auto;
+            border: 3px solid black;
         }
 
         .sub-banner2 {
@@ -71,6 +73,7 @@
             font-size: 20px;
             font-weight: bold;
             border-radius: 5px;
+            border: 3px solid black;
             margin-bottom: 20px;
             width: 40%;
             margin: 0 auto 20px auto;
@@ -142,6 +145,7 @@
             font-weight: bold;
             width: 40%; 
             border-radius: 5px;
+	    border: 3px solid black;
         }
 
         .bottom-banner a {
