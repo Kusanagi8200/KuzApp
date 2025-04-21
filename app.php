@@ -91,7 +91,7 @@
             text-align: left;
             font-size: 16px;
             font-weight: bold;
-            border: none;
+            border: 3px solid black;
             border-radius: 5px;
             cursor: pointer;
         }
@@ -121,7 +121,7 @@
             color: black;
             font-size: 16px;
             font-weight: bold;
-            border: none;
+            border: 3px solid black;
             border-radius: 5px;
             cursor: pointer;
             text-align: center;
@@ -133,7 +133,7 @@
 
         .bottom-banner {
             background-color: orange;
-            margin-top: 50px; 
+            margin-top: 30px; 
             position: relative; 
             bottom: 0;
             left: 50%; 
