@@ -1,5 +1,5 @@
 
-## KUZAPP VERSION BETA - Linux System Administration Tools
+## KuzApp - BETA-0.2-2025 - LINUX SYSTEM ADMINISTRATION TOOLS
 
 #### Apache (Host Version) + Apache (Docker Version) [KuzApp-Docker Branch](https://github.com/Kusanagi8200/KuzApp/tree/KuzApp-Docker)
 
@@ -10,7 +10,7 @@
 
 ![Kuzapp-Web](https://github.com/Kusanagi8200/Kusanagi8200/blob/main/KUZAPP.jpg)
 
-## **KuzApp - Linux System Administration Tools**
+_____________________________________________________________________________________________
 
 #### **OVERVIEW**
 
