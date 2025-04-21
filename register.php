@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="style2.css" />
 </head>
 <body>
+<div class="background-container"></div>
 <?php
 require('config.php');
 if (isset($_REQUEST['username'], $_REQUEST['email'], $_REQUEST['password'])){
