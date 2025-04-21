@@ -179,16 +179,16 @@ ________________________________________________________________________________
 
 #### **STEP 8 --> Verify Background Image**
 
-**The background image (KuzApp-Fond.jpg) is included in the repository and should be located in /var/www/html/KuzApp. 
-This image is referenced in the CSS for the application’s background.**
+The background image (KuzApp-Fond.jpg) is included in the repository and should be located in /var/www/html/KuzApp. 
+This image is referenced in the CSS for the application’s background.
 
 _____________________________________________________________________________________________
 
 #### **STEP 9 --> Test the Application**
 
-**Open a web browser and navigate to -->** https://$IP:8443/KuzApp/login.php
+Open a web browser and navigate to --> https://$IP:8443/KuzApp/login.php
 
-**You may need to accept the self-signed certificate warning in your browser.**
+You may need to accept the self-signed certificate warning in your browser.
 
 
 _____________________________________________________________________________________________
