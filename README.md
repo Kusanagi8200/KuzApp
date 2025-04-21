@@ -8,7 +8,7 @@
 ![Kuzapp-Web1](kuzapp-images/login3.png)
 ![Kuzapp-Web1](kuzapp-images/login4.png)
 
-![Kuzapp-Web](kuzapp-images/app-kuzapp.png)
+![Kuzapp-Web](https://github.com/Kusanagi8200/Kusanagi8200/blob/main/KUZAPP.jpg)
 
 ### System Maintenance Information and Diagnostic Script
 The bash script provides an interface to execute a variety of sub-scripts that perform system cleaning, diagnostic, and network information tasks.
