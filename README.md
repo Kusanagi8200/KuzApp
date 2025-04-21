@@ -14,10 +14,9 @@
 
 #### **OVERVIEW**
 
-**KuzApp is a web-based application designed to provide Linux system administration tools through a user-friendly interface. \ 
-It allows users to execute various system administration scripts securely after logging in. \
-The application is currently in Beta version 0.2-2025 and supports features like user registration, secure login, \ 
-and script execution for system updates, network checks, and more.**
+**KuzApp is a web-based application designed to provide Linux system administration tools through a user-friendly interface.  
+It allows users to execute various system administration scripts securely after logging in.  
+The application is currently in Beta version 0.2-2025 and supports features like user registration, secure login, and script execution for system updates, network checks, and more.**
 
 
 #### **FEATURES**
@@ -33,54 +32,55 @@ and script execution for system updates, network checks, and more.**
 
 #### **PREREQUISITES**
 
-**Operating System --> Ubuntu or Debian-based Linux distribution.**
+**Operating System -->** Ubuntu or Debian-based Linux distribution.
 
 **Software -->** \
 Apache2 web server \
 PHP with MySQL support \
 MySQL/MariaDB database \
-OpenSSL for certificate generation \
+OpenSSL for certificate generation
 
-**Network --> A static IP address (e.g., 192.168.124.187 as used in the configuration).**
+**Network -->** A static IP address (e.g., 192.168.124.187 as used in the configuration).
 
-**Git --> To clone the repository.**
+**Git -->** To clone the repository.
 
 _____________________________________________________________________________________________
 
-### **INSTALLATION INSTRUCTIONS**
+#### **INSTALLATION INSTRUCTIONS**
 
-#### **STEP 1 --> Install Required Packages
+#### **STEP 1 --> Install Required Packages**
 
-#### **Run the following commands to install Apache2, PHP, and MySQL dependencies**
+Run the following commands to install Apache2, PHP, and MySQL dependencies depends on your system
 
     sudo apt update
-    sudo apt install apache2
+    sudo apt install apache2 php-mysql php-mysqli git php 
     sudo a2enmod ssl
     sudo a2enmod rewrite
-    sudo apt install php-mysql php-mysqli git
 
-#### **Verify that the mysqli PHP module is enabled**
+Verify that the mysqli PHP module is enabled
 
     php -m | grep mysqli
 
+_____________________________________________________________________________________________
 
 #### **STEP 2 --> Clone the KuzApp Repository**
 
-#### **Clone the KuzApp repository from GitHub to the Apache web directory**
+Clone the KuzApp repository from GitHub to the Apache web directory
 
     sudo git clone https://github.com/Kusanagi8200/KuzApp.git /var/www/html/KuzApp
 
-**All necessary files (PHP, CSS, and background images) are available in the repository: https://github.com/Kusanagi8200/KuzApp/tree/main.**
+**All necessary files are available in the repository --> https://github.com/Kusanagi8200/KuzApp/tree/main**
 
+_____________________________________________________________________________________________
 
-#### **STEP 3 --> Set Up MySQL Database
+#### **STEP 3 --> Set Up MySQL Database**
 
-**Install MySQL/MariaDB and configure the database for KuzApp** 
+Install MySQL/MariaDB and configure the database for KuzApp
 
     sudo apt install mariadb-server
     sudo mysql -u root -p
 
-**Create the database and user** 
+Create the database and user
 
     CREATE DATABASE registration;
     USE registration;
@@ -98,12 +98,13 @@ ________________________________________________________________________________
     FLUSH PRIVILEGES;
     EXIT;
 
-**Replace kuzapp_user and your_secure_password with your desired username and password.**
+Replace kuzapp_user and your_secure_password with your desired username and password.
 
+_____________________________________________________________________________________________
 
 #### **STEP 4 --> Generate Self-Signed SSL Certificate**
 
-**Create directories for SSL certificates and generate a self-signed certificate**
+Create directories for SSL certificates and generate a self-signed certificate
 
     sudo mkdir -p /etc/ssl/private /etc/ssl/certs
 
@@ -112,19 +113,20 @@ ________________________________________________________________________________
     -out /etc/ssl/certs/kuzapp-selfsigned.crt \
     -subj "/C=$COUNTRY/ST=$REGION/L=$CITY/O=KuzApp/OU=IT/CN=$IP"
 
-**Replace $IP with your server's IP address.**
+Replace $IP with your server's IP address.
 
+_____________________________________________________________________________________________
 
-#### **STEP 5 --> Configure Apache Virtual Host
+#### **STEP 5 --> Configure Apache Virtual Host**
 
-**Create a new Apache configuration file for KuzApp**
+Create a new Apache configuration file for KuzApp
 
     sudo nano /etc/apache2/sites-available/KuzApp.conf
 
-**Add the following configuration**
+Add the following configuration
 
     <VirtualHost *:8443>
-    ServerName 192.168.124.187
+    ServerName $IP
     DocumentRoot /var/www/html/KuzApp
 
     SSLEngine on
@@ -140,23 +142,25 @@ ________________________________________________________________________________
     </Directory>
     </VirtualHost>
 
-**Enable the site and restart Apache**
+Enable the site and restart Apache
 
     sudo a2ensite KuzApp.conf
     sudo systemctl restart apache2
 
+_____________________________________________________________________________________________
 
 #### **STEP 6 --> Set Up File Permissions**
 
-**Set the correct ownership and permissions for the KuzApp directory**
+Set the correct ownership and permissions for the KuzApp directory
 
     sudo chown -R www-data:www-data /var/www/html/KuzApp
     sudo chmod -R 755 /var/www/html/KuzApp
 
+_____________________________________________________________________________________________
 
 #### **STEP 7 --> Configure Database Connection**
 
-**Create or edit the config.php file in /var/www/html/KuzApp with the correct database credentials**
+Create or edit the config.php file in /var/www/html/KuzApp with the correct database credentials
 
     <?php
     $host = "localhost";
@@ -171,22 +175,25 @@ ________________________________________________________________________________
     }
     ?>
 
+_____________________________________________________________________________________________
 
 #### **STEP 8 --> Verify Background Image**
 
 **The background image (KuzApp-Fond.jpg) is included in the repository and should be located in /var/www/html/KuzApp. 
 This image is referenced in the CSS for the application’s background.**
 
+_____________________________________________________________________________________________
 
-#### **STEP 9--> Test the Application**
+#### **STEP 9 --> Test the Application**
 
-**Open a web browser and navigate to: https://$IP:8443/KuzApp/login.php**
+**Open a web browser and navigate to -->** https://$IP:8443/KuzApp/login.php
 
 **You may need to accept the self-signed certificate warning in your browser.**
 
+
 _____________________________________________________________________________________________
 
-### **USAGE INSTRUCTIONS**
+#### **USAGE INSTRUCTIONS**
 
 #### **1. Register a New User**
 
@@ -207,26 +214,26 @@ Additional buttons (1–9) allow viewing the script contents in text format befo
 
 #### **4. Log Out**
 
-**Click the "LOG OUT" link in the bottom banner to return to the login page.**
+Click the "LOG OUT" link in the bottom banner to return to the login page.
 
 
 _____________________________________________________________________________________________
 
-### **SECURITY NOTES**
+#### **SECURITY NOTES**
 
 Self-Signed Certificate: The application uses a self-signed SSL certificate, which may trigger browser warnings. For production, consider using a certificate from a trusted Certificate Authority.
 Password Hashing: Passwords are hashed using SHA-256, but consider upgrading to stronger hashing algorithms like bcrypt in production.
 Input Sanitization: The application uses mysqli_real_escape_string to prevent SQL injection. Ensure all inputs are validated and sanitized.
 File Permissions: The /var/www/html/KuzApp directory is owned by www-data with 755 permissions to ensure security.
 
-### **TROUBLESHOOTING**
+#### **TROUBLESHOOTING**
 
 Apache Errors: Check Apache logs at /var/log/apache2/error.log for issues.
 Database Connection Issues: Verify config.php credentials and ensure MySQL is running (sudo systemctl status mysql).
 SSL Issues: Ensure the certificate paths in KuzApp.conf are correct and the SSL module is enabled.
 Script Execution: Ensure the PHP files for scripts (e.g., update-script.php) exist in the repository and are executable.
 
-### **FUTUR IMPROVEMENTS**
+#### **FUTUR IMPROVEMENTS**
 
 Implement stronger password hashing (e.g., bcrypt).
 Add input validation for registration and login forms.
