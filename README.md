@@ -14,9 +14,9 @@
 
 #### **OVERVIEW**
 
-**KuzApp is a web-based application designed to provide Linux system administration tools through a user-friendly interface. 
-It allows users to execute various system administration scripts securely after logging in. 
-The application is currently in Beta version 0.2-2025 and supports features like user registration, secure login, 
+**KuzApp is a web-based application designed to provide Linux system administration tools through a user-friendly interface. \ 
+It allows users to execute various system administration scripts securely after logging in. \
+The application is currently in Beta version 0.2-2025 and supports features like user registration, secure login, \ 
 and script execution for system updates, network checks, and more.**
 
 
@@ -35,7 +35,7 @@ and script execution for system updates, network checks, and more.**
 
 **Operating System --> Ubuntu or Debian-based Linux distribution.**
 
-**Software**
+**Software -->** \
 Apache2 web server \
 PHP with MySQL support \
 MySQL/MariaDB database \
