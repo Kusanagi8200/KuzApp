@@ -179,7 +179,7 @@ ________________________________________________________________________________
 
 #### **STEP 8 --> Verify Background Image**
 
-The background image (KuzApp-Fond.jpg) is included in the repository and should be located in /var/www/html/KuzApp. 
+The background image (KuzApp-Fond.jpg) is included in the repository and should be located in /var/www/html/KuzApp.   
 This image is referenced in the CSS for the application’s background.
 
 _____________________________________________________________________________________________
