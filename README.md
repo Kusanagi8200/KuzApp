@@ -12,7 +12,7 @@
 
 ## **KuzApp - Linux System Administration Tools**
 
-### **OVERVIEW**
+#### **OVERVIEW**
 
 **KuzApp is a web-based application designed to provide Linux system administration tools through a user-friendly interface. 
 It allows users to execute various system administration scripts securely after logging in. 
@@ -20,12 +20,15 @@ The application is currently in Beta version 0.2-2025 and supports features like
 and script execution for system updates, network checks, and more.**
 
 
-#### **Features**
+#### **FEATURES**
 
 **User Authentication -->** Secure login and registration system with password hashing (SHA-256).
-System Administration Tools: Execute scripts for system updates, network checks, boot sequence analysis, and system information retrieval.
-Responsive Design: A visually appealing interface with a consistent theme using CSS styling.
-SSL Support: Runs on HTTPS with a self-signed certificate for secure communication.
+
+**System Administration Tools -->** Execute scripts for system updates, network checks, boot sequence analysis, and system information retrieval.
+
+**Responsive Design -->** A visually appealing interface with a consistent theme using CSS styling.
+
+**SSL Support -->** Runs on HTTPS with a self-signed certificate for secure communication.
 
 
 #### **PREREQUISITES**
@@ -33,14 +36,15 @@ SSL Support: Runs on HTTPS with a self-signed certificate for secure communicati
 **Operating System --> Ubuntu or Debian-based Linux distribution.**
 
 **Software**
-Apache2 web server
-PHP with MySQL support
-MySQL/MariaDB database
-OpenSSL for certificate generation
+Apache2 web server \
+PHP with MySQL support \
+MySQL/MariaDB database \
+OpenSSL for certificate generation \
 
 **Network --> A static IP address (e.g., 192.168.124.187 as used in the configuration).**
 
 **Git --> To clone the repository.**
+
 _____________________________________________________________________________________________
 
 ### **INSTALLATION INSTRUCTIONS**
