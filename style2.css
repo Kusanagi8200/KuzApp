@@ -4,10 +4,10 @@ GNU nano 4.8                                                                    
 }
 
 body {
-  margin: 0; 
-  min-height: 100vh; 
-  position: relative; 
-  padding: 5px; 
+  margin: 0; /* Toujours bon pour éviter un espace blanc par défaut */
+  min-height: 100vh; /* Le body prend toute la hauteur */
+  position: relative; /* Nécessaire pour positionner les enfants */
+  padding: 5px; /* ← ajout d'un padding général de 5px pour le contenu */
   padding-top: 60px; 
   padding-bottom: 60px;
 }
@@ -34,7 +34,7 @@ body {
   margin: 80px auto;
   width: 360px;
   border-radius: 5px;
-  height: 420px; 
+  height: 420px; /* Ajoutez cette ligne pour définir la hauteur */
 }
 
 h1.box-logo a {
@@ -123,8 +123,8 @@ h1.box-title {
   border: 3px solid black;
   border-radius: 5px;
   box-sizing: border-box;
-  margin: 0 auto; 
-  margin-top: 50px; 
+  margin: 0 auto; /* Centrer la div horizontalement */
+  margin-top: 50px; /* Ajustez la valeur pour l'espacement souhaité */
   font-weight: bold;
 }
 
@@ -144,8 +144,8 @@ h1.box-title {
 
 .success a:hover {
   text-align: center;
-  margin-top: 50px; 
-  margin: 0 auto; 
+  margin-top: 50px; /* Ajustez la valeur pour l'espacement souhaité */
+  margin: 0 auto; /* Centrer la div horizontalement */
   font-weight: bold;
 }
 
@@ -157,7 +157,7 @@ p.errorMessage {
   border-radius: 5px;
   margin-left: auto;
   margin-right: auto;
-  text-align: center;  
+  text-align: center; /* Centre le texte horizontalement */ 
   font-weight: bold;
   margin-top: 35px;
 }

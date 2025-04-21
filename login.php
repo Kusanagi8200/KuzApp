@@ -9,13 +9,11 @@ error_reporting(E_ALL);
 
 // Handle form submission
 if (isset($_POST['username'])) {
-    // Escape user input
     $username = stripslashes($_REQUEST['username']);
     $username = mysqli_real_escape_string($conn, $username);
     $password = stripslashes($_REQUEST['password']);
     $password = mysqli_real_escape_string($conn, $password);
 
-    // SQL query to verify the user
     $query = "SELECT * FROM `users` WHERE username='$username' AND password='" . hash('sha256', $password) . "'";
     $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
     $rows = mysqli_num_rows($result);
@@ -28,11 +26,15 @@ if (isset($_POST['username'])) {
     }
 }
 
-// Display the form
 echo '<!DOCTYPE html>';
 echo '<html>';
 echo '<head>';
+echo '<meta charset="UTF-8">';
+echo '<title>KuzApp - Beta 0.2-2025</title>';
 echo '<link rel="stylesheet" href="style2.css" />';
+echo '<style>';
+echo 'body { background-color: black; }';
+echo '</style>';
 echo '</head>';
 echo '<body>';
 echo '<div class="background-container"></div>';
@@ -45,14 +47,11 @@ echo '<input type="password" class="box-input" name="password" placeholder="PASS
 echo '<input type="submit" value="LOGIN" name="submit" class="box-button">';
 echo '<p class="box-register">NEW USER ---> <a href="register.php"> SIGN UP HERE</a></p>';
 
-// Display error message if needed
 if (!empty($message)) {
     echo '<p class="errorMessage">' . $message . '</p>';
 }
 
 echo '</form>';
-
-
 echo '<div class="banner-bottom">LINUX SYSTEM ADMINISTRATION TOOLS</div>';
 echo '</body>';
 echo '</html>';
