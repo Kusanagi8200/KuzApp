@@ -19,7 +19,7 @@
             left: 5px; 
             right: 5px; 
             bottom: 5px; 
-            background-image: url('https://192.168.177.187:8443/KuzApp/KuzApp-Fond.jpg');
+            background-image: url('KuzApp-Fond.jpg');
             background-size: cover; 
             background-position: center; 
             background-attachment: fixed; 
