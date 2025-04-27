@@ -48,7 +48,7 @@ ________________________________________________________________________________
 
 #### **INSTALLATION INSTRUCTIONS --> 2 WAYS**   
 
-**1/ AUTOMATIK-INSTALL BASH SCRIPT IN PROGRESS** --> https://github.com/Kusanagi8200/KuzApp/blob/main/automatik-install.sh
+**1/ AUTOMATIK-INSTALL IN PROGRESS** **--> https://github.com/Kusanagi8200/KuzApp/blob/main/automatik-install.sh**
 _____________________________________________________________________________________________
 
 **2/ ADMIN-SYS INSTALL**
