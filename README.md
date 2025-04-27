@@ -46,7 +46,12 @@ OpenSSL for certificate generation
 
 _____________________________________________________________________________________________
 
-#### **INSTALLATION INSTRUCTIONS**
+#### **INSTALLATION INSTRUCTIONS --> 2 WAYS**   
+
+**AUTOMATIK-INSTALL BASH SCRIPT IN PROGRESS**
+_____________________________________________________________________________________________
+
+**ADMIN-SYS INSTALL**
 
 #### **STEP 1 --> Install Required Packages**
 
