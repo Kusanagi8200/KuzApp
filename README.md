@@ -48,10 +48,10 @@ ________________________________________________________________________________
 
 #### **INSTALLATION INSTRUCTIONS --> 2 WAYS**   
 
-**AUTOMATIK-INSTALL BASH SCRIPT IN PROGRESS**
+**1/ AUTOMATIK-INSTALL BASH SCRIPT IN PROGRESS** --> https://github.com/Kusanagi8200/KuzApp/blob/main/automatik-install.sh
 _____________________________________________________________________________________________
 
-**ADMIN-SYS INSTALL**
+**2/ ADMIN-SYS INSTALL**
 
 #### **STEP 1 --> Install Required Packages**
 
