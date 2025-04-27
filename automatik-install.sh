@@ -1,37 +1,77 @@
 #!/bin/bash
 
+# Set options to exit on errors and log every command
+set -e
+
 # Variables
 IP="$IP"  # Replace with your server's IP address
 DB_PASSWORD="$PASSWD"  # Replace with your desired database password
+LOG_FILE="/tmp/kuzapp_install.log"  # Log file path
+
+# Function to log messages with colors
+log_message() {
+    local message=$1
+    local status=$2
+    local color_code=$3
+
+    # Format the log message with date and status
+    echo -e "$(date +'%Y-%m-%d %H:%M:%S') - $message" >> $LOG_FILE
+
+    # Display message with color
+    echo -e "$color_code$message\033[0m"
+}
+
+# Function to check if a command exists
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
 
 # 1. System update
-echo "Updating the system..."
+log_message "Updating the system..." "[INFO]" "\033[34m"
 sudo apt update && sudo apt upgrade -y
+log_message "System updated successfully." "[OK]" "\033[32m"
 
 # 2. Install necessary packages
-echo "Installing necessary packages..."
-sudo apt install -y apache2 php-mysql php-mysqli git php mariadb-server openssl
+log_message "Installing necessary packages..." "[INFO]" "\033[34m"
+if ! command_exists apache2; then
+    sudo apt install -y apache2 php-mysql php-mysqli git php mariadb-server openssl
+    log_message "Packages installed successfully." "[OK]" "\033[32m"
+else
+    log_message "Apache2 and dependencies already installed." "[ALREADY DONE]" "\033[33m"
+fi
 
 # Enable Apache modules
-echo "Enabling Apache modules..."
-sudo a2enmod ssl
-sudo a2enmod rewrite
+log_message "Enabling Apache modules..." "[INFO]" "\033[34m"
+if ! apache2ctl -M | grep -q ssl_module; then
+    sudo a2enmod ssl
+    log_message "SSL module enabled." "[OK]" "\033[32m"
+else
+    log_message "SSL module already enabled." "[ALREADY DONE]" "\033[33m"
+fi
 
-# Check if mysqli PHP module is enabled
-echo "Checking mysqli PHP module..."
-php -m | grep mysqli
+if ! apache2ctl -M | grep -q rewrite_module; then
+    sudo a2enmod rewrite
+    log_message "Rewrite module enabled." "[OK]" "\033[32m"
+else
+    log_message "Rewrite module already enabled." "[ALREADY DONE]" "\033[33m"
+fi
 
 # 3. Clone KuzApp repository
-echo "Cloning KuzApp repository..."
-sudo git clone https://github.com/Kusanagi8200/KuzApp.git /var/www/html/KuzApp
+log_message "Cloning KuzApp repository..." "[INFO]" "\033[34m"
+if [ ! -d "/var/www/html/KuzApp" ]; then
+    sudo git clone https://github.com/Kusanagi8200/KuzApp.git /var/www/html/KuzApp
+    log_message "Repository cloned successfully." "[OK]" "\033[32m"
+else
+    log_message "KuzApp repository already exists." "[ALREADY DONE]" "\033[33m"
+fi
 
 # 4. MySQL database setup
-echo "Setting up MySQL database..."
+log_message "Setting up MySQL database..." "[INFO]" "\033[34m"
 sudo mysql -u root -e "
-CREATE DATABASE registration;
+CREATE DATABASE IF NOT EXISTS registration;
 USE registration;
 
-CREATE TABLE users (
+CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(255) NOT NULL,
     password VARCHAR(255) NOT NULL,
@@ -39,24 +79,31 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE USER 'kuzapp_user'@'localhost' IDENTIFIED BY '$DB_PASSWORD';
+CREATE USER IF NOT EXISTS 'kuzapp_user'@'localhost' IDENTIFIED BY '$DB_PASSWORD';
 GRANT ALL PRIVILEGES ON registration.* TO 'kuzapp_user'@'localhost';
 FLUSH PRIVILEGES;
 "
+log_message "MySQL database and user configured." "[OK]" "\033[32m"
 
 # 5. Generate a self-signed SSL certificate
-echo "Generating self-signed SSL certificate..."
-sudo mkdir -p /etc/ssl/private /etc/ssl/certs
-sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-    -keyout /etc/ssl/private/kuzapp-selfsigned.key \
-    -out /etc/ssl/certs/kuzapp-selfsigned.crt \
-    -subj "/C=US/ST=State/L=City/O=KuzApp/OU=IT/CN=$IP"
+log_message "Generating self-signed SSL certificate..." "[INFO]" "\033[34m"
+if [ ! -f "/etc/ssl/certs/kuzapp-selfsigned.crt" ]; then
+    sudo mkdir -p /etc/ssl/private /etc/ssl/certs
+    sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+        -keyout /etc/ssl/private/kuzapp-selfsigned.key \
+        -out /etc/ssl/certs/kuzapp-selfsigned.crt \
+        -subj "/C=US/ST=State/L=City/O=KuzApp/OU=IT/CN=$IP"
+    log_message "SSL certificate generated successfully." "[OK]" "\033[32m"
+else
+    log_message "SSL certificate already exists." "[ALREADY DONE]" "\033[33m"
+fi
 
 # 6. Configure Apache Virtual Host
-echo "Configuring Apache Virtual Host..."
-sudo bash -c "cat > /etc/apache2/sites-available/KuzApp.conf <<EOF
+log_message "Configuring Apache Virtual Host..." "[INFO]" "\033[34m"
+if [ ! -f "/etc/apache2/sites-available/KuzApp.conf" ]; then
+    sudo bash -c "cat > /etc/apache2/sites-available/KuzApp.conf <<EOF
 <VirtualHost *:8443>
-    ServerName 91.234.194.49
+    ServerName $IP
     DocumentRoot /var/www/html/KuzApp
 
     SSLEngine on
@@ -72,30 +119,30 @@ sudo bash -c "cat > /etc/apache2/sites-available/KuzApp.conf <<EOF
     DirectoryIndex login.php
 </VirtualHost>
 EOF"
-
-# Ensure Apache listens on port 8443
-echo "Ensuring Apache is listening on port 8443..."
-
-if ! grep -q "Listen 8443" /etc/apache2/ports.conf; then
-    echo "Listen 8443" | sudo tee -a /etc/apache2/ports.conf
-    echo "Port 8443 added to /etc/apache2/ports.conf."
+    log_message "Apache virtual host configured." "[OK]" "\033[32m"
 else
-    echo "Port 8443 already configured in /etc/apache2/ports.conf."
+    log_message "Virtual host already exists." "[ALREADY DONE]" "\033[33m"
 fi
 
-# Enable site and restart Apache
-echo "Enabling the site and restarting Apache..."
-sudo a2ensite KuzApp.conf
-sudo systemctl restart apache2
+# Ensure Apache listens on port 8443
+log_message "Ensuring Apache listens on port 8443..." "[INFO]" "\033[34m"
+if ! grep -q "Listen 8443" /etc/apache2/ports.conf; then
+    echo "Listen 8443" | sudo tee -a /etc/apache2/ports.conf
+    log_message "Port 8443 added to /etc/apache2/ports.conf." "[OK]" "\033[32m"
+else
+    log_message "Port 8443 already configured." "[ALREADY DONE]" "\033[33m"
+fi
 
 # 7. Set up file permissions
-echo "Setting file permissions..."
+log_message "Setting file permissions..." "[INFO]" "\033[34m"
 sudo chown -R www-data:www-data /var/www/html/KuzApp
 sudo chmod -R 755 /var/www/html/KuzApp
+log_message "File permissions set." "[OK]" "\033[32m"
 
 # 8. Configure database connection
-echo "Configuring database connection..."
-sudo bash -c "cat > /var/www/html/KuzApp/config.php <<EOF
+log_message "Configuring database connection..." "[INFO]" "\033[34m"
+if [ ! -f "/var/www/html/KuzApp/config.php" ]; then
+    sudo bash -c "cat > /var/www/html/KuzApp/config.php <<EOF
 <?php
 \$host = 'localhost';
 \$username = 'kuzapp_user';
@@ -109,20 +156,31 @@ if (!\$conn) {
 }
 ?>
 EOF"
-
-# 9. Verify the background image
-echo "Verifying the background image..."
-# Check if the background image KuzApp-Fond.jpg is present
-if [ ! -f /var/www/html/KuzApp/KuzApp-Fond.jpg ]; then
-    echo "The background image KuzApp-Fond.jpg is missing. Please download and place it in /var/www/html/KuzApp."
+    log_message "Database connection configured." "[OK]" "\033[32m"
 else
-    echo "The background image is present."
+    log_message "Config.php already exists." "[ALREADY DONE]" "\033[33m"
 fi
 
-# 09. Restart Apache2 service
-echo "Restarting Apache2 service to apply all configurations..."
-sudo systemctl restart apache2
+# 9. Verify the background image
+log_message "Verifying the background image..." "[INFO]" "\033[34m"
+if [ ! -f /var/www/html/KuzApp/KuzApp-Fond.jpg ]; then
+    log_message "The background image KuzApp-Fond.jpg is missing. Please download and place it in /var/www/html/KuzApp." "[ERROR]" "\033[31m"
+else
+    log_message "The background image is present." "[OK]" "\033[32m"
+fi
 
-# 10. Finalization and test
-echo "Installation completed. You can test the application by navigating to https://$IP:8443/KuzApp/login.php"
-echo "Note: You may need to accept the self-signed certificate warning in your browser."
+# 10. Restart Apache service
+log_message "Restarting Apache2 service..." "[INFO]" "\033[34m"
+sudo systemctl restart apache2
+log_message "Apache2 restarted successfully." "[OK]" "\033[32m"
+
+# Final output
+log_message "Installation completed." "[INFO]" "\033[34m"
+log_message "You can test the application by navigating to https://$IP:8443/KuzApp/login.php" "[INFO]" "\033[34m"
+log_message "Note: You may need to accept the self-signed certificate warning in your browser." "[INFO]" "\033[34m"
+
+# Display the log content
+cat $LOG_FILE
+
+# Optionally, you can remove the log file if you don't need to keep it
+# rm $LOG_FILE
