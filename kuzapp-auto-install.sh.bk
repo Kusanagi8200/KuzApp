@@ -212,7 +212,7 @@ define("DB_NAME", "registration");
 \$conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
 if (\$conn === false) {
-    die(" ERREUR --> IMPOSSIBLE DE SE CONNECTER " . mysqli_connect_error());
+    die(" ERREUR --> NO CONNECTION TO BDD " . mysqli_connect_error());
 }
 ?>
 EOF'
@@ -223,7 +223,7 @@ log_message " --> IN PROGRESS.... VERIFYING THE BACKGROUND IMAGE... " "[INFO]" "
 if [ ! -f /var/www/html/KuzApp/KuzApp-Fond.jpg ]; then
     log_message " --> THE BACKGROUND IMAGE KuzApp-Fond.jpg IS MISSING. PLEASE PLACE IT IN /var/www/html/KuzApp <-- " "[ERROR]" "\033[48;5;196m"
 else
-    log_message " THE BACKGROUND IMAGE IS PRESENT" "[OK]" "\033[48;5;33m"
+    log_message " THE BACKGROUND IMAGE IS PRESENT <-- " "[OK]" "\033[48;5;33m"
 fi
 
 # Restart Apache service
