@@ -21,6 +21,16 @@ log_message() {
     echo -e "$color_code$message\033[0m"
 }
 
+# Function to extract DB credentials from config.php
+extract_db_credentials() {
+    DB_USER=$(grep -oP 'define\("DB_USERNAME", "\K[^"]+' /var/www/html/KuzApp/config.php)
+    DB_PASSWORD=$(grep -oP 'define\("DB_PASSWORD", "\K[^"]+' /var/www/html/KuzApp/config.php)
+    DB_NAME=$(grep -oP 'define\("DB_NAME", "\K[^"]+' /var/www/html/KuzApp/config.php)
+}
+
+# Extract DB credentials from config.php
+extract_db_credentials
+
 # Interactive menu
 echo "===== KuzApp Uninstall Script ====="
 echo "Select what you want to uninstall:"
@@ -30,26 +40,18 @@ echo "3) Installed system packages only"
 echo "4) Full uninstallation (all components)"
 read -rp "Your choice (1/2/3/4): " choice
 
-# Ask MySQL credentials only if needed
-if [[ $choice == "1" || $choice == "4" ]]; then
-    read -rp "Enter the MySQL root username (default: root): " MYSQL_ROOT_USER
-    MYSQL_ROOT_USER=${MYSQL_ROOT_USER:-root}
-    read -rsp "Enter the MySQL root password: " MYSQL_ROOT_PASSWORD
-    echo
-fi
-
 # 1. Database removal
 if [[ $choice == "1" || $choice == "4" ]]; then
     log_message "Preparing to drop MySQL database and user..." "[INFO]" "\033[34m"
     if $DRY_RUN; then
-        echo "mysql -u $MYSQL_ROOT_USER -p[hidden] DROP DATABASE registration; DROP USER kuzapp@localhost;"
+        echo "mysql -u $DB_USER -p$DB_PASSWORD DROP DATABASE $DB_NAME; DROP USER $DB_USER@localhost;"
     else
-        mysql -u "$MYSQL_ROOT_USER" -p"$MYSQL_ROOT_PASSWORD" <<EOF
-DROP DATABASE IF EXISTS registration;
-DROP USER IF EXISTS 'kuzapp'@'localhost';
+        mysql -u "$DB_USER" -p"$DB_PASSWORD" <<EOF
+DROP DATABASE IF EXISTS $DB_NAME;
+DROP USER IF EXISTS '$DB_USER'@'localhost';
 FLUSH PRIVILEGES;
 EOF
-        log_message "Database 'registration' and user 'kuzapp' dropped." "[OK]" "\033[32m"
+        log_message "Database '$DB_NAME' and user '$DB_USER' dropped." "[OK]" "\033[32m"
     fi
 fi
 
