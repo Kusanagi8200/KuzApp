@@ -34,7 +34,7 @@ log_message "System updated successfully." "[OK]" "\033[32m"
 # 2. Install necessary packages
 log_message "Installing necessary packages..." "[INFO]" "\033[34m"
 if ! command_exists apache2; then
-    sudo apt install -y apache2 php-mysql php-mysqli git php mariadb-server openssl
+    sudo apt install -y apache2 php-mysql php-mysqli git php mariadb-server openssl curl git locate
     log_message "Packages installed successfully." "[OK]" "\033[32m"
 else
     log_message "Apache2 and dependencies already installed." "[ALREADY DONE]" "\033[33m"
