@@ -21,9 +21,9 @@ log_message() {
     echo -e "$color_code$message\033[0m"
 }
 
-# Function to check if a command exists
-command_exists() {
-    command -v "$1" >/dev/null 2>&1
+# Function to check if a package is installed
+package_installed() {
+    dpkg -l | grep -qw "$1"
 }
 
 # 1. System update
@@ -31,21 +31,61 @@ log_message "Updating the system..." "[INFO]" "\033[34m"
 sudo apt update && sudo apt upgrade -y
 log_message "System updated successfully." "[OK]" "\033[32m"
 
-# 2. Install necessary packages
-log_message "Installing necessary packages..." "[INFO]" "\033[34m"
-if ! command_exists apache2; then
-    sudo apt install -y apache2 php-mysql php-mysqli git php mariadb-server openssl curl git locate
-    log_message "Packages installed successfully." "[OK]" "\033[32m"
+# Install Apache and utilities
+if ! package_installed apache2; then
+    sudo apt-get install -y apache2 apache2-utils
+    log_message "Apache installed successfully." "[OK]" "\033[32m"
 else
-    log_message "Apache2 and dependencies already installed." "[ALREADY DONE]" "\033[33m"
+    log_message "Apache already installed." "[ALREADY DONE]" "\033[33m"
 fi
 
-# Enable Apache modules
+# Install Git
+if ! command -v git >/dev/null 2>&1; then
+    sudo apt install -y git
+    log_message "Git installed successfully." "[OK]" "\033[32m"
+else
+    log_message "Git already installed." "[ALREADY DONE]" "\033[33m"
+fi
+
+# Install PHP and MariaDB
+if ! command -v php >/dev/null 2>&1; then
+    sudo apt install -y php php-mysql php-mysqli
+    log_message "PHP installed successfully." "[OK]" "\033[32m"
+else
+    log_message "PHP already installed." "[ALREADY DONE]" "\033[33m"
+fi
+
+if ! package_installed mariadb-server; then
+    sudo apt install -y mariadb-server mariadb-client
+    sudo systemctl enable mariadb
+    sudo systemctl start mariadb
+    log_message "MariaDB installed and started successfully." "[OK]" "\033[32m"
+else
+    log_message "MariaDB already installed." "[ALREADY DONE]" "\033[33m"
+    sudo systemctl start mariadb
+fi
+
+# Install additional utilities
+if ! command -v openssl >/dev/null 2>&1; then
+    sudo apt install -y openssl curl locate
+    log_message "Utilities installed successfully." "[OK]" "\033[32m"
+else
+    log_message "Utilities already installed." "[ALREADY DONE]" "\033[33m"
+fi
+
+# Clean up after installations
+log_message "Cleaning up the system after installations..." "[INFO]" "\033[34m"
+sudo apt clean
+sudo apt autoclean
+sudo apt autoremove -y
+log_message "System cleaned (clean, autoclean, autoremove)." "[OK]" "\033[32m"
+
+# Enable Apache modules (after confirming Apache installation)
 log_message "Enabling Apache modules..." "[INFO]" "\033[34m"
 sudo a2enmod ssl || true
 sudo a2enmod rewrite || true
 
-# 3. Clone KuzApp repository
+# Clone KuzApp repository
 log_message "Cloning KuzApp repository..." "[INFO]" "\033[34m"
 if [ ! -d "/var/www/html/KuzApp" ]; then
     sudo git clone https://github.com/Kusanagi8200/KuzApp.git /var/www/html/KuzApp
@@ -54,7 +94,7 @@ else
     log_message "KuzApp repository already exists." "[ALREADY DONE]" "\033[33m"
 fi
 
-# 4. MySQL database setup
+# MySQL database setup
 log_message "Setting up MySQL database..." "[INFO]" "\033[34m"
 sudo mysql -u root -e "
 CREATE DATABASE IF NOT EXISTS registration;
@@ -74,7 +114,7 @@ FLUSH PRIVILEGES;
 "
 log_message "MySQL database and user configured." "[OK]" "\033[32m"
 
-# 5. Generate a self-signed SSL certificate
+# Generate a self-signed SSL certificate
 log_message "Generating self-signed SSL certificate..." "[INFO]" "\033[34m"
 if [ ! -f "/etc/ssl/certs/kuzapp-selfsigned.crt" ]; then
     sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
@@ -86,7 +126,7 @@ else
     log_message "SSL certificate already exists." "[ALREADY DONE]" "\033[33m"
 fi
 
-# 6. Configure Apache Virtual Host
+# Configure Apache Virtual Host
 log_message "Configuring Apache Virtual Host..." "[INFO]" "\033[34m"
 if [ ! -f "/etc/apache2/sites-available/KuzApp.conf" ]; then
     sudo bash -c "cat > /etc/apache2/sites-available/KuzApp.conf <<EOF
@@ -122,31 +162,31 @@ else
     log_message "Port 443 already configured." "[ALREADY DONE]" "\033[33m"
 fi
 
-# 7. Set up file permissions
+# Set up file permissions
 log_message "Setting file permissions..." "[INFO]" "\033[34m"
 sudo chown -R www-data:www-data /var/www/html/KuzApp
 sudo chmod -R 755 /var/www/html/KuzApp
 log_message "File permissions set." "[OK]" "\033[32m"
 
-# 8. Configure database connection
+# Configure database connection
 log_message "Configuring database connection (config.php)..." "[INFO]" "\033[34m"
-sudo bash -c "cat > /var/www/html/KuzApp/config.php <<EOF
+sudo bash -c 'cat > /var/www/html/KuzApp/config.php <<EOF
 <?php
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', '$DB_USER');
-define('DB_PASSWORD', '$DB_PASSWORD');
-define('DB_NAME', 'registration');
+define("DB_SERVER", "localhost");
+define("DB_USERNAME", "'"$DB_USER"'");
+define("DB_PASSWORD", "'"$DB_PASSWORD"'");
+define("DB_NAME", "registration");
 
 \$conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
 if (\$conn === false) {
-    die('ERREUR : Impossible de se connecter. ' . mysqli_connect_error());
+    die("ERREUR : Impossible de se connecter. " . mysqli_connect_error());
 }
 ?>
-EOF"
+EOF'
 log_message "Database connection configured in config.php." "[OK]" "\033[32m"
 
-# 9. Verify the background image
+# Verify the background image
 log_message "Verifying the background image..." "[INFO]" "\033[34m"
 if [ ! -f /var/www/html/KuzApp/KuzApp-Fond.jpg ]; then
     log_message "The background image KuzApp-Fond.jpg is missing. Please place it in /var/www/html/KuzApp." "[ERROR]" "\033[31m"
@@ -154,7 +194,7 @@ else
     log_message "The background image is present." "[OK]" "\033[32m"
 fi
 
-# 10. Restart Apache service
+# Restart Apache service
 log_message "Restarting Apache2 service..." "[INFO]" "\033[34m"
 sudo systemctl restart apache2
 log_message "Apache2 restarted successfully." "[OK]" "\033[32m"
@@ -165,4 +205,4 @@ log_message "You can test the application at https://$IP/login.php" "[INFO]" "\0
 log_message "Note: You may need to accept the self-signed certificate warning in your browser." "[INFO]" "\033[34m"
 
 # Display the log content
-cat $LOG_FILE
+cat $LOG_FILE > KuzApp-Install.log
