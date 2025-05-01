@@ -48,8 +48,8 @@ ________________________________________________________________________________
 
 #### **INSTALLATION INSTRUCTIONS --> 2 WAYS**   
 
-**1/ AUTOMATIK-INSTALL IN PROGRESS** **--> https://github.com/Kusanagi8200/KuzApp/blob/main/kuzapp-auto-install.sh**
-   **AUTOMATIK-UNINSTALL IN PROGRESS** **--> https://github.com/Kusanagi8200/kuzapp-auto-uninstall.sh**
+**1/ AUTOMATIK-INSTALL IN PROGRESS** **--> https://github.com/Kusanagi8200/KuzApp/blob/main/kuzapp-auto-install.sh**\
+   **AUTOMATIK-UNINSTALL IN PROGRESS** **--> https://github.com/Kusanagi8200/KuzApp/blob/main/kuzapp-auto-uninstall.sh**
 _____________________________________________________________________________________________
 
 **2/ ADMIN-SYS INSTALL**
