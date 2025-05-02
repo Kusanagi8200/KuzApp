@@ -67,23 +67,23 @@ if [[ $choice == "2" || $choice == "4" ]]; then
         echo "rm /etc/ssl/private/kuzapp-selfsigned.key"
         echo "systemctl restart apache2"
     else
-        sudo systemctl stop apache2
+         systemctl stop apache2
 
         if [ -f "/etc/apache2/sites-available/KuzApp.conf" ]; then
-            sudo a2dissite KuzApp.conf
-            sudo rm /etc/apache2/sites-available/KuzApp.conf
+             a2dissite KuzApp.conf
+             rm /etc/apache2/sites-available/KuzApp.conf
             log_message "Apache site cleaned" "[OK]" "\033[32m"
         fi
 
         if [ -d "/var/www/html/KuzApp" ]; then
-            sudo rm -rf /var/www/html/KuzApp
+             rm -rf /var/www/html/KuzApp
             log_message "Application directory removed." "[OK]" "\033[32m"
         fi
 
-        sudo rm -f /etc/ssl/certs/kuzapp-selfsigned.crt
-        sudo rm -f /etc/ssl/private/kuzapp-selfsigned.key
+         rm -f /etc/ssl/certs/kuzapp-selfsigned.crt
+         rm -f /etc/ssl/private/kuzapp-selfsigned.key
 
-        sudo systemctl restart apache2
+         systemctl restart apache2
         log_message "Apache service restarted." "[OK]" "\033[32m"
     fi
 fi
@@ -96,9 +96,9 @@ if [[ $choice == "3" || $choice == "4" ]]; then
         echo "apt autoremove -y"
         echo "apt clean"
     else
-        sudo apt remove --purge -y apache2 apache2-utils php php-mysql php-mysqli mariadb-server mariadb-client git openssl curl locate
-        sudo apt autoremove -y
-        sudo apt clean
+         apt remove --purge -y apache2 apache2-utils php php-mysql php-mysqli mariadb-server mariadb-client git openssl curl locate
+         apt autoremove -y
+         apt clean
         log_message "Installed packages removed and system cleaned." "[OK]" "\033[32m"
     fi
 fi
