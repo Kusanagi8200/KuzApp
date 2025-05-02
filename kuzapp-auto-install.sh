@@ -12,6 +12,12 @@ echo -e "\033[38;5;214m█ █ ▀▄█ █▄▄ █▀█ █▀  █▀  | h
 echo -e "\033[43;30mAUTOMATIK INSTALLATION - ADMIN-SYS TOOLS FROM THE KUZLAB \033[0m"
 echo #
 
+if [ `whoami` != "root" ]
+then
+        echo -e "\033[5;41;30m YOU MUST BE ROOT FOR RUN \033[0m"
+        exit 1
+fi
+
 # Set options to exit on errors and log every command
 set -e
 
