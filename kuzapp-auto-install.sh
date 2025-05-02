@@ -229,7 +229,7 @@ log_message " --> IN PROGRESS.... VERIFYING THE BACKGROUND IMAGE... " "[INFO]" "
 if [ ! -f /var/www/html/KuzApp/KuzApp-Fond.jpg ]; then
     log_message " --> THE BACKGROUND IMAGE KuzApp-Fond.jpg IS MISSING. PLEASE PLACE IT IN /var/www/html/KuzApp <-- " "[ERROR]" "\033[48;5;196m"
 else
-    log_message " --> THE BACKGROUND IMAGE IS PRESENT <-- " "[OK]" "\033[48;5;33m"
+    log_message " --> THE BACKGROUND IMAGE IS PRESENT <-- " "[OK]" "\033[48;5;220m"
 fi
 
 # Restart Apache service
