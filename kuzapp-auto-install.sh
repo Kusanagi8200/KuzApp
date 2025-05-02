@@ -57,7 +57,7 @@ package_installed() {
 
 # 1. System update
 log_message " --> IN PROGRESS.... UPDATING THE SYSTEM... " "[INFO]" "\033[48;5;208m"
-apt update && sudo apt upgrade -y
+apt update && apt upgrade -y
 echo #
 log_message " --> SYSTEM UPDATED SUCCESSFULLY <-- " "[OK]" "\033[48;5;33m"
 
@@ -92,7 +92,7 @@ if ! package_installed mariadb-server; then
     log_message " MARIADB INSTALLED AND STARTED SUCCESSFULLY <--" "[OK]" "\033[48;5;33m"
 else
     log_message " --> MARIADB ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
-    sudo systemctl start mariadb
+    systemctl start mariadb
 fi
 
 # Install additional utilities
@@ -120,7 +120,7 @@ echo #
 # Clone KuzApp repository
 log_message " --> IN PROGRESS.... CLONING KUZAPP REPOSITORY... " "[INFO]" "\033[48;5;208m"
 if [ ! -d "/var/www/html/KuzApp" ]; then
-    sudo git clone https://github.com/Kusanagi8200/KuzApp.git /var/www/html/KuzApp
+    git clone https://github.com/Kusanagi8200/KuzApp.git /var/www/html/KuzApp
     log_message " REPOSITORY CLONED SUCCESSFULLY <-- " "[OK]" "\033[48;5;28m"
 else
     log_message " --> KUZAPP REPOSITORY ALREADY EXISTS <-- " "[ALREADY DONE]" "\033[48;5;220m"
@@ -188,7 +188,7 @@ fi
 # Ensure Apache listens on port 443
 log_message " --> IN PROGRESS.... ENSURING APACHE LISTENS ON PORT 443... " "[INFO]" "\033[48;5;208m"
 if ! grep -q "Listen 443" /etc/apache2/ports.conf; then
-    echo "Listen 443" | sudo tee -a /etc/apache2/ports.conf
+    echo "Listen 443" | tee -a /etc/apache2/ports.conf
     log_message " PORT 443 ADDED TO /ETC/APACHE2/PORTS.CONF <-- " "[OK]" "\033[48;5;33m"
 else
     log_message " --> PORT 443 ALREADY CONFIGURED <-- " "[ALREADY DONE]" "\033[48;5;220m"
