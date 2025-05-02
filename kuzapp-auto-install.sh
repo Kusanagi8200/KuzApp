@@ -59,14 +59,14 @@ package_installed() {
 log_message " --> IN PROGRESS.... UPDATING THE SYSTEM... " "[INFO]" "\033[48;5;208m"
 apt update && sudo apt upgrade -y
 echo #
-log_message " SYSTEM UPDATED SUCCESSFULLY <-- " "[OK]" "\033[48;5;33m"
+log_message " --> SYSTEM UPDATED SUCCESSFULLY <-- " "[OK]" "\033[48;5;33m"
 
 # Install Apache and utilities
 if ! package_installed apache2; then
     apt-get install -y apache2 apache2-utils
     log_message " APACHE INSTALLED SUCCESSFULLY <--" "[OK]" "\033[48;5;33m"
 else
-    log_message " APACHE ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
+    log_message " --> APACHE ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
 
 # Install Git
@@ -74,7 +74,7 @@ if ! command -v git >/dev/null 2>&1; then
     apt install -y git
     log_message " GIT INSTALLED SUCCESSFULLY <-- " "[OK]" "\033[48;5;28m"
 else
-    log_message " GIT ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
+    log_message " --> GIT ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
 
 # Install PHP and MariaDB
@@ -82,7 +82,7 @@ if ! command -v php >/dev/null 2>&1; then
     apt install -y php php-mysql php-mysqli
     log_message " PHP INSTALLED SUCCESSFULLY <-- " "[OK]" "\033[48;5;33m"
 else
-    log_message " PHP ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
+    log_message " --> PHP ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
 
 if ! package_installed mariadb-server; then
@@ -91,7 +91,7 @@ if ! package_installed mariadb-server; then
     systemctl start mariadb
     log_message " MARIADB INSTALLED AND STARTED SUCCESSFULLY <--" "[OK]" "\033[48;5;33m"
 else
-    log_message " MARIADB ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
+    log_message " --> MARIADB ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
     sudo systemctl start mariadb
 fi
 
@@ -100,7 +100,7 @@ if ! command -v openssl >/dev/null 2>&1; then
     apt install -y openssl curl locate
     log_message " UTILITIES INSTALLED SUCCESSFULLY <-- " "[OK]" "\033[48;5;28m"
 else
-    log_message " UTILITIES ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
+    log_message " --> UTILITIES ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
 
 # Clean up after installations
@@ -123,7 +123,7 @@ if [ ! -d "/var/www/html/KuzApp" ]; then
     sudo git clone https://github.com/Kusanagi8200/KuzApp.git /var/www/html/KuzApp
     log_message " REPOSITORY CLONED SUCCESSFULLY <-- " "[OK]" "\033[48;5;28m"
 else
-    log_message " KUZAPP REPOSITORY ALREADY EXISTS <-- " "[ALREADY DONE]" "\033[48;5;220m"
+    log_message " --> KUZAPP REPOSITORY ALREADY EXISTS <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
 
 # MySQL database setup
@@ -147,7 +147,7 @@ FLUSH PRIVILEGES;
 log_message " MYSQL DATABASE AND USER CONFIGURED <-- " "[OK]" "\033[48;5;33m"
 
 # Generate a self-signed SSL certificate
-log_message " --> IN PROGRESS.... GENERATING SELF-SIGNED SSL CERTIFICATE... " "[INFO]" "\033[48;5;33m"
+log_message " --> IN PROGRESS.... GENERATING SELF-SIGNED SSL CERTIFICATE... " "[INFO]" "\033[48;5;208m"
 if [ ! -f "/etc/ssl/certs/kuzapp-selfsigned.crt" ]; then
     openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
         -keyout /etc/ssl/private/kuzapp-selfsigned.key \
@@ -155,7 +155,7 @@ if [ ! -f "/etc/ssl/certs/kuzapp-selfsigned.crt" ]; then
         -subj "/C=US/ST=State/L=City/O=KuzApp/OU=IT/CN=$IP"
     log_message " SSL CERTIFICATE GENERATED SUCCESSFULLY <-- " "[OK]" "\033[48;5;33m"
 else
-    log_message " SSL CERTIFICATE ALREADY EXISTS <-- " "[ALREADY DONE]" "\033[48;5;220m"
+    log_message " --> SSL CERTIFICATE ALREADY EXISTS <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
 
 # Configure Apache Virtual Host
@@ -182,7 +182,7 @@ EOF"
     a2ensite KuzApp.conf
     log_message " APACHE VIRTUAL HOST CONFIGURED <-- " "[OK]" "\033[48;5;33m"
 else
-    log_message " VIRTUAL HOST ALREADY EXISTS <-- " "[ALREADY DONE]" "\033[48;5;220m"
+    log_message " --> VIRTUAL HOST ALREADY EXISTS <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
 
 # Ensure Apache listens on port 443
@@ -191,7 +191,7 @@ if ! grep -q "Listen 443" /etc/apache2/ports.conf; then
     echo "Listen 443" | sudo tee -a /etc/apache2/ports.conf
     log_message " PORT 443 ADDED TO /ETC/APACHE2/PORTS.CONF <-- " "[OK]" "\033[48;5;33m"
 else
-    log_message " PORT 443 ALREADY CONFIGURED <-- " "[ALREADY DONE]" "\033[48;5;220m"
+    log_message " --> PORT 443 ALREADY CONFIGURED <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
 
 # Set up file permissions
@@ -223,7 +223,7 @@ log_message " --> IN PROGRESS.... VERIFYING THE BACKGROUND IMAGE... " "[INFO]" "
 if [ ! -f /var/www/html/KuzApp/KuzApp-Fond.jpg ]; then
     log_message " --> THE BACKGROUND IMAGE KuzApp-Fond.jpg IS MISSING. PLEASE PLACE IT IN /var/www/html/KuzApp <-- " "[ERROR]" "\033[48;5;196m"
 else
-    log_message " THE BACKGROUND IMAGE IS PRESENT <-- " "[OK]" "\033[48;5;33m"
+    log_message " --> THE BACKGROUND IMAGE IS PRESENT <-- " "[OK]" "\033[48;5;33m"
 fi
 
 # Restart Apache service
