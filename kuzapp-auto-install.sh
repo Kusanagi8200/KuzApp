@@ -57,21 +57,21 @@ package_installed() {
 
 # 1. System update
 log_message " --> IN PROGRESS.... UPDATING THE SYSTEM... " "[INFO]" "\033[48;5;208m"
-sudo apt update && sudo apt upgrade -y
+apt update && sudo apt upgrade -y
 echo #
 log_message " SYSTEM UPDATED SUCCESSFULLY <-- " "[OK]" "\033[48;5;33m"
 
 # Install Apache and utilities
 if ! package_installed apache2; then
-    sudo apt-get install -y apache2 apache2-utils
-    log_message " APACHE INSTALLED SUCCESSFULLY <--" "[OK]" "\033[48;5;28m"
+    apt-get install -y apache2 apache2-utils
+    log_message " APACHE INSTALLED SUCCESSFULLY <--" "[OK]" "\033[48;5;33m"
 else
     log_message " APACHE ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
 
 # Install Git
 if ! command -v git >/dev/null 2>&1; then
-    sudo apt install -y git
+    apt install -y git
     log_message " GIT INSTALLED SUCCESSFULLY <-- " "[OK]" "\033[48;5;28m"
 else
     log_message " GIT ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
@@ -79,17 +79,17 @@ fi
 
 # Install PHP and MariaDB
 if ! command -v php >/dev/null 2>&1; then
-    sudo apt install -y php php-mysql php-mysqli
-    log_message " PHP INSTALLED SUCCESSFULLY <-- " "[OK]" "\033[48;5;28m"
+    apt install -y php php-mysql php-mysqli
+    log_message " PHP INSTALLED SUCCESSFULLY <-- " "[OK]" "\033[48;5;33m"
 else
     log_message " PHP ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
 
 if ! package_installed mariadb-server; then
-    sudo apt-get install -y mariadb-server mariadb-client
-    sudo systemctl enable mariadb
-    sudo systemctl start mariadb
-    log_message " MARIADB INSTALLED AND STARTED SUCCESSFULLY <--" "[OK]" "\033[48;5;28m"
+    apt-get install -y mariadb-server mariadb-client
+    systemctl enable mariadb
+    systemctl start mariadb
+    log_message " MARIADB INSTALLED AND STARTED SUCCESSFULLY <--" "[OK]" "\033[48;5;33m"
 else
     log_message " MARIADB ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
     sudo systemctl start mariadb
@@ -97,7 +97,7 @@ fi
 
 # Install additional utilities
 if ! command -v openssl >/dev/null 2>&1; then
-    sudo apt install -y openssl curl locate
+    apt install -y openssl curl locate
     log_message " UTILITIES INSTALLED SUCCESSFULLY <-- " "[OK]" "\033[48;5;28m"
 else
     log_message " UTILITIES ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
@@ -105,16 +105,16 @@ fi
 
 # Clean up after installations
 log_message " --> IN PROGRESS.... CLEANING UP THE SYSTEM AFTER INSTALLATIONS... " "[INFO]" "\033[48;5;208m"
-sudo apt clean
-sudo apt autoclean
-sudo apt autoremove -y
+apt clean
+apt autoclean
+apt autoremove -y
 echo #
 log_message " SYSTEM CLEANED (CLEAN, AUTOCLEAN, AUTOREMOVE) <-- " "[OK]" "\033[48;5;33m"
 
 # Enable Apache modules
 log_message " --> IN PROGRESS.... ENABLING APACHE MODULES... " "[INFO]" "\033[48;5;208m"
-sudo a2enmod ssl || true
-sudo a2enmod rewrite || true
+a2enmod ssl || true
+a2enmod rewrite || true
 echo # 
 
 # Clone KuzApp repository
@@ -128,7 +128,7 @@ fi
 
 # MySQL database setup
 log_message "--> IN PROGRESS.... SETTING UP MYSQL DATABASE... " "[INFO]" "\033[48;5;208m"
-sudo mysql -u root -e "
+mysql -u root -e "
 CREATE DATABASE IF NOT EXISTS registration;
 USE registration;
 
@@ -149,11 +149,11 @@ log_message " MYSQL DATABASE AND USER CONFIGURED <-- " "[OK]" "\033[48;5;33m"
 # Generate a self-signed SSL certificate
 log_message " --> IN PROGRESS.... GENERATING SELF-SIGNED SSL CERTIFICATE... " "[INFO]" "\033[48;5;33m"
 if [ ! -f "/etc/ssl/certs/kuzapp-selfsigned.crt" ]; then
-    sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+    openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
         -keyout /etc/ssl/private/kuzapp-selfsigned.key \
         -out /etc/ssl/certs/kuzapp-selfsigned.crt \
         -subj "/C=US/ST=State/L=City/O=KuzApp/OU=IT/CN=$IP"
-    log_message " SSL CERTIFICATE GENERATED SUCCESSFULLY <-- " "[OK]" "\033[48;5;28m"
+    log_message " SSL CERTIFICATE GENERATED SUCCESSFULLY <-- " "[OK]" "\033[48;5;33m"
 else
     log_message " SSL CERTIFICATE ALREADY EXISTS <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
@@ -161,7 +161,7 @@ fi
 # Configure Apache Virtual Host
 log_message " --> IN PROGRESS.... CONFIGURING APACHE VIRTUAL HOST... " "[INFO]" "\033[48;5;208m"
 if [ ! -f "/etc/apache2/sites-available/KuzApp.conf" ]; then
-    sudo bash -c "cat > /etc/apache2/sites-available/KuzApp.conf <<EOF
+    bash -c "cat > /etc/apache2/sites-available/KuzApp.conf <<EOF
 <VirtualHost *:443>
     ServerName $IP
     DocumentRoot /var/www/html/KuzApp
@@ -179,8 +179,8 @@ if [ ! -f "/etc/apache2/sites-available/KuzApp.conf" ]; then
     </Directory>
 </VirtualHost>
 EOF"
-    sudo a2ensite KuzApp.conf
-    log_message " APACHE VIRTUAL HOST CONFIGURED <-- " "[OK]" "\033[48;5;28m"
+    a2ensite KuzApp.conf
+    log_message " APACHE VIRTUAL HOST CONFIGURED <-- " "[OK]" "\033[48;5;33m"
 else
     log_message " VIRTUAL HOST ALREADY EXISTS <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
@@ -189,20 +189,20 @@ fi
 log_message " --> IN PROGRESS.... ENSURING APACHE LISTENS ON PORT 443... " "[INFO]" "\033[48;5;208m"
 if ! grep -q "Listen 443" /etc/apache2/ports.conf; then
     echo "Listen 443" | sudo tee -a /etc/apache2/ports.conf
-    log_message " PORT 443 ADDED TO /ETC/APACHE2/PORTS.CONF <-- " "[OK]" "\033[48;5;28m"
+    log_message " PORT 443 ADDED TO /ETC/APACHE2/PORTS.CONF <-- " "[OK]" "\033[48;5;33m"
 else
     log_message " PORT 443 ALREADY CONFIGURED <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
 
 # Set up file permissions
 log_message " --> IN PROGRESS.... SETTING FILE PERMISSIONS... " "[INFO]" "\033[48;5;208m"
-sudo chown -R www-data:www-data /var/www/html/KuzApp
-sudo chmod -R 755 /var/www/html/KuzApp
+chown -R www-data:www-data /var/www/html/KuzApp
+chmod -R 755 /var/www/html/KuzApp
 log_message " FILE PERMISSIONS SET <-- " "[OK]" "\033[48;5;33m"
 
 # Configure database connection
 log_message " --> IN PROGRESS.... CONFIGURING DATABASE CONNECTION (CONFIG.PHP)... " "[INFO]" "\033[48;5;208m"
-sudo bash -c 'cat > /var/www/html/KuzApp/config.php <<EOF
+bash -c 'cat > /var/www/html/KuzApp/config.php <<EOF
 <?php
 define("DB_SERVER", "localhost");
 define("DB_USERNAME", "'"$DB_USER"'");
@@ -228,7 +228,7 @@ fi
 
 # Restart Apache service
 log_message " --> IN PROGRESS.... RESTARTING APACHE2 SERVICE... " "[INFO]" "\033[48;5;208m"
-sudo systemctl restart apache2
+systemctl restart apache2
 log_message " APACHE2 RESTARTED SUCCESSFULLY <-- " "[OK]" "\033[48;5;33m"
 
 # Final output (no uppercase on URL line)
