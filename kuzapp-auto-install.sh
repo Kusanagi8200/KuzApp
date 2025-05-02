@@ -86,7 +86,7 @@ else
 fi
 
 if ! package_installed mariadb-server; then
-    sudo apt install -y mariadb-server mariadb-client
+    sudo apt-get install -y mariadb-server mariadb-client
     sudo systemctl enable mariadb
     sudo systemctl start mariadb
     log_message " MARIADB INSTALLED AND STARTED SUCCESSFULLY <--" "[OK]" "\033[48;5;28m"
