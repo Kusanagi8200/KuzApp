@@ -67,10 +67,12 @@ apt update && apt upgrade -y
 echo #
 log_message " SYSTEM UPDATED SUCCESSFULLY <-- " "[OK]" "\033[48;5;33m"
 echo #
+log_message " --> IN PROGRESS UTILITIES INSTALLATION " "[OK]" "\033[48;5;208m"
 
 # Install Apache and utilities
 if ! package_installed apache2; then
     apt-get install -y apache2 apache2-utils
+    echo #
     log_message " APACHE INSTALLED SUCCESSFULLY <--" "[OK]" "\033[48;5;33m"
 else
     log_message " --> APACHE ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
