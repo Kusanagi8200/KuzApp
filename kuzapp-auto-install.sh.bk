@@ -65,23 +65,28 @@ package_installed() {
 log_message " --> IN PROGRESS.... UPDATING THE SYSTEM... " "[INFO]" "\033[48;5;208m"
 apt update && apt upgrade -y
 echo #
-log_message " --> SYSTEM UPDATED SUCCESSFULLY <-- " "[OK]" "\033[48;5;33m"
+log_message " SYSTEM UPDATED SUCCESSFULLY <-- " "[OK]" "\033[48;5;33m"
+echo #
+log_message " --> IN PROGRESS UTILITIES INSTALLATION " "[OK]" "\033[48;5;208m"
 
 # Install Apache and utilities
 if ! package_installed apache2; then
     apt-get install -y apache2 apache2-utils
+    echo #
     log_message " APACHE INSTALLED SUCCESSFULLY <--" "[OK]" "\033[48;5;33m"
 else
     log_message " --> APACHE ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
+echo #
 
 # Install Git
 if ! command -v git >/dev/null 2>&1; then
     apt install -y git
-    log_message " GIT INSTALLED SUCCESSFULLY <-- " "[OK]" "\033[48;5;28m"
+    log_message " GIT INSTALLED SUCCESSFULLY <-- " "[OK]" "\033[48;5;33m"
 else
     log_message " --> GIT ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
+echo #
 
 # Install PHP and MariaDB
 if ! command -v php >/dev/null 2>&1; then
@@ -90,6 +95,7 @@ if ! command -v php >/dev/null 2>&1; then
 else
     log_message " --> PHP ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
+echo #
 
 if ! package_installed mariadb-server; then
     apt-get install -y mariadb-server mariadb-client
@@ -100,6 +106,7 @@ else
     log_message " --> MARIADB ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
     systemctl start mariadb
 fi
+echo #
 
 # Install additional utilities
 if ! command -v openssl >/dev/null 2>&1; then
@@ -108,6 +115,7 @@ if ! command -v openssl >/dev/null 2>&1; then
 else
     log_message " --> UTILITIES ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
+echo #
 
 # Clean up after installations
 log_message " --> IN PROGRESS.... CLEANING UP THE SYSTEM AFTER INSTALLATIONS... " "[INFO]" "\033[48;5;208m"
@@ -116,6 +124,7 @@ apt autoclean
 apt autoremove -y
 echo #
 log_message " SYSTEM CLEANED (CLEAN, AUTOCLEAN, AUTOREMOVE) <-- " "[OK]" "\033[48;5;33m"
+echo #
 
 # Enable Apache modules
 log_message " --> IN PROGRESS.... ENABLING APACHE MODULES... " "[INFO]" "\033[48;5;208m"
@@ -127,10 +136,11 @@ echo #
 log_message " --> IN PROGRESS.... CLONING KUZAPP REPOSITORY... " "[INFO]" "\033[48;5;208m"
 if [ ! -d "/var/www/html/KuzApp" ]; then
     git clone https://github.com/Kusanagi8200/KuzApp.git /var/www/html/KuzApp
-    log_message " REPOSITORY CLONED SUCCESSFULLY <-- " "[OK]" "\033[48;5;28m"
+    log_message " REPOSITORY CLONED SUCCESSFULLY <-- " "[OK]" "\033[48;5;33m"
 else
     log_message " --> KUZAPP REPOSITORY ALREADY EXISTS <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
+echo #
 
 # MySQL database setup
 log_message "--> IN PROGRESS.... SETTING UP MYSQL DATABASE... " "[INFO]" "\033[48;5;208m"
@@ -151,6 +161,7 @@ GRANT ALL PRIVILEGES ON registration.* TO '$DB_USER'@'localhost';
 FLUSH PRIVILEGES;
 "
 log_message " MYSQL DATABASE AND USER CONFIGURED <-- " "[OK]" "\033[48;5;33m"
+echo #
 
 # Generate a self-signed SSL certificate
 log_message " --> IN PROGRESS.... GENERATING SELF-SIGNED SSL CERTIFICATE... " "[INFO]" "\033[48;5;208m"
@@ -163,6 +174,7 @@ if [ ! -f "/etc/ssl/certs/kuzapp-selfsigned.crt" ]; then
 else
     log_message " --> SSL CERTIFICATE ALREADY EXISTS <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
+echo #
 
 # Configure Apache Virtual Host
 log_message " --> IN PROGRESS.... CONFIGURING APACHE VIRTUAL HOST... " "[INFO]" "\033[48;5;208m"
@@ -199,12 +211,14 @@ if ! grep -q "Listen 443" /etc/apache2/ports.conf; then
 else
     log_message " --> PORT 443 ALREADY CONFIGURED <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
+echo #
 
 # Set up file permissions
 log_message " --> IN PROGRESS.... SETTING FILE PERMISSIONS... " "[INFO]" "\033[48;5;208m"
 chown -R www-data:www-data /var/www/html/KuzApp
 chmod -R 755 /var/www/html/KuzApp
 log_message " FILE PERMISSIONS SET <-- " "[OK]" "\033[48;5;33m"
+echo #
 
 # Configure database connection
 log_message " --> IN PROGRESS.... CONFIGURING DATABASE CONNECTION (CONFIG.PHP)... " "[INFO]" "\033[48;5;208m"
@@ -223,27 +237,33 @@ if (\$conn === false) {
 ?>
 EOF'
 log_message " DATABASE CONNECTION CONFIGURED IN CONFIG.PHP <-- " "[OK]" "\033[48;5;33m"
+echo #
 
 # Verify the background image
-log_message " --> IN PROGRESS.... VERIFYING THE BACKGROUND IMAGE... " "[INFO]" "\033[48;5;208m"
-if [ ! -f /var/www/html/KuzApp/KuzApp-Fond.jpg ]; then
-    log_message " --> THE BACKGROUND IMAGE KuzApp-Fond.jpg IS MISSING. PLEASE PLACE IT IN /var/www/html/KuzApp <-- " "[ERROR]" "\033[48;5;196m"
-else
-    log_message " --> THE BACKGROUND IMAGE IS PRESENT <-- " "[OK]" "\033[48;5;220m"
-fi
+# log_message " --> IN PROGRESS.... VERIFYING THE BACKGROUND IMAGE... " "[INFO]" "\033[48;5;208m"
+# if [ ! -f /var/www/html/KuzApp/KuzApp-Fond.jpg ]; then
+#     log_message " --> THE BACKGROUND IMAGE KuzApp-Fond.jpg IS MISSING. PLEASE PLACE IT IN /var/www/html/KuzApp <-- " "[ERROR]" "\033[48;5;196m"
+# else
+#     log_message " --> THE BACKGROUND IMAGE IS PRESENT <-- " "[OK]" "\033[48;5;220m"
+# fi
+# echo #
 
 # Restart Apache service
 log_message " --> IN PROGRESS.... RESTARTING APACHE2 SERVICE... " "[INFO]" "\033[48;5;208m"
 systemctl restart apache2
 log_message " APACHE2 RESTARTED SUCCESSFULLY <-- " "[OK]" "\033[48;5;33m"
+echo #
 
 # Final output (no uppercase on URL line)
 log_message " --> INSTALLATION COMPLETED <--" "[INFO]" "\033[48;5;220m"
-echo
+echo #
 
 echo -e "\033[48;5;208m\033[30;1m OK...NOW YOU CAN TEST KUZAPP ON LIVE --> \033[0m https://$IP/login.php"
-echo
+echo #
+
 log_message " NOTE: YOU MAY NEED TO ACCEPT THE SELF-SIGNED CERTIFICATE WARNING IN YOUR BROWSER " "[INFO]" "\033[48;5;33m"
 
 # Display the log content
 cat $LOG_FILE > KuzApp-Install.log
+
+
