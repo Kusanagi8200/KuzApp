@@ -124,6 +124,7 @@ apt autoclean
 apt autoremove -y
 echo #
 log_message " SYSTEM CLEANED (CLEAN, AUTOCLEAN, AUTOREMOVE) <-- " "[OK]" "\033[48;5;33m"
+echo #
 
 # Enable Apache modules
 log_message " --> IN PROGRESS.... ENABLING APACHE MODULES... " "[INFO]" "\033[48;5;208m"
