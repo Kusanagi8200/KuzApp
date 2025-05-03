@@ -237,13 +237,13 @@ log_message " DATABASE CONNECTION CONFIGURED IN CONFIG.PHP <-- " "[OK]" "\033[48
 echo #
 
 # Verify the background image
-log_message " --> IN PROGRESS.... VERIFYING THE BACKGROUND IMAGE... " "[INFO]" "\033[48;5;208m"
-if [ ! -f /var/www/html/KuzApp/KuzApp-Fond.jpg ]; then
-    log_message " --> THE BACKGROUND IMAGE KuzApp-Fond.jpg IS MISSING. PLEASE PLACE IT IN /var/www/html/KuzApp <-- " "[ERROR]" "\033[48;5;196m"
-else
-    log_message " --> THE BACKGROUND IMAGE IS PRESENT <-- " "[OK]" "\033[48;5;220m"
-fi
-echo #
+# log_message " --> IN PROGRESS.... VERIFYING THE BACKGROUND IMAGE... " "[INFO]" "\033[48;5;208m"
+# if [ ! -f /var/www/html/KuzApp/KuzApp-Fond.jpg ]; then
+#     log_message " --> THE BACKGROUND IMAGE KuzApp-Fond.jpg IS MISSING. PLEASE PLACE IT IN /var/www/html/KuzApp <-- " "[ERROR]" "\033[48;5;196m"
+# else
+#     log_message " --> THE BACKGROUND IMAGE IS PRESENT <-- " "[OK]" "\033[48;5;220m"
+# fi
+# echo #
 
 # Restart Apache service
 log_message " --> IN PROGRESS.... RESTARTING APACHE2 SERVICE... " "[INFO]" "\033[48;5;208m"
