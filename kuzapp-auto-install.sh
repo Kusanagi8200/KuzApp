@@ -1,15 +1,15 @@
-
 #!/bin/bash
 
 # This program is free software : you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
 # This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY.
+
 echo #
-echo #
-echo -e "\033[38;5;214m█▄▀ █ █ ▀█▀ ▄▀▄ █▀▄ █▀▄ | Made by Kusanagi8200 - 2025\033[0m"
-echo -e "\033[38;5;214m█ █ ▀▄█ █▄▄ █▀█ █▀  █▀  | https://github.com/Kusanagi8200\033[0m"
-echo -e "\033[43;30mAUTOMATIK INSTALLATION - ADMIN-SYS TOOLS FROM THE KUZLAB \033[0m"
+echo -e "\033[38;5;27;48;5;16m░░▒█░▄▀░▒█░▒█░▒█▀▀▀█░█▀▀▄░▒█▀▀█░▒█▀▀█░░░Made by Kusanagi8200 - 2025░░░░░\033[0m"
+echo -e "\033[38;5;27;48;5;16m░░▒█▀▄░░▒█░▒█░░▄▄▄▀▀▒█▄▄█░▒█▄▄█░▒█▄▄█░░░https://github.com/Kusanagi8200░\033[0m"
+echo -e "\033[38;5;27;48;5;16m░░▒█░▒█░░▀▄▄▀░▒█▄▄▄█▒█░▒█░▒█░░░░▒█░░░░░░VS 0.2-2025░░░░░░░░░░░░░░░░░░░░░\033[0m"
+echo -e "\033[38;5;27;48;5;16m░░░░░░░░AUTOMATIK INSTALLATION░░░ADMIN-SYS TOOLS FROM THE KUZLAB░░░░░░░░\033[0m"
 echo #
 
 if [ `whoami` != "root" ]
@@ -22,15 +22,15 @@ fi
 set -e
 
 # Prompt user for necessary inputs (with colored prompts and spacing)
-echo -e "\033[48;5;208m\033[97;1m ENTER THE SERVER IP ADDRESS --> \033[0m"
+echo -e "\033[48;5;208m\033[97;1m ENTER THE SERVER IP ADDRESS --> ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\033[0m"
 read -rp "" IP
 echo
 
-echo -e "\033[48;5;208m\033[97;1m ENTER THE MYSQL DATABASE USERNAME --> \033[0m"
+echo -e "\033[48;5;208m\033[97;1m ENTER THE MYSQL DATABASE USERNAME --> ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\033[0m"
 read -rp "" DB_USER
 echo
 
-echo -e "\033[48;5;208m\033[97;1m ENTER THE MYSQL DATABASE PASSWORD --> \033[0m"
+echo -e "\033[48;5;208m\033[97;1m ENTER THE MYSQL DATABASE PASSWORD --> ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\033[0m"
 read -rsp "" DB_PASSWORD
 echo
 echo
@@ -69,6 +69,12 @@ log_message " SYSTEM UPDATED SUCCESSFULLY <-- " "[OK]" "\033[48;5;33m"
 echo #
 log_message " --> IN PROGRESS UTILITIES INSTALLATION " "[OK]" "\033[48;5;208m"
 
+
+echo -e "\033[38;5;27;48;5;16m░░░█▀▀▄░▒█▀▀█░█▀▀▄░▒█▀▀▄░▒█░▒█░▒█▀▀▀░█▀█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\033[0m"
+echo -e "\033[38;5;27;48;5;16m░░▒█▄▄█░▒█▄▄█▒█▄▄█░▒█░░░░▒█▀▀█░▒█▀▀▀░▒▄▀░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\033[0m"
+echo -e "\033[38;5;27;48;5;16m░░▒█░▒█░▒█░░░▒█░▒█░▒█▄▄▀░▒█░▒█░▒█▄▄▄░█▄▄░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\033[0m"
+echo #
+
 # Install Apache and utilities
 if ! package_installed apache2; then
     apt-get install -y apache2 apache2-utils
@@ -77,6 +83,11 @@ if ! package_installed apache2; then
 else
     log_message " --> APACHE ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
+echo #
+
+echo -e "\033[38;5;27;48;5;16m░░▒█▀▀█░▀█▀░▀▀█▀▀░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\033[0m"
+echo -e "\033[38;5;27;48;5;16m░░▒█░▄▄░▒█░░░▒█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\033[0m"
+echo -e "\033[38;5;27;48;5;16m░░▒█▄▄▀░▄█▄░░▒█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\033[0m"
 echo #
 
 # Install Git
@@ -88,6 +99,11 @@ else
 fi
 echo #
 
+echo -e "\033[38;5;27;48;5;16m░░▒█▀▀█░▒█░▒█░▒█▀▀█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\033[0m"
+echo -e "\033[38;5;27;48;5;16m░░▒█▄▄█░▒█▀▀█░▒█▄▄█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\033[0m"
+echo -e "\033[38;5;27;48;5;16m░░▒█░░░░▒█░▒█░▒█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\033[0m"
+echo # 
+
 # Install PHP and MariaDB
 if ! command -v php >/dev/null 2>&1; then
     apt install -y php php-mysql php-mysqli
@@ -95,6 +111,11 @@ if ! command -v php >/dev/null 2>&1; then
 else
     log_message " --> PHP ALREADY INSTALLED <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
+echo #
+
+echo -e "\033[38;5;27;48;5;16m░░▒█▀▄▀█░▒█░░▒█░▒█▀▀▀█░▒█▀▀█░▒█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\033[0m"
+echo -e "\033[38;5;27;48;5;16m░░▒█▒█▒█░▒▀▄▄▄▀░░▀▀▀▄▄░▒█░▒█░▒█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\033[0m"
+echo -e "\033[38;5;27;48;5;16m░░▒█░░▒█░░░▒█░░░▒█▄▄▄█░░▀▀█▄░▒█▄▄█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\033[0m"
 echo #
 
 if ! package_installed mariadb-server; then
@@ -163,6 +184,11 @@ FLUSH PRIVILEGES;
 log_message " MYSQL DATABASE AND USER CONFIGURED <-- " "[OK]" "\033[48;5;33m"
 echo #
 
+echo -e "\033[38;5;27;48;5;16m░░▒█▀▀▀█░▒█▀▀█░▒█▀▀▀░▒█▄░▒█░▒█▀▀▀█░▒█▀▀▀█░▒█░░░░░░░░░░░░░░░░░░░░░░░░░░░░\033[0m"
+echo -e "\033[38;5;27;48;5;16m░░▒█░░▒█░▒█▄▄█░▒█▀▀▀░▒█▒█▒█░░▀▀▀▄▄░░▀▀▀▄▄░▒█░░░░░░░░░░░░░░░░░░░░░░░░░░░░\033[0m"
+echo -e "\033[38;5;27;48;5;16m░░▒█▄▄▄█░▒█░░░░▒█▄▄▄░▒█░░▀█░▒█▄▄▄█░▒█▄▄▄█░▒█▄▄█░░░░░░░░░░░░░░░░░░░░░░░░░\033[0m"
+echo #
+
 # Generate a self-signed SSL certificate
 log_message " --> IN PROGRESS.... GENERATING SELF-SIGNED SSL CERTIFICATE... " "[INFO]" "\033[48;5;208m"
 if [ ! -f "/etc/ssl/certs/kuzapp-selfsigned.crt" ]; then
@@ -198,10 +224,13 @@ if [ ! -f "/etc/apache2/sites-available/KuzApp.conf" ]; then
 </VirtualHost>
 EOF"
     a2ensite KuzApp.conf
+echo #
+
     log_message " APACHE VIRTUAL HOST CONFIGURED <-- " "[OK]" "\033[48;5;33m"
 else
     log_message " --> VIRTUAL HOST ALREADY EXISTS <-- " "[ALREADY DONE]" "\033[48;5;220m"
 fi
+echo #
 
 # Ensure Apache listens on port 443
 log_message " --> IN PROGRESS.... ENSURING APACHE LISTENS ON PORT 443... " "[INFO]" "\033[48;5;208m"
@@ -260,8 +289,6 @@ echo #
 
 echo -e "\033[48;5;208m\033[30;1m OK...NOW YOU CAN TEST KUZAPP ON LIVE --> \033[0m https://$IP/login.php"
 echo #
-
-log_message " NOTE: YOU MAY NEED TO ACCEPT THE SELF-SIGNED CERTIFICATE WARNING IN YOUR BROWSER " "[INFO]" "\033[48;5;33m"
 
 # Display the log content
 cat $LOG_FILE > KuzApp-Install.log
