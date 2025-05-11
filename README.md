@@ -54,7 +54,7 @@ ________________________________________________________________________________
 **AUTOMATIK-UNINSTALL IN PROGRESS** **--> https://github.com/Kusanagi8200/KuzApp/blob/main/kuzapp-auto-uninstall.sh**
 
 ![Kuzapp-Web1](kuzapp-images/KUZAPP-AUTO.jpg)
-![Kuzapp-Web1](kuzapp-images/KUZAPP-AUTO2.jpg)
+
 
 _____________________________________________________________________________________________
 
