@@ -173,15 +173,16 @@
     <div class="button-container">
         
         <form action="README.php" method="post"><button class="button" type="submit">00 --> README.md</button></form>
-        <form action="update-script.php" method="post"><button class="button" type="submit">01 -->  UPDATE-SCRIPT</button></form>
-        <form action="update-script-fast.php" method="post"><button class="button" type="submit">02 -->  UPDATE-SCRIPT-FAST</button></form>
-        <form action="update-script-vm.php" method="post"><button class="button" type="submit">03 -->  UPDATE-SCRIPT-VM</button></form>
-        <form action="update-script.eng.php" method="post"><button class="button" type="submit">04 -->  UPDATE-SCRIPT-ENG</button></form>
-        <form action="update-script-fast.eng.php" method="post"><button class="button" type="submit">05 -->  UPDATE-SCRIPT-FAST-ENG</button></form>
-        <form action="boot-sequence-check.php" method="post"><button class="button" type="submit">06 -->  BOOT-SEQUENCE-CHECK</button></form>
-        <form action="check-network.php" method="post"><button class="button" type="submit">07 -->  CHECK-NETWORK</button></form>
-        <form action="system-infos.php" method="post"><button class="button" type="submit">08 -->  SYSTEM-INFOS</button></form>
-        <form action="update-nocolors.php" method="post"><button class="button" type="submit">09 -->  UPDATE-NOCOLORS</button></form>
+        <form action="/kuzapp-script-php/boot-sequence-check.php" method="post"><button class="button" type="submit">01 -->  BOOT-SEQUENCE</button></form>
+        <form action="/kuzapp-script-php/system-infos.php" method="post"><button class="button" type="submit">02 -->  SYSTEM-INFOS</button></form>
+        <form action="/kuzapp-script-php/check-network.php" method="post"><button class="button" type="submit">03 -->  CHECK-NETWORK</button></form>
+        <form action="/kuzapp-script-php/harware-infos.php" method="post"><button class="button" type="submit">04 -->  HARDWARE-INFOS</button></form>
+        <form action="/kuzapp-script-php/update-script.php" method="post"><button class="button" type="submit">05 -->  UPDATE-SCRIPT</button></form>
+        <form action="/kuzapp-script-php/update-script.eng.php" method="post"><button class="button" type="submit">06 -->   UPDATE-SCRIPT-ENG</button></form>
+        <form action="/kuzapp-script-php/update-script-vm.php" method="post"><button class="button" type="submit">07 -->   UPDATE-SCRIPT-VM</button></form>
+        <form action="/kuzapp-script-php/update-script-fast.php" method="post"><button class="button" type="submit">08 -->   UPDATE-SCRIPT-FAST</button></form>
+        <form action="/kuzapp-script-php/update-script-fast.eng.php" method="post"><button class="button" type="submit">09 -->  UPDATE-SCRIPT-FAST-ENG</button></form>
+        <form action="/kuzapp-script-php/update-nocolors.php" method="post"><button class="button" type="submit">10 -->  UPDATE-NOCOLORS</button></form>   
     </div>
 
     <br>
@@ -192,16 +193,16 @@
     </div>
 
     <div class="button-row">
-        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/update-script-view.php'">1</button>
-        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/update-script-fast-view.php'">2</button>
-        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/update-script-vm-view.php'">3</button>
-        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/update-script.eng-view.php'">4</button>
-        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/update-script-fast.eng-view.php'">5</button>
-        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/boot-sequence-check-view.php'">6</button>
-        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/check-network-view.php'">7</button>
-        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/system-infos-view.php'">8</button>
-        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/update-nocolors-view.php'">9</button>
-        <button class="btn" onclick="location.href='#'">10</button>
+        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/boot-sequence-check-view.php'">1</button>
+        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/system-infos-view.php'">2</button>
+        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/check-network-view.php'">3</button>
+        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/harware-infos-view.php'">4</button>
+        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/update-script-view.php'">5</button>
+        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/update-script.eng-view.php'">6</button>
+        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/update-script-vm-view.php'">7</button>
+        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/update-script-fast-view.php'">8</button>
+        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/update-script-fast.eng-view.php'">9</button>
+        <button class="btn" onclick="location.href='/kuzapp-script-in-txt/update-nocolors-view.php'">10</button>
     </div>
 
     <div class="bottom-banner">
