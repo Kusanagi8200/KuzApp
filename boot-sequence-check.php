@@ -1,6 +1,6 @@
 <?php
 // Spécifiez le chemin vers votre script shell
-$command = 'bash /var/www/html/Kusapp/boot-sequence-check.sh';
+$command = 'bash /var/www/html/Kusapp/kuzapp-script/boot-sequence-check.sh';
 ob_start();
 passthru($command);
 $output = ob_get_clean();
