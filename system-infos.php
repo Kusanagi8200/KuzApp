@@ -1,49 +1,77 @@
-#!/bin/bash
+<?php
+// Spécifiez le chemin vers votre script shell
+$command = 'bash /var/www/html/KuzApp/kuzapp-script/system-infos.sh';
+ob_start();
+passthru($command);
+$output = ob_get_clean();
 
-# This program is free software : you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+// Ajout d'en-têtes pour le contenu HTML
+header('Content-Type: text/html; charset=utf-8');
 
-# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+// Affichage du résultat avec style de terminal
+echo "<!DOCTYPE html>";
+echo "<html><head>";
+echo "<style>";
+echo "body, html {";
+echo "    height: 100%;"; // Donne une hauteur de 100% au corps et au HTML
+echo "    margin: 0;"; // Supprime les marges par défaut
+echo "    padding: 0;"; // Supprime les paddings par défaut
+echo "    display: flex;";
+echo "    flex-direction: column;";
+echo "    background-color: #000;"; // Fond noir du reste de la page
+echo "}";
 
-echo # 
-echo # 
-echo "\033[44;30m CHECK INFOS SYSTEME ....................................//\033[0m"
+echo ".banner {";
+echo "    width: 100%;"; // Largeur totale
+echo "    background-color: orange;"; // Couleur de fond
+echo "    color: black;"; // Couleur de texte
+echo "    text-align: center;"; // Texte centré
+echo "    padding: 10px 0;"; // Padding vertical
+echo "    font-size: 20px;"; // Taille de police
+echo "    font-weight: bold;"; // Gras
+echo "    border-radius: 5px;"; // Arrondir tous les coins
+echo "    margin-bottom: 20px;"; // Espace entre la bannière et le contenu
+echo "}";
 
-if [ `whoami` != "root" ]
-then
-        echo -e "\033[5;41;30mATTENTION. VOUS DEVEZ AVOIR LES DROITS SUDO POUR LANCER CE SCRIPT \033[0m"
-        exit 1
-fi
-echo #
+echo ".terminal {";
+echo "    width: 65%;";
+echo "    background-color: #ffa500;";
+echo "    color: #000;";
+echo "    font-family: monospace;";
+echo "    padding: 20px;";
+echo "    white-space: pre-wrap;";
+echo "    overflow: auto;"; // Ajoute une barre de défilement si nécessaire
+echo "    margin: 20px auto;";
+echo "    height: 600px;"; // Hauteur fixe pour le terminal
+echo "    border-radius: 5px;"; // Arrondir les coins de la zone terminale
+echo "    font-weight: bold;"; // Texte du résultat en gras
+echo "}";
 
-echo "\033[43;30m NOYAUX .................................................//\033[0m"
-inxi -S
-echo #
-dpkg -l | grep -Ei "linux-(g|h|i|lo|si|t)" |sort -k3 | cut -d" " -s -f1,2,3 | column -s" " -t 
-echo #
-hostnamectl 
-echo #
+echo ".bottom-banner {";
+echo "    position: fixed;";
+echo "    bottom: 0;";
+echo "    left: 0;";
+echo "    width: 100%;";
+echo "    background-color: orange;";
+echo "    color: black;";
+echo "    text-align: center;";
+echo "    padding: 10px 0;";
+echo "    font-size: 20px;";
+echo "    font-weight: bold;";
+echo "    border-radius: 5px;"; // Arrondir tous les coins
+echo "}";
 
-echo #
-echo "\033[43;30m INFOS DISTRIBUTION ....................................//\033[0m"
-cat /etc/os-release
-echo #
+echo "a.bottom-link {";
+echo "    color: black;"; // Couleur du texte
+echo "    text-decoration: none;"; // Aucune décoration de texte
+echo "    display: block;"; // Assure que le lien prend toute la largeur du bandeau
+echo "}";
 
-echo #
-echo "\033[43;30m REPOS  ................................................//\033[0m"
-inxi -r
-echo #
-
-echo #
-echo "\033[5;44;30m FIN DU CHECK SYSTEME .................................//\033[0m"
-echo #
-echo #
-
-echo # 
-echo "\033[43;30m KusApp -> CLEAN - UPDATE - INFOS SYSTEM ..............//\033[0m"
-echo #
-echo "\033[43;30m GitHub --> Kusanagi8200 / 2024 \033[0m"
-
-echo #
-echo "\033[43;30m MENU .....//\033[0m"
+echo "</style>";
+echo "</head><body>";
+echo "<div class='banner'>KuzApp Project - Version Beta 0.1</div>";
+echo "<div class='terminal'><pre>$output</pre></div>";
+// Modification ici pour faire du texte dans le bandeau inférieur un lien de retour
+echo "<div class='bottom-banner'><a href='app.php' class='bottom-link'>RETOUR</a></div>";
+echo "</body></html>";
+?>
