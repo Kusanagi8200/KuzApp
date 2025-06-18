@@ -1,6 +1,6 @@
 <?php
 // Spécifiez le chemin vers votre script shell
-$command = 'bash /var/www/html/KuzApp/kuzapp-test/test.sh';
+$command = 'bash /var/www/html/KuzApp/kuzapp-script/update-script.sh';
 ob_start();
 passthru($command);
 $output = ob_get_clean();
