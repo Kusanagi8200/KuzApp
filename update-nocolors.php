@@ -1,124 +1,77 @@
-#!/bin/bash
+<?php
+// Spécifiez le chemin vers votre script shell
+$command = 'bash /var/www/html/KuzApp/kuzapp-script/update-nocolors.sh';
+ob_start();
+passthru($command);
+$output = ob_get_clean();
 
-# This program is free software : you can redistribute it and/or modify it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+// Ajout d'en-têtes pour le contenu HTML
+header('Content-Type: text/html; charset=utf-8');
 
-# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+// Affichage du résultat avec style de terminal
+echo "<!DOCTYPE html>";
+echo "<html><head>";
+echo "<style>";
+echo "body, html {";
+echo "    height: 100%;"; // Donne une hauteur de 100% au corps et au HTML
+echo "    margin: 0;"; // Supprime les marges par défaut
+echo "    padding: 0;"; // Supprime les paddings par défaut
+echo "    display: flex;";
+echo "    flex-direction: column;";
+echo "    background-color: #000;"; // Fond noir du reste de la page
+echo "}";
 
-echo "SCRIPT DE NETTOYAGE ET DE MISE À JOUR SYSTÈME LINUX / https://github.com/Kusanagi8200"
+echo ".banner {";
+echo "    width: 100%;"; // Largeur totale
+echo "    background-color: orange;"; // Couleur de fond
+echo "    color: black;"; // Couleur de texte
+echo "    text-align: center;"; // Texte centré
+echo "    padding: 10px 0;"; // Padding vertical
+echo "    font-size: 20px;"; // Taille de police
+echo "    font-weight: bold;"; // Gras
+echo "    border-radius: 5px;"; // Arrondir tous les coins
+echo "    margin-bottom: 20px;"; // Espace entre la bannière et le contenu
+echo "}";
 
-# Fonction qui vérifie que le script est lancé en sudo ou root.
+echo ".terminal {";
+echo "    width: 65%;";
+echo "    background-color: #ffa500;";
+echo "    color: #000;";
+echo "    font-family: monospace;";
+echo "    padding: 20px;";
+echo "    white-space: pre-wrap;";
+echo "    overflow: auto;"; // Ajoute une barre de défilement si nécessaire
+echo "    margin: 20px auto;";
+echo "    height: 600px;"; // Hauteur fixe pour le terminal
+echo "    border-radius: 5px;"; // Arrondir les coins de la zone terminale
+echo "    font-weight: bold;"; // Texte du résultat en gras
+echo "}";
 
-if [ `whoami` != "root" ]
-then
-        echo "ATTENTION. VOUS DEVEZ AVOIR LES DROITS SUDO POUR LANCER CE SCRIPT"
-        exit 1
-fi
+echo ".bottom-banner {";
+echo "    position: fixed;";
+echo "    bottom: 0;";
+echo "    left: 0;";
+echo "    width: 100%;";
+echo "    background-color: orange;";
+echo "    color: black;";
+echo "    text-align: center;";
+echo "    padding: 10px 0;";
+echo "    font-size: 20px;";
+echo "    font-weight: bold;";
+echo "    border-radius: 5px;"; // Arrondir tous les coins
+echo "}";
 
-# Fonction qui vérifie la présence des fichiers de log et les crée au besoin.
+echo "a.bottom-link {";
+echo "    color: black;"; // Couleur du texte
+echo "    text-decoration: none;"; // Aucune décoration de texte
+echo "    display: block;"; // Assure que le lien prend toute la largeur du bandeau
+echo "}";
 
-echo "CHECK DES FICHIERS DE LOG"
-
-if [ -e /var/log/update_upgrade.log ]
-then
-    echo "FICHIER /var/log/update_upgrade.log OK"
-else
-    echo "LE FICHIER N'EXISTE PAS" & touch /var/log/update_upgrade.log
-    echo "--> CRÉATION DU FICHIER /var/log/update_upgrade.log DONE"
-fi
-
-if [ -e /var/log/update_upgrade.err ]
-then
-    echo "FICHIER /var/log/update_upgrade.err OK"
-else
-    echo "LE FICHIER N'EXISTE PAS" & touch /var/log/update_upgrade.err
-    echo "--> CRÉATION DU FICHIER /var/log/update_upgrade.err DONE"
-fi
-
-# Séquence de nettoyage système update
-
-echo "NETTOYAGE PRE-MAJ"
-
-apt clean 
-echo "Done"
-apt autoclean
-apt remove 
-apt autoremove
-apt purge
-
-echo "FIN DU NETTOYAGE PRE-MAJ"
-
-
-# Séquence de mise à jour des paquets
-
-echo "MISE À JOUR DES PAQUETS"
-
-apt-get update 
-apt list --upgradable
-apt-get upgrade -y | tee -a /var/log/update_upgrade.log 2>> /var/log/update_upgrade.err
-apt-get --fix-broken install
-
-echo "MISE À JOUR DES PAQUETS TERMINÉE"
-
-# Séquence de nettoyage système post mise à jour 
-
-echo "NETTOYAGE POST-MAJ"
-
-apt clean 
-echo "Done"
-apt autoclean
-apt remove 
-apt autoremove
-apt purge
-
-echo "NETTOYAGE DU CACHE"
-sync; echo 3 > /proc/sys/vm/drop_caches
-echo "DONE"
-
-echo "NETTOYAGE POUBELLE"
-rm -r -f ~/.local/share/Trash/files/*
-echo "DONE"
-
-echo "NETTOYAGE DES CONFIG DE PAQUETS"
-if [ "$(dpkg -l | grep ^rc)" ]; then
-     dpkg -P $(dpkg -l | awk '/^rc/{print $2}')
-else
-    echo "PAS DE PAQUETS À PURGER"
-fi
-
-echo "FIN DU NETTOYAGE POST-MAJ"
-
-# Fonction qui vérifie les fichiers de log et affiche le log erreur si des erreurs sont présentes.
-
-echo "FICHIER LOG ERREUR MAJ"
-
-if [ -e /var/log/update_upgrade.err ] && [ "$(stat -c %Y /var/log/update_upgrade.err)" -gt "$(stat -c %Y /var/log/update_upgrade.log)" ]
-then
-    echo "ATTENTION"
-    cat /var/log/update_upgrade.err
-    echo
-else
-    echo "NO UPDATE ERROR"
-fi
-
-# Reboot ? Function
-confirm()
-{
-    read -r -p "${1} [y/N] " response
-
-    case "$response" in
-        [yY][eE][sS]|[yY]) 
-            true
-            ;;
-        *)
-            false
-            ;;
-    esac
-}
-
-if confirm "REBOOT ?"; then
-   reboot
-else
-    echo "FIN DU SCRIPT"
-fi
+echo "</style>";
+echo "</head><body>";
+echo "<div class='banner'>KuzApp Project - Version Beta 0.1</div>";
+echo "<div class='terminal'><pre>$output</pre></div>";
+// Modification ici pour faire du texte dans le bandeau inférieur un lien de retour
+echo "<div class='bottom-banner'><a href='app.php' class='bottom-link'>RETOUR</a></div>";
+echo "</body></html>";
+?>
