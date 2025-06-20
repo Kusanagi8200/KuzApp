@@ -1,6 +1,15 @@
 
 ## KuzApp - BETA-0.0.5-2025 - LINUX SYSTEM ADMINISTRATION TOOLS
 
+![GitHub KuzApp](https://img.shields.io/badge/%20%20%20GitHub%20%20%20-%20%20%20KuzApp%20%20%20-blue?style=for-the-badge&logo=github)
+![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
+![HTML](https://img.shields.io/badge/HTML-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
+![License](https://img.shields.io/badge/OpenSource-green?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-0.2.25-orange?style=for-the-badge)
+
+
 #### Apache (Web Host Version) + Apache (Docker Version) [KuzApp-Docker Branch](https://github.com/Kusanagi8200/KuzApp/tree/KuzApp-Docker)
 
 ![Kuzapp-Web1](kuzapp-images/login1.png)
