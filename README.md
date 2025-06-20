@@ -1,5 +1,5 @@
 
-## KuzApp - BETA-0.0.5-2025 - LINUX SYSTEM ADMINISTRATION TOOLS
+## KuzApp - BETA - LINUX SYSTEM ADMINISTRATION TOOLS
 
 ![GitHub KuzApp](https://img.shields.io/badge/%20%20%20GitHub%20%20%20-%20%20%20KuzApp%20%20%20-blue?style=for-the-badge&logo=github)
 ![Bash](https://img.shields.io/badge/Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
