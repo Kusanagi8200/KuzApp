@@ -265,4 +265,8 @@ Add logging for script execution and user actions.
 ### **LICENCE**
 This project is for educational purposes and is not licensed for commercial use.
 
-_____________________________________________________________________________________________  
+_____________________________________________________________________________________________
+
+---
+
+##### **`THE KUZ NETWORK - KUSANAGI8200 - @2026`**
