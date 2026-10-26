@@ -129,7 +129,7 @@ Create directories for SSL certificates and generate a self-signed certificate
 
     sudo mkdir -p /etc/ssl/private /etc/ssl/certs
 
-    sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+    sudo openssl req -x509 -nodes -days 365 -newkey rsa --> 2048 \
     -keyout /etc/ssl/private/kuzapp-selfsigned.key \
     -out /etc/ssl/certs/kuzapp-selfsigned.crt \
     -subj "/C=$COUNTRY/ST=$REGION/L=$CITY/O=KuzApp/OU=IT/CN=$IP"
@@ -174,7 +174,7 @@ ________________________________________________________________________________
 
 Set the correct ownership and permissions for the KuzApp directory
 
-    sudo chown -R www-data:www-data /var/www/html/KuzApp
+    sudo chown -R www-data --> www-data /var/www/html/KuzApp
     sudo chmod -R 755 /var/www/html/KuzApp
 
 _____________________________________________________________________________________________
@@ -192,7 +192,7 @@ Create or edit the config.php file in /var/www/html/KuzApp with the correct data
     $conn = mysqli_connect($host, $username, $password, $dbname);
 
     if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
+    die("Connection failed --> " . mysqli_connect_error());
     }
     ?>
 
@@ -242,17 +242,17 @@ ________________________________________________________________________________
 
 #### **SECURITY NOTES**
 
-Self-Signed Certificate: The application uses a self-signed SSL certificate, which may trigger browser warnings. For production, consider using a certificate from a trusted Certificate Authority.
-Password Hashing: Passwords are hashed using SHA-256, but consider upgrading to stronger hashing algorithms like bcrypt in production.
-Input Sanitization: The application uses mysqli_real_escape_string to prevent SQL injection. Ensure all inputs are validated and sanitized.
-File Permissions: The /var/www/html/KuzApp directory is owned by www-data with 755 permissions to ensure security.
+Self-Signed Certificate --> The application uses a self-signed SSL certificate, which may trigger browser warnings. For production, consider using a certificate from a trusted Certificate Authority.
+Password Hashing --> Passwords are hashed using SHA-256, but consider upgrading to stronger hashing algorithms like bcrypt in production.
+Input Sanitization --> The application uses mysqli_real_escape_string to prevent SQL injection. Ensure all inputs are validated and sanitized.
+File Permissions --> The /var/www/html/KuzApp directory is owned by www-data with 755 permissions to ensure security.
 
 #### **TROUBLESHOOTING**
 
-Apache Errors: Check Apache logs at /var/log/apache2/error.log for issues.
-Database Connection Issues: Verify config.php credentials and ensure MySQL is running (sudo systemctl status mysql).
-SSL Issues: Ensure the certificate paths in KuzApp.conf are correct and the SSL module is enabled.
-Script Execution: Ensure the PHP files for scripts (e.g., update-script.php) exist in the repository and are executable.
+Apache Errors --> Check Apache logs at /var/log/apache2/error.log for issues.
+Database Connection Issues --> Verify config.php credentials and ensure MySQL is running (sudo systemctl status mysql).
+SSL Issues --> Ensure the certificate paths in KuzApp.conf are correct and the SSL module is enabled.
+Script Execution --> Ensure the PHP files for scripts (e.g., update-script.php) exist in the repository and are executable.
 
 #### **FUTUR IMPROVEMENTS**
 
